@@ -47,7 +47,7 @@ namespace WindowsForms
                 this.Persona.Telefono = telefonoTextBox.Text;
                 this.Persona.Direccion = direccionTextBox.Text;
                 this.Persona.Legajo = Int32.Parse(legajoTextBox.Text);
-                this.Persona.FechaNacimiento = new DateTime();
+                this.Persona.FechaNacimiento = dateTimePicker1.Value;
 
                 if (this.EditMode)
                 {
@@ -77,7 +77,13 @@ namespace WindowsForms
             this.telefonoTextBox.Text = this.Persona.Telefono;
             this.direccionTextBox.Text = this.Persona.Direccion ;
             this.legajoTextBox.Text = this.Persona.Legajo.ToString();
-            this.Persona.FechaNacimiento = new DateTime();
+            if (this.Persona.FechaNacimiento == DateTime.MinValue)
+            {
+                // Handle the case where the DateTime is not initialized
+                this.dateTimePicker1.Value = DateTime.Now; // or set it to a valid default
+            }
+            else {this.dateTimePicker1.Value = this.Persona.FechaNacimiento; }
+            
         }
 
         private bool ValidatePersona()

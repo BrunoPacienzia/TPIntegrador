@@ -49,6 +49,7 @@
             telefonoTextBox = new TextBox();
             label4 = new Label();
             tipoPersonaTextBox = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -235,11 +236,20 @@
             tipoPersonaTextBox.TabIndex = 25;
             tipoPersonaTextBox.KeyPress += tipoPersonaTextBox_KeyPress;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(132, 181);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 27;
+            dateTimePicker1.Value = new DateTime(2023, 9, 16, 14, 30, 0);
+            // 
             // PersonasDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(805, 419);
+            Controls.Add(dateTimePicker1);
             Controls.Add(label4);
             Controls.Add(tipoPersonaTextBox);
             Controls.Add(label3);
@@ -290,5 +300,6 @@
         private TextBox telefonoTextBox;
         private Label label4;
         private TextBox tipoPersonaTextBox;
+        private DateTimePicker dateTimePicker1;
     }
 }
