@@ -34,6 +34,7 @@
             toolTip = new ToolTip(components);
             Materias = new Button();
             Planes = new Button();
+            button1 = new Button();
             comisionesButton = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
@@ -84,11 +85,22 @@
             comisionesButton.UseVisualStyleBackColor = true;
             comisionesButton.Click += comisiones_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(12, 142);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 8;
+            button1.Text = "Persona";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(button1);
             Controls.Add(comisionesButton);
             Controls.Add(Planes);
             Controls.Add(Materias);
@@ -111,6 +123,7 @@
         private Button Materias;
         private Button Planes;
         private Button comisionesButton;
+        private Button button1;
     }
 }
 

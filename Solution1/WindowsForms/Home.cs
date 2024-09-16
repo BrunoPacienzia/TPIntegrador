@@ -50,6 +50,14 @@ namespace WindowsForms
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            PersonasLista childForm = new PersonasLista();
+            childForm.MdiParent = this;
+            childForm.Text = "Ventana " + childFormNumber++;
+            childForm.Show();
+        }
+
         private void comisiones_Click(object sender, EventArgs e)
         {
             ComisionesLista childForm = new ComisionesLista();

@@ -12,6 +12,8 @@ namespace Domain
 
         internal DbSet<Comision> Comisiones { get; set; }
 
+        internal DbSet<Persona> Personas { get; set; }
+
         internal Context()
         {
             this.Database.EnsureCreated();

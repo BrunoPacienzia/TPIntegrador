@@ -29,4 +29,6 @@ PlanRouter.Map(app);
 
 ComisionRouter.Map(app);
 
+PersonaRouter.Map(app);
+
 app.Run();
