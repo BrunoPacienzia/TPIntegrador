@@ -10,6 +10,8 @@ namespace Domain
 
         internal DbSet<Plan> Planes { get; set; }
 
+        internal DbSet<Comision> Comisiones { get; set; }
+
         internal Context()
         {
             this.Database.EnsureCreated();

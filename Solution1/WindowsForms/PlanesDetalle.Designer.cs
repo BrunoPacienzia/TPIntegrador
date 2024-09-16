@@ -31,7 +31,6 @@ namespace WindowsForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            nombreTextBox = new TextBox();
             nombreLabel = new Label();
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
@@ -43,23 +42,14 @@ namespace WindowsForms
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
-            // nombreTextBox
-            // 
-            nombreTextBox.Location = new Point(131, 21);
-            nombreTextBox.Margin = new Padding(2, 1, 2, 1);
-            nombreTextBox.Name = "nombreTextBox";
-            nombreTextBox.Size = new Size(110, 23);
-            nombreTextBox.TabIndex = 0;
-            // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
             nombreLabel.Location = new Point(24, 24);
             nombreLabel.Margin = new Padding(2, 0, 2, 0);
             nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new Size(51, 15);
+            nombreLabel.Size = new Size(0, 15);
             nombreLabel.TabIndex = 1;
-            nombreLabel.Text = "Nombre";
             // 
             // aceptarButton
             // 
@@ -90,38 +80,38 @@ namespace WindowsForms
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 92);
+            label1.Location = new Point(24, 38);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(57, 15);
+            label1.Size = new Size(88, 15);
             label1.TabIndex = 4;
             label1.Text = "IdEsepecialidad";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 127);
+            label3.Location = new Point(24, 87);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(69, 15);
             label3.TabIndex = 6;
             label3.Text = "Descripcion";
             // 
-            // IdEsepecialidadTextBox
-            // 
-            IdEsepecialidadTextBox.Location = new Point(131, 154);
-            IdEsepecialidadTextBox.Margin = new Padding(2, 1, 2, 1);
-            IdEsepecialidadTextBox.Name = "IdEsepecialidadTextBox";
-            IdEsepecialidadTextBox.Size = new Size(110, 23);
-            IdEsepecialidadTextBox.TabIndex = 11;
-            // 
             // descripcionTextBox
             // 
-            descripcionTextBox.Location = new Point(131, 124);
+            descripcionTextBox.Location = new Point(131, 35);
             descripcionTextBox.Margin = new Padding(2, 1, 2, 1);
             descripcionTextBox.Name = "descripcionTextBox";
             descripcionTextBox.Size = new Size(110, 23);
             descripcionTextBox.TabIndex = 10;
+            // 
+            // IdEsepecialidadTextBox
+            // 
+            IdEsepecialidadTextBox.Location = new Point(131, 84);
+            IdEsepecialidadTextBox.Margin = new Padding(2, 1, 2, 1);
+            IdEsepecialidadTextBox.Name = "IdEsepecialidadTextBox";
+            IdEsepecialidadTextBox.Size = new Size(110, 23);
+            IdEsepecialidadTextBox.TabIndex = 11;
             // 
             // PlanesDetalle
             // 
@@ -135,7 +125,6 @@ namespace WindowsForms
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
             Controls.Add(nombreLabel);
-            Controls.Add(nombreTextBox);
             Margin = new Padding(2, 1, 2, 1);
             Name = "PlanesDetalle";
             Text = "Plan";
@@ -145,8 +134,6 @@ namespace WindowsForms
         }
 
         #endregion
-
-        private TextBox nombreTextBox;
         private Label nombreLabel;
         private Button aceptarButton;
         private ErrorProvider errorProvider;

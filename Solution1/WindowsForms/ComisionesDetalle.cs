@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using Domain.Model;
-
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,23 +11,26 @@ using System.Windows.Forms;
 
 namespace WindowsForms
 {
-    public partial class PlanesDetalle : Form
+    public partial class ComisionesDetalle : Form
     {
-        private Plan plan;
 
-        public Plan Plan
+        private Comision comision;
+
+        public Comision Comision
         {
-            get { return plan; }
+            get { return comision; }
             set
             {
-                plan = value;
-                this.SetPlan();
+                comision = value;
+                this.SetComision();
             }
         }
-        public PlanesDetalle()
+
+        public ComisionesDetalle()
         {
             InitializeComponent();
         }
+
 
 
         //Probablemente un Enum seria mas apropiado        
@@ -36,12 +38,13 @@ namespace WindowsForms
 
         private async void aceptarButton_Click(object sender, EventArgs e)
         {
-            PlanApiClient client = new PlanApiClient();
+            ComisionApiClient client = new ComisionApiClient();
 
-            if (this.ValidatePlan())
+            if (this.ValidateComision())
             {
-                this.Plan.IdEspecialidad = int.Parse(IdEsepecialidadTextBox.Text);
-                this.Plan.Descripcion = descripcionTextBox.Text;
+                this.Comision.Descripcion = descripcionTextBox.Text;
+                this.Comision.IdPlan = int.Parse(idPlanTextBox.Text);
+                this.Comision.AnioEspecialidad = int.Parse(anioEspecialidadTextBox.Text);
 
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
@@ -49,11 +52,11 @@ namespace WindowsForms
 
                 if (this.EditMode)
                 {
-                    await PlanApiClient.UpdateAsync(this.Plan);
+                    await ComisionApiClient.UpdateAsync(this.Comision);
                 }
                 else
                 {
-                    await PlanApiClient.AddAsync(this.Plan);
+                    await ComisionApiClient.AddAsync(this.Comision);
                 }
 
                 this.Close();
@@ -65,25 +68,23 @@ namespace WindowsForms
             this.Close();
         }
 
-        private void SetPlan()
+        private void SetComision()
         {
-            this.IdEsepecialidadTextBox.Text = this.Plan.IdEspecialidad.ToString();
-            this.descripcionTextBox.Text = this.Plan.Descripcion;
-
+            this.descripcionTextBox.Text = this.Comision.Descripcion;
+            this.idPlanTextBox.Text = this.Comision.IdPlan.ToString();
+            this.anioEspecialidadTextBox.Text = this.Comision.AnioEspecialidad.ToString();
 
         }
 
-        private bool ValidatePlan()
+        private bool ValidateComision()
         {
             bool isValid = true;
 
-            errorProvider.SetError(IdEsepecialidadTextBox, string.Empty);
-            errorProvider.SetError(descripcionTextBox, string.Empty);
 
-            if (this.IdEsepecialidadTextBox.Text == string.Empty)
+            if (this.anioEspecialidadTextBox.Text == string.Empty)
             {
                 isValid = false;
-                errorProvider.SetError(IdEsepecialidadTextBox, "Requerido");
+                errorProvider.SetError(anioEspecialidadTextBox, "Requerido");
             }
 
 
@@ -93,11 +94,14 @@ namespace WindowsForms
                 errorProvider.SetError(descripcionTextBox, "Requerido");
             }
 
-
+            if (this.idPlanTextBox.Text == string.Empty)
+            {
+                isValid = false;
+                errorProvider.SetError(idPlanTextBox, "Requerido");
+            }
 
             return isValid;
         }
 
     }
 }
-

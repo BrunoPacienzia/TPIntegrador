@@ -34,6 +34,7 @@
             toolTip = new ToolTip(components);
             Materias = new Button();
             Planes = new Button();
+            comisionesButton = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             Materias.Location = new Point(12, 26);
             Materias.Name = "Materias";
-            Materias.Size = new Size(75, 23);
+            Materias.Size = new Size(89, 23);
             Materias.TabIndex = 4;
             Materias.Text = "Materias";
             Materias.UseVisualStyleBackColor = true;
@@ -65,19 +66,30 @@
             // 
             // Planes
             // 
-            Planes.Location = new Point(12, 87);
+            Planes.Location = new Point(12, 77);
             Planes.Name = "Planes";
-            Planes.Size = new Size(75, 23);
+            Planes.Size = new Size(89, 23);
             Planes.TabIndex = 6;
             Planes.Text = "Planes";
             Planes.UseVisualStyleBackColor = true;
-            Planes.Click += button1_Click;
+            Planes.Click += planes_Click;
+            // 
+            // comisionesButton
+            // 
+            comisionesButton.Location = new Point(12, 128);
+            comisionesButton.Name = "comisionesButton";
+            comisionesButton.Size = new Size(89, 23);
+            comisionesButton.TabIndex = 8;
+            comisionesButton.Text = "Comisiones";
+            comisionesButton.UseVisualStyleBackColor = true;
+            comisionesButton.Click += comisiones_Click;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(comisionesButton);
             Controls.Add(Planes);
             Controls.Add(Materias);
             Controls.Add(statusStrip);
@@ -98,6 +110,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private Button Materias;
         private Button Planes;
+        private Button comisionesButton;
     }
 }
 

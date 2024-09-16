@@ -11,7 +11,7 @@ namespace Domain.Model
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public string IdEspecialidad { get; set; }
+        public int IdEspecialidad { get; set; }
 
     }
 }

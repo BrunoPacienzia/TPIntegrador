@@ -41,13 +41,21 @@ namespace WindowsForms
             childForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void planes_Click(object sender, EventArgs e)
         {
             PlanesLista childForm = new PlanesLista();
             childForm.MdiParent = this;
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
 
+        }
+
+        private void comisiones_Click(object sender, EventArgs e)
+        {
+            ComisionesLista childForm = new ComisionesLista();
+            childForm.MdiParent = this;
+            childForm.Text = "Ventana " + childFormNumber++;
+            childForm.Show();
         }
     }
 }

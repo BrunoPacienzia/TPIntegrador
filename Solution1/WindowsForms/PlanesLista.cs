@@ -85,5 +85,9 @@ namespace WindowsForms
             return plan;
         }
 
+        private void planesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

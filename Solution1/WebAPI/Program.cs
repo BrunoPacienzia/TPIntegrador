@@ -27,4 +27,6 @@ MateriaRouter.Map(app);
 
 PlanRouter.Map(app);
 
+ComisionRouter.Map(app);
+
 app.Run();

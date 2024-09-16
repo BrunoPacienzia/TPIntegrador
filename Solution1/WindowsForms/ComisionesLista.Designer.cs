@@ -1,14 +1,14 @@
 ﻿namespace WindowsForms
 {
-    partial class PlanesLista
+    partial class ComisionesLista
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,33 +23,38 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            planesDataGridView = new DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "ComisionesLista";
+
+
+            comisionesDataGridView = new DataGridView();
             agregarButton = new Button();
             eliminarButton = new Button();
             modificarButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)planesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)comisionesDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // planesDataGridView
+            // comisionesDataGridView
             // 
-            planesDataGridView.AllowUserToOrderColumns = true;
-            planesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            planesDataGridView.Location = new Point(21, 18);
-            planesDataGridView.Margin = new Padding(2, 1, 2, 1);
-            planesDataGridView.MultiSelect = false;
-            planesDataGridView.Name = "planesDataGridView";
-            planesDataGridView.ReadOnly = true;
-            planesDataGridView.RowHeadersWidth = 82;
-            planesDataGridView.RowTemplate.Height = 41;
-            planesDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            planesDataGridView.Size = new Size(751, 270);
-            planesDataGridView.TabIndex = 0;
-            planesDataGridView.CellContentClick += planesDataGridView_CellContentClick;
+            comisionesDataGridView.AllowUserToOrderColumns = true;
+            comisionesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            comisionesDataGridView.Location = new Point(21, 18);
+            comisionesDataGridView.Margin = new Padding(2, 1, 2, 1);
+            comisionesDataGridView.MultiSelect = false;
+            comisionesDataGridView.Name = "comisionesDataGridView";
+            comisionesDataGridView.ReadOnly = true;
+            comisionesDataGridView.RowHeadersWidth = 82;
+            comisionesDataGridView.RowTemplate.Height = 41;
+            comisionesDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            comisionesDataGridView.Size = new Size(751, 270);
+            comisionesDataGridView.TabIndex = 0;
             // 
             // agregarButton
             // 
@@ -84,7 +89,7 @@
             modificarButton.UseVisualStyleBackColor = true;
             modificarButton.Click += modificarButton_Click;
             // 
-            // PlanesLista
+            // ComisionesLista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -92,20 +97,21 @@
             Controls.Add(modificarButton);
             Controls.Add(eliminarButton);
             Controls.Add(agregarButton);
-            Controls.Add(planesDataGridView);
+            Controls.Add(comisionesDataGridView);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "PlanesLista";
-            Text = "Planes";
-            Load += Planes_Load;
-            ((System.ComponentModel.ISupportInitialize)planesDataGridView).EndInit();
+            Name = "ComisionesLista";
+            Text = "Comisiones";
+            Load += Comisiones_Load;
+            ((System.ComponentModel.ISupportInitialize)comisionesDataGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView planesDataGridView;
+        private DataGridView comisionesDataGridView;
         private Button agregarButton;
         private Button eliminarButton;
         private Button modificarButton;
     }
+
 }
