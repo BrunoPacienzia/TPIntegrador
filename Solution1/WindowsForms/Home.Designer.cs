@@ -75,6 +75,16 @@
             Planes.UseVisualStyleBackColor = true;
             Planes.Click += planes_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(12, 175);
+            button1.Name = "button1";
+            button1.Size = new Size(89, 23);
+            button1.TabIndex = 8;
+            button1.Text = "Persona";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // comisionesButton
             // 
             comisionesButton.Location = new Point(12, 128);
@@ -84,16 +94,6 @@
             comisionesButton.Text = "Comisiones";
             comisionesButton.UseVisualStyleBackColor = true;
             comisionesButton.Click += comisiones_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(12, 142);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 8;
-            button1.Text = "Persona";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
             // 
             // Home
             // 

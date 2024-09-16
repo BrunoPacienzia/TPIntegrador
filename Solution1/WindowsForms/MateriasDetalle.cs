@@ -43,7 +43,7 @@ namespace WindowsForms
                 this.Materia.Nombre = nombreTextBox.Text;
                 this.Materia.Descripcion = descripcionTextBox.Text;
                 this.Materia.IdPlan = int.Parse(idPlanTextBox.Text);
-                this.Materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text); 
+                this.Materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
                 this.Materia.HSTotales = int.Parse(hsTotalesTextBox.Text); ;
 
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
@@ -74,7 +74,7 @@ namespace WindowsForms
             this.descripcionTextBox.Text = this.Materia.Descripcion;
             this.idPlanTextBox.Text = this.Materia.IdPlan.ToString();
             this.hsSemanalesTextBox.Text = this.Materia.HSSemanales.ToString();
-            this.hsTotalesTextBox.Text = this.Materia.HSTotales.ToString(); 
+            this.hsTotalesTextBox.Text = this.Materia.HSTotales.ToString();
 
         }
 
@@ -119,15 +119,21 @@ namespace WindowsForms
             return isValid;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
+        private void hsSemanalesTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void hsTotalesTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+
+        private void idPlanTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

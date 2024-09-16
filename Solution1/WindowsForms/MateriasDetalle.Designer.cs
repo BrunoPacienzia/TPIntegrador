@@ -100,7 +100,6 @@ namespace WindowsForms
             label1.Size = new Size(57, 15);
             label1.TabIndex = 4;
             label1.Text = "HsTotales";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -121,7 +120,6 @@ namespace WindowsForms
             label3.Size = new Size(69, 15);
             label3.TabIndex = 6;
             label3.Text = "Descripcion";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -140,6 +138,7 @@ namespace WindowsForms
             hsSemanalesTextBox.Name = "hsSemanalesTextBox";
             hsSemanalesTextBox.Size = new Size(110, 23);
             hsSemanalesTextBox.TabIndex = 8;
+            hsSemanalesTextBox.KeyPress += hsSemanalesTextBox_KeyPress;
             // 
             // hsTotalesTextBox
             // 
@@ -148,6 +147,7 @@ namespace WindowsForms
             hsTotalesTextBox.Name = "hsTotalesTextBox";
             hsTotalesTextBox.Size = new Size(110, 23);
             hsTotalesTextBox.TabIndex = 9;
+            hsTotalesTextBox.KeyPress += hsTotalesTextBox_KeyPress;
             // 
             // descripcionTextBox
             // 
@@ -164,6 +164,7 @@ namespace WindowsForms
             idPlanTextBox.Name = "idPlanTextBox";
             idPlanTextBox.Size = new Size(110, 23);
             idPlanTextBox.TabIndex = 11;
+            idPlanTextBox.KeyPress += idPlanTextBox_KeyPress;
             // 
             // MateriasDetalle
             // 

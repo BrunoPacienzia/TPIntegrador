@@ -99,7 +99,7 @@ namespace WindowsForms
             // 
             // descripcionTextBox
             // 
-            descripcionTextBox.Location = new Point(131, 35);
+            descripcionTextBox.Location = new Point(125, 84);
             descripcionTextBox.Margin = new Padding(2, 1, 2, 1);
             descripcionTextBox.Name = "descripcionTextBox";
             descripcionTextBox.Size = new Size(110, 23);
@@ -107,11 +107,12 @@ namespace WindowsForms
             // 
             // IdEsepecialidadTextBox
             // 
-            IdEsepecialidadTextBox.Location = new Point(131, 84);
+            IdEsepecialidadTextBox.Location = new Point(125, 35);
             IdEsepecialidadTextBox.Margin = new Padding(2, 1, 2, 1);
             IdEsepecialidadTextBox.Name = "IdEsepecialidadTextBox";
             IdEsepecialidadTextBox.Size = new Size(110, 23);
             IdEsepecialidadTextBox.TabIndex = 11;
+            IdEsepecialidadTextBox.KeyPress += IdEsepecialidadTextBox_KeyPress;
             // 
             // PlanesDetalle
             // 

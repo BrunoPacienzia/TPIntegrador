@@ -114,6 +114,7 @@ namespace WindowsForms
             anioEspecialidadTextBox.Name = "anioEspecialidadTextBox";
             anioEspecialidadTextBox.Size = new Size(110, 23);
             anioEspecialidadTextBox.TabIndex = 8;
+            anioEspecialidadTextBox.KeyPress += anioEspecialidadTextBox_KeyPress;
             // 
             // idPlanTextBox
             // 
@@ -122,6 +123,7 @@ namespace WindowsForms
             idPlanTextBox.Name = "idPlanTextBox";
             idPlanTextBox.Size = new Size(110, 23);
             idPlanTextBox.TabIndex = 11;
+            idPlanTextBox.KeyPress += idPlanTextBox_KeyPress;
             // 
             // ComisionesDetalle
             // 
