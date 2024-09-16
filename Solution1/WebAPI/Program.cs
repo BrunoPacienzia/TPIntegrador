@@ -27,4 +27,6 @@ MateriaRouter.Map(app);
 
 PlanRouter.Map(app);
 
+PersonaRouter.Map(app);
+
 app.Run();
