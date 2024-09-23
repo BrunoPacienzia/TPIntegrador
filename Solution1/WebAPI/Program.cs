@@ -31,4 +31,6 @@ ComisionRouter.Map(app);
 
 PersonaRouter.Map(app);
 
+EspecialidadRouter.Map(app);
+
 app.Run();

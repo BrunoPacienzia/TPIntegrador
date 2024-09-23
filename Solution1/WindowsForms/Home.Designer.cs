@@ -34,8 +34,9 @@
             toolTip = new ToolTip(components);
             Materias = new Button();
             Planes = new Button();
-            button1 = new Button();
+            PersonasButton = new Button();
             comisionesButton = new Button();
+            especialidadButton = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,15 +76,15 @@
             Planes.UseVisualStyleBackColor = true;
             Planes.Click += planes_Click;
             // 
-            // button1
+            // PersonasButton
             // 
-            button1.Location = new Point(12, 175);
-            button1.Name = "button1";
-            button1.Size = new Size(89, 23);
-            button1.TabIndex = 8;
-            button1.Text = "Persona";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            PersonasButton.Location = new Point(12, 175);
+            PersonasButton.Name = "PersonasButton";
+            PersonasButton.Size = new Size(89, 23);
+            PersonasButton.TabIndex = 8;
+            PersonasButton.Text = "Persona";
+            PersonasButton.UseVisualStyleBackColor = true;
+            PersonasButton.Click += personasButton_Click;
             // 
             // comisionesButton
             // 
@@ -95,12 +96,23 @@
             comisionesButton.UseVisualStyleBackColor = true;
             comisionesButton.Click += comisiones_Click;
             // 
+            // especialidadButton
+            // 
+            especialidadButton.Location = new Point(12, 222);
+            especialidadButton.Name = "especialidadButton";
+            especialidadButton.Size = new Size(89, 23);
+            especialidadButton.TabIndex = 10;
+            especialidadButton.Text = "Especialidad";
+            especialidadButton.UseVisualStyleBackColor = true;
+            especialidadButton.Click += especialidadButton_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
-            Controls.Add(button1);
+            Controls.Add(especialidadButton);
+            Controls.Add(PersonasButton);
             Controls.Add(comisionesButton);
             Controls.Add(Planes);
             Controls.Add(Materias);
@@ -123,7 +135,8 @@
         private Button Materias;
         private Button Planes;
         private Button comisionesButton;
-        private Button button1;
+        private Button PersonasButton;
+        private Button especialidadButton;
     }
 }
 
