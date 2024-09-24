@@ -73,5 +73,13 @@ namespace WindowsForms
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
         }
+
+        private void usuarioButton_Click(object sender, EventArgs e)
+        {
+            UsuariosLista childForm = new UsuariosLista();
+            childForm.MdiParent = this;
+            childForm.Text = "Ventana " + childFormNumber++;
+            childForm.Show();
+        }
     }
 }

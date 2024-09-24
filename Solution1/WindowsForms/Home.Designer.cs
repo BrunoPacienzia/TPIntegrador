@@ -37,6 +37,7 @@
             PersonasButton = new Button();
             comisionesButton = new Button();
             especialidadButton = new Button();
+            usuarioButton = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -106,11 +107,22 @@
             especialidadButton.UseVisualStyleBackColor = true;
             especialidadButton.Click += especialidadButton_Click;
             // 
+            // usuarioButton
+            // 
+            usuarioButton.Location = new Point(12, 264);
+            usuarioButton.Name = "usuarioButton";
+            usuarioButton.Size = new Size(89, 23);
+            usuarioButton.TabIndex = 12;
+            usuarioButton.Text = "Usuario";
+            usuarioButton.UseVisualStyleBackColor = true;
+            usuarioButton.Click += usuarioButton_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(usuarioButton);
             Controls.Add(especialidadButton);
             Controls.Add(PersonasButton);
             Controls.Add(comisionesButton);
@@ -137,6 +149,7 @@
         private Button comisionesButton;
         private Button PersonasButton;
         private Button especialidadButton;
+        private Button usuarioButton;
     }
 }
 

@@ -33,4 +33,6 @@ PersonaRouter.Map(app);
 
 EspecialidadRouter.Map(app);
 
+UsuarioRouter.Map(app);
+
 app.Run();

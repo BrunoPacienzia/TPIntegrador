@@ -15,6 +15,7 @@ namespace Domain
         internal DbSet<Persona> Personas { get; set; }
 
         internal DbSet<Especialidad> Especialidades { get; set; }
+        internal DbSet<Usuario> Usuarios { get; set; }
 
         internal Context()
         {
