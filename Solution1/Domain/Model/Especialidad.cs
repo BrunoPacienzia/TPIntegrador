@@ -9,8 +9,7 @@ namespace Domain.Model
 {
     public class Especialidad
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; }
-        public required string Descripccion { get; set; }
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
     }
 }
