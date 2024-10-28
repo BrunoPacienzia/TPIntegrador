@@ -39,6 +39,7 @@
             especialidadButton = new Button();
             usuarioButton = new Button();
             button2 = new Button();
+            botonDocCu = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -128,16 +129,26 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // botonDocCu
+            // 
+            botonDocCu.Location = new Point(12, 348);
+            botonDocCu.Name = "botonDocCu";
+            botonDocCu.Size = new Size(89, 23);
+            botonDocCu.TabIndex = 14;
+            botonDocCu.Text = "DocenteCurso";
+            botonDocCu.UseVisualStyleBackColor = true;
+            botonDocCu.Click += botonDocCu_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(botonDocCu);
             Controls.Add(usuarioButton);
             Controls.Add(especialidadButton);
             Controls.Add(PersonasButton);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(comisionesButton);
             Controls.Add(Planes);
             Controls.Add(Materias);
@@ -165,6 +176,7 @@
         private Button usuarioButton;
         private Button button1;
         private Button button2;
+        private Button botonDocCu;
     }
 }
 

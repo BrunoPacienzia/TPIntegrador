@@ -90,5 +90,13 @@ namespace WindowsForms
             childForm.Show();
 
         }
+
+        private void botonDocCu_Click(object sender, EventArgs e)
+        {
+            DocentesCursosLista childForm = new DocentesCursosLista();
+            childForm.MdiParent = this;
+            childForm.Text = "Ventana " + childFormNumber++;
+            childForm.Show();
+        }
     }
 }
