@@ -19,6 +19,8 @@ namespace Domain
 
         internal DbSet<Curso> Cursos { get; set; }
 
+        internal DbSet<AlumnoInscripccion> AlumnoInscripcciones { get; set; }
+
         internal DbSet<DocenteCurso> DocentesCursos { get; set; }
 
         internal Context()

@@ -91,6 +91,14 @@ namespace WindowsForms
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AlumnoInscripccionLista childForm = new AlumnoInscripccionLista();
+            childForm.MdiParent = this;
+            childForm.Text = "Ventana " + childFormNumber++;
+            childForm.Show();
+        }
+
         private void botonDocCu_Click(object sender, EventArgs e)
         {
             DocentesCursosLista childForm = new DocentesCursosLista();
