@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace Domain.Services
         public void Add(Persona persona)
         {
             using var context = new Context();
-
+            
+            context.Attach(persona.Plan);
             context.Personas.Add(persona);
             context.SaveChanges();
         }
@@ -41,7 +43,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Personas.ToList();
+            return context.Personas.Include(x => x.Plan).ToList();
         }
 
         public void Update(Persona persona)
@@ -54,7 +56,7 @@ namespace Domain.Services
             {
                 personaToUpdate.Nombre = persona.Nombre;
                 personaToUpdate.Apellido = persona.Apellido;
-                personaToUpdate.IdPlan = persona.IdPlan;
+                personaToUpdate.Plan = persona.Plan;
                 personaToUpdate.Direccion = persona.Direccion;
                 personaToUpdate.Email = persona.Email;
                 personaToUpdate.FechaNacimiento = persona.FechaNacimiento;
