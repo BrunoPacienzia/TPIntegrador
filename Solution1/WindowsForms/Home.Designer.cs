@@ -36,6 +36,7 @@
             Planes = new Button();
             button1 = new Button();
             comisionesButton = new Button();
+            button2 = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,11 +96,22 @@
             comisionesButton.UseVisualStyleBackColor = true;
             comisionesButton.Click += comisiones_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(12, 222);
+            button2.Name = "button2";
+            button2.Size = new Size(89, 23);
+            button2.TabIndex = 10;
+            button2.Text = "Cursos";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(comisionesButton);
             Controls.Add(Planes);
@@ -124,6 +136,7 @@
         private Button Planes;
         private Button comisionesButton;
         private Button button1;
+        private Button button2;
     }
 }
 

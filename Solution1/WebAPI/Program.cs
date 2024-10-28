@@ -31,4 +31,6 @@ ComisionRouter.Map(app);
 
 PersonaRouter.Map(app);
 
+CursoRouter.Map(app);
+
 app.Run();
