@@ -39,6 +39,7 @@
             especialidadButton = new Button();
             usuarioButton = new Button();
             button2 = new Button();
+            button3 = new Button();
             statusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -128,16 +129,26 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(12, 310);
+            button3.Name = "button3";
+            button3.Size = new Size(156, 23);
+            button3.TabIndex = 14;
+            button3.Text = "Alumnos Inscripcciones";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(button3);
             Controls.Add(usuarioButton);
             Controls.Add(especialidadButton);
             Controls.Add(PersonasButton);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(comisionesButton);
             Controls.Add(Planes);
             Controls.Add(Materias);
@@ -165,6 +176,7 @@
         private Button usuarioButton;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }
 

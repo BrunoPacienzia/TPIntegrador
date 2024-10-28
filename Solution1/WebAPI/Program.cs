@@ -37,4 +37,6 @@ UsuarioRouter.Map(app);
 
 CursoRouter.Map(app);
 
+AlumnoInscripccionRouter.Map(app);
+
 app.Run();
