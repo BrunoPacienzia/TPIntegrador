@@ -10,8 +10,8 @@ namespace Domain.Model
     {
         
         public int Id { get; set; } 
-        public int IdCurso { get; set; }
-        public int IdDocente { get; set; }
+        public Curso Curso { get; set; }
+        public Persona Docente { get; set; }
 
         public  string TipoCargo { get; set; }
 

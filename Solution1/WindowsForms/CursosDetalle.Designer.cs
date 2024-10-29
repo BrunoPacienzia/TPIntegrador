@@ -34,16 +34,16 @@ namespace WindowsForms
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
-            idMateriaTextBox = new TextBox();
             cupoTextBox = new TextBox();
             anioCalendarioTextBox = new TextBox();
-            idComisionTextBox = new TextBox();
             descripcionTextBox = new TextBox();
-            idComisionLabel = new Label();
+            ComisionLabel = new Label();
             anioCalendarioLabel = new Label();
             descripcionLabel = new Label();
-            idMateriaLabel = new Label();
+            MateriaLabel = new Label();
             cupoLabel = new Label();
+            comisionComboBoxInput = new ComboBox();
+            materiaComboBoxInput = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -73,15 +73,6 @@ namespace WindowsForms
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
             // 
-            // idMateriaTextBox
-            // 
-            idMateriaTextBox.Location = new Point(131, 102);
-            idMateriaTextBox.Margin = new Padding(2, 1, 2, 1);
-            idMateriaTextBox.Name = "idMateriaTextBox";
-            idMateriaTextBox.Size = new Size(110, 23);
-            idMateriaTextBox.TabIndex = 14;
-            idMateriaTextBox.KeyPress += idMateriaTextBox_KeyPress;
-            // 
             // cupoTextBox
             // 
             cupoTextBox.Location = new Point(131, 177);
@@ -100,15 +91,6 @@ namespace WindowsForms
             anioCalendarioTextBox.TabIndex = 8;
             anioCalendarioTextBox.KeyPress += anioCalendarioTextBox_KeyPress;
             // 
-            // idComisionTextBox
-            // 
-            idComisionTextBox.Location = new Point(131, 141);
-            idComisionTextBox.Margin = new Padding(2, 1, 2, 1);
-            idComisionTextBox.Name = "idComisionTextBox";
-            idComisionTextBox.Size = new Size(110, 23);
-            idComisionTextBox.TabIndex = 15;
-            idComisionTextBox.KeyPress += idComisionTextBox_KeyPress;
-            // 
             // descripcionTextBox
             // 
             descripcionTextBox.Location = new Point(131, 21);
@@ -117,15 +99,15 @@ namespace WindowsForms
             descripcionTextBox.Size = new Size(110, 23);
             descripcionTextBox.TabIndex = 0;
             // 
-            // idComisionLabel
+            // ComisionLabel
             // 
-            idComisionLabel.AutoSize = true;
-            idComisionLabel.Location = new Point(24, 144);
-            idComisionLabel.Margin = new Padding(2, 0, 2, 0);
-            idComisionLabel.Name = "idComisionLabel";
-            idComisionLabel.Size = new Size(68, 15);
-            idComisionLabel.TabIndex = 13;
-            idComisionLabel.Text = "idComision";
+            ComisionLabel.AutoSize = true;
+            ComisionLabel.Location = new Point(24, 144);
+            ComisionLabel.Margin = new Padding(2, 0, 2, 0);
+            ComisionLabel.Name = "ComisionLabel";
+            ComisionLabel.Size = new Size(58, 15);
+            ComisionLabel.TabIndex = 13;
+            ComisionLabel.Text = "Comision";
             // 
             // anioCalendarioLabel
             // 
@@ -147,15 +129,15 @@ namespace WindowsForms
             descripcionLabel.TabIndex = 1;
             descripcionLabel.Text = "Descripcion";
             // 
-            // idMateriaLabel
+            // MateriaLabel
             // 
-            idMateriaLabel.AutoSize = true;
-            idMateriaLabel.Location = new Point(24, 105);
-            idMateriaLabel.Margin = new Padding(2, 0, 2, 0);
-            idMateriaLabel.Name = "idMateriaLabel";
-            idMateriaLabel.Size = new Size(57, 15);
-            idMateriaLabel.TabIndex = 16;
-            idMateriaLabel.Text = "idMateria";
+            MateriaLabel.AutoSize = true;
+            MateriaLabel.Location = new Point(24, 105);
+            MateriaLabel.Margin = new Padding(2, 0, 2, 0);
+            MateriaLabel.Name = "MateriaLabel";
+            MateriaLabel.Size = new Size(47, 15);
+            MateriaLabel.TabIndex = 16;
+            MateriaLabel.Text = "Materia";
             // 
             // cupoLabel
             // 
@@ -167,21 +149,37 @@ namespace WindowsForms
             cupoLabel.TabIndex = 19;
             cupoLabel.Text = "cupo";
             // 
+            // comisionComboBoxInput
+            // 
+            comisionComboBoxInput.FormattingEnabled = true;
+            comisionComboBoxInput.Location = new Point(131, 136);
+            comisionComboBoxInput.Name = "comisionComboBoxInput";
+            comisionComboBoxInput.Size = new Size(121, 23);
+            comisionComboBoxInput.TabIndex = 20;
+            // 
+            // materiaComboBoxInput
+            // 
+            materiaComboBoxInput.FormattingEnabled = true;
+            materiaComboBoxInput.Location = new Point(131, 97);
+            materiaComboBoxInput.Name = "materiaComboBoxInput";
+            materiaComboBoxInput.Size = new Size(121, 23);
+            materiaComboBoxInput.TabIndex = 21;
+            // 
             // CursosDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 357);
+            Controls.Add(materiaComboBoxInput);
+            Controls.Add(comisionComboBoxInput);
             Controls.Add(cupoLabel);
             Controls.Add(cupoTextBox);
-            Controls.Add(idMateriaLabel);
-            Controls.Add(idMateriaTextBox);
-            Controls.Add(idComisionTextBox);
+            Controls.Add(MateriaLabel);
             Controls.Add(descripcionTextBox);
             Controls.Add(anioCalendarioTextBox);
             Controls.Add(descripcionLabel);
             Controls.Add(anioCalendarioLabel);
-            Controls.Add(idComisionLabel);
+            Controls.Add(ComisionLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
             Margin = new Padding(2, 1, 2, 1);
@@ -199,15 +197,15 @@ namespace WindowsForms
         
         private Label descripcionLabel;
         private Label anioCalendarioLabel;
-        private Label idComisionLabel;
+        private Label ComisionLabel;
         private Label cupoLabel;
-        private Label idMateriaLabel;
+        private Label MateriaLabel;
 
 
         private TextBox descripcionTextBox;
         private TextBox anioCalendarioTextBox;
-        private TextBox idComisionTextBox;
-        private TextBox idMateriaTextBox;
         private TextBox cupoTextBox;
+        private ComboBox materiaComboBoxInput;
+        private ComboBox comisionComboBoxInput;
     }
 }

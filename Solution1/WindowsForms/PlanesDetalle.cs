@@ -16,6 +16,8 @@ namespace WindowsForms
     {
         private Plan plan;
 
+        IEnumerable<Especialidad> especialidades = [];
+
         public Plan Plan
         {
             get { return plan; }
@@ -28,8 +30,20 @@ namespace WindowsForms
         public PlanesDetalle()
         {
             InitializeComponent();
+            LoadTiposEspecialidades();
         }
 
+        private async void LoadTiposEspecialidades()
+        {
+            IEnumerable<Especialidad> especialidades = await EspecialidadApiClient.GetAllAsync();
+            this.especialidades = especialidades;
+            this.especialidadComboBoxInput.DataSource = especialidades;
+            this.especialidadComboBoxInput.DisplayMember = "Descripcion";
+            this.especialidadComboBoxInput.ValueMember = "Id";
+
+            this.especialidadComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
 
         //Probablemente un Enum seria mas apropiado        
         public bool EditMode { get; set; } = false;
@@ -40,12 +54,16 @@ namespace WindowsForms
 
             if (this.ValidatePlan())
             {
-                this.Plan.IdEspecialidad = int.Parse(IdEsepecialidadTextBox.Text);
+                
                 this.Plan.Descripcion = descripcionTextBox.Text;
 
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
+
+                var selectedId = (int)this.especialidadComboBoxInput.SelectedValue;
+
+                this.Plan.Especialidad = (Especialidad)this.especialidades.FirstOrDefault(p => p.Id == selectedId);
 
                 if (this.EditMode)
                 {
@@ -67,23 +85,25 @@ namespace WindowsForms
 
         private void SetPlan()
         {
-            this.IdEsepecialidadTextBox.Text = this.Plan.IdEspecialidad.ToString();
             this.descripcionTextBox.Text = this.Plan.Descripcion;
 
-
+            if (this.Plan.Especialidad != null)
+            {
+                this.especialidadComboBoxInput.SelectedIndex = this.plan.Especialidad.Id;
+            }
         }
 
         private bool ValidatePlan()
         {
             bool isValid = true;
 
-            errorProvider.SetError(IdEsepecialidadTextBox, string.Empty);
+            errorProvider.SetError(especialidadComboBoxInput, string.Empty);
             errorProvider.SetError(descripcionTextBox, string.Empty);
 
-            if (this.IdEsepecialidadTextBox.Text == string.Empty)
+            if (this.especialidadComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(IdEsepecialidadTextBox, "Requerido");
+                errorProvider.SetError(especialidadComboBoxInput, "Requerido");
             }
 
 

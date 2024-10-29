@@ -1,7 +1,9 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +16,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
+            context.Attach(materia.Plan);
             context.Materias.Add(materia);
             context.SaveChanges();
         }
@@ -42,7 +45,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Materias.ToList();
+            return context.Materias.Include(x => x.Plan).ToList();
         }
 
         public void Update(Materia materia)
@@ -57,7 +60,7 @@ namespace Domain.Services
                 materiaToUpdate.Descripcion = materia.Descripcion;
                 materiaToUpdate.HSSemanales = materia.HSSemanales;
                 materiaToUpdate.HSTotales = materia.HSTotales;
-                materiaToUpdate.IdPlan = materia.IdPlan;
+                materiaToUpdate.Plan = materia.Plan;
                 context.SaveChanges();
             }
         }

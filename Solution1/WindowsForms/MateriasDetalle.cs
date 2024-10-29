@@ -14,6 +14,8 @@ namespace WindowsForms
 {
     public partial class MateriasDetalle : Form
     {
+        IEnumerable<Plan> planes = [];
+
         private Materia materia;
 
         public Materia Materia
@@ -28,6 +30,18 @@ namespace WindowsForms
         public MateriasDetalle()
         {
             InitializeComponent();
+            LoadTiposPlanes();
+        }
+
+        private async void LoadTiposPlanes()
+        {
+            IEnumerable<Plan> planes = await PlanApiClient.GetAllAsync();
+            this.planes = planes;
+            this.planComboBoxInput.DataSource = planes;
+            this.planComboBoxInput.DisplayMember = "Descripcion";
+            this.planComboBoxInput.ValueMember = "Id";
+            this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
 
@@ -42,10 +56,12 @@ namespace WindowsForms
             {
                 this.Materia.Nombre = nombreTextBox.Text;
                 this.Materia.Descripcion = descripcionTextBox.Text;
-                this.Materia.IdPlan = int.Parse(idPlanTextBox.Text);
                 this.Materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
                 this.Materia.HSTotales = int.Parse(hsTotalesTextBox.Text); ;
 
+                var selectedId = (int)this.planComboBoxInput.SelectedValue;
+
+                this.Materia.Plan = (Plan)this.planes.FirstOrDefault(p => p.Id == selectedId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -72,10 +88,14 @@ namespace WindowsForms
         {
             this.nombreTextBox.Text = this.Materia.Nombre;
             this.descripcionTextBox.Text = this.Materia.Descripcion;
-            this.idPlanTextBox.Text = this.Materia.IdPlan.ToString();
             this.hsSemanalesTextBox.Text = this.Materia.HSSemanales.ToString();
             this.hsTotalesTextBox.Text = this.Materia.HSTotales.ToString();
 
+
+            if (this.materia.Plan != null)
+            {
+                this.planComboBoxInput.SelectedIndex = this.materia.Plan.Id;
+            }
         }
 
         private bool ValidateMateria()
@@ -110,10 +130,11 @@ namespace WindowsForms
                 errorProvider.SetError(hsTotalesTextBox, "Requerido");
             }
 
-            if (this.idPlanTextBox.Text == string.Empty)
+
+            if (this.planComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idPlanTextBox, "Requerido");
+                errorProvider.SetError(planComboBoxInput, "Requerido");
             }
 
             return isValid;
@@ -131,9 +152,6 @@ namespace WindowsForms
         }
 
 
-        private void idPlanTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
+
     }
 }

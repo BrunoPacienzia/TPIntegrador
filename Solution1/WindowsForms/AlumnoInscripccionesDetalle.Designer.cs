@@ -34,14 +34,14 @@
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
             condicionLabel = new Label();
-            idAlumnoTextBox = new TextBox();
             label6 = new Label();
             AlumnoIdLabel = new Label();
-            idCursoTextBox = new TextBox();
             notaLabel = new Label();
             notaTextBox = new TextBox();
             label2 = new Label();
             CursoLabel = new Label();
+            alumnoComboBoxInput = new ComboBox();
+            cursoComboBoxInput = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -90,14 +90,6 @@
             condicionLabel.Text = "Condicion";
             condicionLabel.Click += label5_Click;
             // 
-            // idAlumnoTextBox
-            // 
-            idAlumnoTextBox.Location = new Point(131, 57);
-            idAlumnoTextBox.Margin = new Padding(2, 1, 2, 1);
-            idAlumnoTextBox.Name = "idAlumnoTextBox";
-            idAlumnoTextBox.Size = new Size(110, 23);
-            idAlumnoTextBox.TabIndex = 12;
-            // 
             // label6
             // 
             label6.Location = new Point(0, 0);
@@ -114,14 +106,6 @@
             AlumnoIdLabel.Size = new Size(50, 15);
             AlumnoIdLabel.TabIndex = 17;
             AlumnoIdLabel.Text = "Alumno";
-            // 
-            // idCursoTextBox
-            // 
-            idCursoTextBox.Location = new Point(131, 89);
-            idCursoTextBox.Margin = new Padding(2, 1, 2, 1);
-            idCursoTextBox.Name = "idCursoTextBox";
-            idCursoTextBox.Size = new Size(110, 23);
-            idCursoTextBox.TabIndex = 16;
             // 
             // notaLabel
             // 
@@ -158,20 +142,36 @@
             CursoLabel.TabIndex = 22;
             CursoLabel.Text = "Curso";
             // 
+            // alumnoComboBoxInput
+            // 
+            alumnoComboBoxInput.FormattingEnabled = true;
+            alumnoComboBoxInput.Location = new Point(131, 57);
+            alumnoComboBoxInput.Name = "alumnoComboBoxInput";
+            alumnoComboBoxInput.Size = new Size(121, 23);
+            alumnoComboBoxInput.TabIndex = 23;
+            // 
+            // cursoComboBoxInput
+            // 
+            cursoComboBoxInput.FormattingEnabled = true;
+            cursoComboBoxInput.Location = new Point(131, 89);
+            cursoComboBoxInput.Name = "cursoComboBoxInput";
+            cursoComboBoxInput.Size = new Size(121, 23);
+            cursoComboBoxInput.TabIndex = 24;
+            // 
             // AlumnoInscripccionesDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(380, 299);
+            ClientSize = new Size(518, 299);
+            Controls.Add(cursoComboBoxInput);
+            Controls.Add(alumnoComboBoxInput);
             Controls.Add(CursoLabel);
             Controls.Add(label2);
             Controls.Add(notaLabel);
             Controls.Add(notaTextBox);
             Controls.Add(AlumnoIdLabel);
-            Controls.Add(idCursoTextBox);
             Controls.Add(label6);
             Controls.Add(condicionLabel);
-            Controls.Add(idAlumnoTextBox);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
             Controls.Add(condicionTextBox);
@@ -190,13 +190,13 @@
         private ErrorProvider errorProvider;
         private Button cancelarButton;
         private Label condicionLabel;
-        private TextBox idAlumnoTextBox;
         private Label label6;
         private Label AlumnoIdLabel;
-        private TextBox idCursoTextBox;
         private Label notaLabel;
         private TextBox notaTextBox;
         private Label label2;
         private Label CursoLabel;
+        private ComboBox cursoComboBoxInput;
+        private ComboBox alumnoComboBoxInput;
     }
 }

@@ -15,7 +15,8 @@ namespace WindowsForms
     {
 
         private Curso curso;
-
+        IEnumerable<Comision> comisiones = [];
+        IEnumerable<Materia> materias = [];
         public Curso Curso
         {
             get { return curso; }
@@ -29,7 +30,29 @@ namespace WindowsForms
         public CursosDetalle()
         {
             InitializeComponent();
+            LoadComboBox();
         }
+
+        private async void LoadComboBox()
+        {
+            IEnumerable<Comision> comisiones = await ComisionApiClient.GetAllAsync();
+            this.comisiones = comisiones;
+            this.comisionComboBoxInput.DataSource = comisiones;
+            this.comisionComboBoxInput.DisplayMember = "Descripcion";
+            this.comisionComboBoxInput.ValueMember = "Id";
+
+            this.comisionComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            IEnumerable<Materia> materias = await MateriaApiClient.GetAllAsync();
+            this.materias = materias;
+            this.materiaComboBoxInput.DataSource = materias;
+            this.materiaComboBoxInput.DisplayMember = "Descripcion";
+            this.materiaComboBoxInput.ValueMember = "Id";
+
+            this.materiaComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
 
 
 
@@ -45,9 +68,14 @@ namespace WindowsForms
                 this.Curso.Descripcion = descripcionTextBox.Text;
                 this.Curso.Cupo = int.Parse(cupoTextBox.Text);
                 this.Curso.AnioCalendario = int.Parse(anioCalendarioTextBox.Text);
-                this.Curso.IdMateria = int.Parse(idMateriaTextBox.Text);
-                this.Curso.IdComision = int.Parse(idComisionTextBox.Text);
 
+                var selectedComisionId = (int)this.comisionComboBoxInput.SelectedValue;
+
+                this.Curso.Comision = (Comision)this.comisiones.FirstOrDefault(p => p.Id == selectedComisionId);
+
+                var selectedMateriaId = (int)this.materiaComboBoxInput.SelectedValue;
+
+                this.Curso.Materia = (Materia)this.materias.FirstOrDefault(p => p.Id == selectedMateriaId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -73,11 +101,18 @@ namespace WindowsForms
         private void SetCurso()
         {
             this.descripcionTextBox.Text = this.Curso.Descripcion;
-            this.idComisionTextBox.Text = this.Curso.IdComision.ToString();
-            this.idMateriaTextBox.Text = this.Curso.IdMateria.ToString();
             this.cupoTextBox.Text = this.Curso.Cupo.ToString();
             this.anioCalendarioTextBox.Text = this.Curso.AnioCalendario.ToString();
 
+            if (this.Curso.Comision != null)
+            {
+                this.comisionComboBoxInput.SelectedIndex = this.curso.Comision.Id;
+            }
+
+            if (this.Curso.Materia != null)
+            {
+                this.materiaComboBoxInput.SelectedIndex = this.curso.Materia.Id;
+            }
         }
 
         private bool ValidateCurso()
@@ -92,17 +127,21 @@ namespace WindowsForms
             }
 
 
-            if (this.idComisionTextBox.Text == string.Empty)
+
+            if (this.comisionComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idComisionTextBox, "Requerido");
+                errorProvider.SetError(comisionComboBoxInput, "Requerido");
             }
 
-            if (this.idMateriaTextBox.Text == string.Empty)
+
+
+            if (this.materiaComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idMateriaTextBox, "Requerido");
+                errorProvider.SetError(materiaComboBoxInput, "Requerido");
             }
+
 
             if (this.cupoTextBox.Text == string.Empty)
             {

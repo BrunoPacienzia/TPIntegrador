@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace Domain.Services
         public void Add(Comision comision)
         {
             using var context = new Context();
-
+            
+            context.Attach(comision.Plan);
             context.Comisiones.Add(comision);
             context.SaveChanges();
         }
@@ -41,7 +43,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Comisiones.ToList();
+            return context.Comisiones.Include(x => x.Plan).ToList();
         }
 
         public void Update(Comision comision)
@@ -54,7 +56,7 @@ namespace Domain.Services
             {
                 comisionToUpdate.Descripcion = comision.Descripcion;
                 comisionToUpdate.AnioEspecialidad = comision.AnioEspecialidad;
-                comisionToUpdate.IdPlan = comision.IdPlan;
+                comisionToUpdate.Plan = comision.Plan;
                 context.SaveChanges();
             }
         }

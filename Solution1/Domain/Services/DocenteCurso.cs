@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace Domain.Services
         {
             using var context = new Context();
 
+            context.Attach(docenteCurso.Docente);
+            context.Attach(docenteCurso.Curso);
             context.DocentesCursos.Add(docenteCurso);
             context.SaveChanges();
         }
@@ -41,7 +44,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.DocentesCursos.ToList();
+            return context.DocentesCursos.Include(x => x.Docente).Include(x => x.Curso).ToList();
         }
 
         public void Update(DocenteCurso docenteCurso)
@@ -52,7 +55,8 @@ namespace Domain.Services
 
             if (docenteCursoToUpdate != null)
             {
-                docenteCursoToUpdate.IdDocente = docenteCurso.IdDocente;
+                docenteCursoToUpdate.Docente = docenteCurso.Docente;
+                docenteCursoToUpdate.Curso = docenteCurso.Curso;
                 docenteCursoToUpdate.TipoCargo = docenteCurso.TipoCargo;
                 context.SaveChanges();
             }

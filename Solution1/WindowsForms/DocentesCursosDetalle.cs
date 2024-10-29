@@ -13,6 +13,8 @@ namespace WindowsForms
 {
     public partial class DocentesCursosDetalle : Form
     {
+        IEnumerable<Persona> docentes = [];
+        IEnumerable<Curso> cursos = [];
 
         private DocenteCurso docenteCurso;
 
@@ -29,8 +31,25 @@ namespace WindowsForms
         public DocentesCursosDetalle()
         {
             InitializeComponent();
+            LoadTiposPlanes();
         }
 
+        private async void LoadTiposPlanes()
+        {
+            IEnumerable<Persona> docentes = await PersonaApiClient.GetAllAsync();
+            this.docentes = docentes;
+            this.docenteComboBoxInput.DataSource = docentes;
+            this.docenteComboBoxInput.DisplayMember = "Legajo";
+            this.docenteComboBoxInput.ValueMember = "Id";
+            this.docenteComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            IEnumerable<Curso> cursos = await CursoApiClient.GetAllAsync();
+            this.cursos = cursos;
+            this.cursoComboBoxInput.DataSource = cursos;
+            this.cursoComboBoxInput.DisplayMember = "Descripcion";
+            this.cursoComboBoxInput.ValueMember = "Id";
+            this.cursoComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
 
 
         //Probablemente un Enum seria mas apropiado        
@@ -42,10 +61,15 @@ namespace WindowsForms
 
             if (this.ValidateDocenteCurso())
             {
-                this.DocenteCurso.IdCurso = int.Parse(idCursoTextBox.Text);
-                this.DocenteCurso.IdDocente = int.Parse(idDocenteTextBox.Text);
                 this.DocenteCurso.TipoCargo = cargoTextBox.Text;
 
+                var selectedDocenteId = (int)this.docenteComboBoxInput.SelectedValue;
+
+                this.DocenteCurso.Docente = (Persona)this.docentes.FirstOrDefault(p => p.Id == selectedDocenteId);
+
+                var selectedCursoId = (int)this.cursoComboBoxInput.SelectedValue;
+
+                this.DocenteCurso.Curso = (Curso)this.cursos.FirstOrDefault(p => p.Id == selectedCursoId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -70,11 +94,17 @@ namespace WindowsForms
 
         private void SetDocenteCurso()
         {
-
-            this.idCursoTextBox.Text = this.DocenteCurso.IdCurso.ToString();
-            this.idDocenteTextBox.Text = this.DocenteCurso.IdDocente.ToString();
             this.cargoTextBox.Text = this.DocenteCurso.TipoCargo;
 
+            if (this.docenteCurso.Docente != null)
+            {
+                this.docenteComboBoxInput.SelectedIndex = this.docenteCurso.Docente.Id;
+            }
+
+            if (this.docenteCurso.Curso != null)
+            {
+                this.cursoComboBoxInput.SelectedIndex = this.docenteCurso.Curso.Id;
+            }
         }
 
         private bool ValidateDocenteCurso()
@@ -82,16 +112,18 @@ namespace WindowsForms
             bool isValid = true;
 
 
-            if (this.idDocenteTextBox.Text == string.Empty)
+
+            if (this.docenteComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idDocenteTextBox, "Requerido");
+                errorProvider.SetError(docenteComboBoxInput, "Requerido");
             }
 
-            if (this.idCursoTextBox.Text == string.Empty)
+
+            if (this.cursoComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idCursoTextBox, "Requerido");
+                errorProvider.SetError(cursoComboBoxInput, "Requerido");
             }
 
 

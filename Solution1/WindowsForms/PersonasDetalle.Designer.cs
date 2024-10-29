@@ -43,14 +43,16 @@
             label8 = new Label();
             label1 = new Label();
             legajoTextBox = new TextBox();
-            label2 = new Label();
-            idPlanTextBox = new TextBox();
+            PlanLabel = new Label();
             label3 = new Label();
             telefonoTextBox = new TextBox();
             label4 = new Label();
+            planComboBoxInput = new ComboBox();
             tipoPersonaTextBox = new TextBox();
             dateTimePicker1 = new DateTimePicker();
+            planBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)planBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nombreTextBox
@@ -179,24 +181,15 @@
             legajoTextBox.Size = new Size(110, 23);
             legajoTextBox.TabIndex = 19;
             // 
-            // label2
+            // PlanLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(24, 274);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(43, 15);
-            label2.TabIndex = 22;
-            label2.Text = "Id Plan";
-            // 
-            // idPlanTextBox
-            // 
-            idPlanTextBox.Location = new Point(131, 271);
-            idPlanTextBox.Margin = new Padding(2, 1, 2, 1);
-            idPlanTextBox.Name = "idPlanTextBox";
-            idPlanTextBox.Size = new Size(110, 23);
-            idPlanTextBox.TabIndex = 21;
-            idPlanTextBox.KeyPress += idPlanTextBox_KeyPress;
+            PlanLabel.AutoSize = true;
+            PlanLabel.Location = new Point(24, 274);
+            PlanLabel.Margin = new Padding(2, 0, 2, 0);
+            PlanLabel.Name = "PlanLabel";
+            PlanLabel.Size = new Size(30, 15);
+            PlanLabel.TabIndex = 22;
+            PlanLabel.Text = "Plan";
             // 
             // label3
             // 
@@ -227,6 +220,15 @@
             label4.TabIndex = 26;
             label4.Text = "Tipo Persona";
             // 
+            // planComboBoxInput
+            // 
+            planComboBoxInput.DataSource = planBindingSource;
+            planComboBoxInput.FormattingEnabled = true;
+            planComboBoxInput.Location = new Point(132, 271);
+            planComboBoxInput.Name = "planComboBoxInput";
+            planComboBoxInput.Size = new Size(121, 23);
+            planComboBoxInput.TabIndex = 14;
+            // 
             // tipoPersonaTextBox
             // 
             tipoPersonaTextBox.Location = new Point(131, 366);
@@ -242,7 +244,11 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 27;
-            dateTimePicker1.Value = new DateTime(2023, 9, 16, 14, 30, 0);
+            dateTimePicker1.Value = new DateTime(2023, 9, 16, 14, 30, 0, 0);
+            // 
+            // planBindingSource
+            // 
+            planBindingSource.DataSource = typeof(Domain.Model.Plan);
             // 
             // PersonasDetalle
             // 
@@ -254,8 +260,7 @@
             Controls.Add(tipoPersonaTextBox);
             Controls.Add(label3);
             Controls.Add(telefonoTextBox);
-            Controls.Add(label2);
-            Controls.Add(idPlanTextBox);
+            Controls.Add(PlanLabel);
             Controls.Add(label1);
             Controls.Add(legajoTextBox);
             Controls.Add(label8);
@@ -267,6 +272,7 @@
             Controls.Add(apellidoTextBox);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
+            Controls.Add(planComboBoxInput);
             Controls.Add(nombreLabel);
             Controls.Add(nombreTextBox);
             Margin = new Padding(2, 1, 2, 1);
@@ -274,6 +280,7 @@
             Text = "Persona";
             Load += PersonasDetalle_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)planBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,12 +301,13 @@
         private Label label8;
         private Label label1;
         private TextBox legajoTextBox;
-        private Label label2;
-        private TextBox idPlanTextBox;
+        private Label PlanLabel;
         private Label label3;
         private TextBox telefonoTextBox;
         private Label label4;
         private TextBox tipoPersonaTextBox;
         private DateTimePicker dateTimePicker1;
+        private ComboBox planComboBoxInput;
+        private BindingSource planBindingSource;
     }
 }

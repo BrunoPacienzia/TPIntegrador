@@ -37,9 +37,9 @@ namespace WindowsForms
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
             anioEspecialidadLabel = new Label();
-            idPlanLabel = new Label();
+            PlanLabel = new Label();
             anioEspecialidadTextBox = new TextBox();
-            idPlanTextBox = new TextBox();
+            planComboBoxInput = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -97,47 +97,46 @@ namespace WindowsForms
             anioEspecialidadLabel.TabIndex = 4;
             anioEspecialidadLabel.Text = "Año Especialidad";
             // 
-            // idPlanLabel
+            // PlanLabel
             // 
-            idPlanLabel.AutoSize = true;
-            idPlanLabel.Location = new Point(24, 58);
-            idPlanLabel.Margin = new Padding(2, 0, 2, 0);
-            idPlanLabel.Name = "idPlanLabel";
-            idPlanLabel.Size = new Size(40, 15);
-            idPlanLabel.TabIndex = 5;
-            idPlanLabel.Text = "idPlan";
+            PlanLabel.AutoSize = true;
+            PlanLabel.Location = new Point(24, 58);
+            PlanLabel.Margin = new Padding(2, 0, 2, 0);
+            PlanLabel.Name = "PlanLabel";
+            PlanLabel.Size = new Size(30, 15);
+            PlanLabel.TabIndex = 5;
+            PlanLabel.Text = "Plan";
             // 
             // anioEspecialidadTextBox
             // 
-            anioEspecialidadTextBox.Location = new Point(131, 58);
+            anioEspecialidadTextBox.Location = new Point(131, 92);
             anioEspecialidadTextBox.Margin = new Padding(2, 1, 2, 1);
             anioEspecialidadTextBox.Name = "anioEspecialidadTextBox";
             anioEspecialidadTextBox.Size = new Size(110, 23);
-            anioEspecialidadTextBox.TabIndex = 8;
-            anioEspecialidadTextBox.KeyPress += anioEspecialidadTextBox_KeyPress;
+            anioEspecialidadTextBox.TabIndex = 11;
+            anioEspecialidadTextBox.KeyPress += idPlanTextBox_KeyPress;
             // 
-            // idPlanTextBox
+            // planComboBoxInput
             // 
-            idPlanTextBox.Location = new Point(131, 92);
-            idPlanTextBox.Margin = new Padding(2, 1, 2, 1);
-            idPlanTextBox.Name = "idPlanTextBox";
-            idPlanTextBox.Size = new Size(110, 23);
-            idPlanTextBox.TabIndex = 11;
-            idPlanTextBox.KeyPress += idPlanTextBox_KeyPress;
+            planComboBoxInput.FormattingEnabled = true;
+            planComboBoxInput.Location = new Point(131, 58);
+            planComboBoxInput.Name = "planComboBoxInput";
+            planComboBoxInput.Size = new Size(121, 23);
+            planComboBoxInput.TabIndex = 17;
             // 
             // ComisionesDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 244);
-            Controls.Add(idPlanTextBox);
+            Controls.Add(planComboBoxInput);
+            Controls.Add(anioEspecialidadTextBox);
             Controls.Add(descripcionTextBox);
             Controls.Add(descripcionLabel);
             Controls.Add(anioEspecialidadLabel);
-            Controls.Add(idPlanLabel);
+            Controls.Add(PlanLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
-            Controls.Add(anioEspecialidadTextBox);
             Margin = new Padding(2, 1, 2, 1);
             Name = "ComisionesDetalle";
             Text = "Materia";
@@ -153,9 +152,9 @@ namespace WindowsForms
         private Button cancelarButton;
         private Label descripcionLabel;
         private Label anioEspecialidadLabel;
-        private Label idPlanLabel;
+        private Label PlanLabel;
         private TextBox descripcionTextBox;
         private TextBox anioEspecialidadTextBox;
-        private TextBox idPlanTextBox;
+        private ComboBox planComboBoxInput;
     }
 }

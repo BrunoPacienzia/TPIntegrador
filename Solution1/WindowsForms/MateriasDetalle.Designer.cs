@@ -39,12 +39,14 @@ namespace WindowsForms
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
+            planLabel = new Label();
             hsSemanalesTextBox = new TextBox();
             hsTotalesTextBox = new TextBox();
             descripcionTextBox = new TextBox();
-            idPlanTextBox = new TextBox();
+            planComboBoxInput = new ComboBox();
+            planBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)planBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nombreTextBox
@@ -121,15 +123,15 @@ namespace WindowsForms
             label3.TabIndex = 6;
             label3.Text = "Descripcion";
             // 
-            // label4
+            // planLabel
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(24, 157);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 15);
-            label4.TabIndex = 7;
-            label4.Text = "IdPlan";
+            planLabel.AutoSize = true;
+            planLabel.Location = new Point(24, 157);
+            planLabel.Margin = new Padding(2, 0, 2, 0);
+            planLabel.Name = "planLabel";
+            planLabel.Size = new Size(30, 15);
+            planLabel.TabIndex = 7;
+            planLabel.Text = "Plan";
             // 
             // hsSemanalesTextBox
             // 
@@ -157,25 +159,29 @@ namespace WindowsForms
             descripcionTextBox.Size = new Size(110, 23);
             descripcionTextBox.TabIndex = 10;
             // 
-            // idPlanTextBox
+            // planComboBoxInput
             // 
-            idPlanTextBox.Location = new Point(131, 154);
-            idPlanTextBox.Margin = new Padding(2, 1, 2, 1);
-            idPlanTextBox.Name = "idPlanTextBox";
-            idPlanTextBox.Size = new Size(110, 23);
-            idPlanTextBox.TabIndex = 11;
-            idPlanTextBox.KeyPress += idPlanTextBox_KeyPress;
+            planComboBoxInput.DataSource = planBindingSource;
+            planComboBoxInput.FormattingEnabled = true;
+            planComboBoxInput.Location = new Point(131, 157);
+            planComboBoxInput.Name = "planComboBoxInput";
+            planComboBoxInput.Size = new Size(121, 23);
+            planComboBoxInput.TabIndex = 16;
+            // 
+            // planBindingSource
+            // 
+            planBindingSource.DataSource = typeof(Domain.Model.Plan);
             // 
             // MateriasDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 244);
-            Controls.Add(idPlanTextBox);
+            Controls.Add(planComboBoxInput);
             Controls.Add(descripcionTextBox);
             Controls.Add(hsTotalesTextBox);
             Controls.Add(hsSemanalesTextBox);
-            Controls.Add(label4);
+            Controls.Add(planLabel);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -187,6 +193,7 @@ namespace WindowsForms
             Name = "MateriasDetalle";
             Text = "Materia";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)planBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,10 +208,11 @@ namespace WindowsForms
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
+        private Label planLabel;
         private TextBox descripcionTextBox;
         private TextBox hsTotalesTextBox;
         private TextBox hsSemanalesTextBox;
-        private TextBox idPlanTextBox;
+        private ComboBox planComboBoxInput;
+        private BindingSource planBindingSource;
     }
 }

@@ -13,9 +13,12 @@ namespace WindowsForms
 {
     public partial class PersonasDetalle : Form
     {
+        IEnumerable<Plan> planes = [];
+
         public PersonasDetalle()
         {
             InitializeComponent();
+            LoadTiposPlanes();
         }
 
         private Persona persona;
@@ -33,6 +36,18 @@ namespace WindowsForms
         //Probablemente un Enum seria mas apropiado        
         public bool EditMode { get; set; } = false;
 
+        private async void LoadTiposPlanes()
+        {
+            IEnumerable<Plan> planes = await PlanApiClient.GetAllAsync();
+            this.planes = planes;
+            this.planComboBoxInput.DataSource = planes;
+            this.planComboBoxInput.DisplayMember = "Descripcion";
+            this.planComboBoxInput.ValueMember = "Id";
+
+            this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
         private async void aceptarButton_Click(object sender, EventArgs e)
         {
             PersonaApiClient client = new PersonaApiClient();
@@ -41,13 +56,16 @@ namespace WindowsForms
             {
                 this.Persona.Nombre = nombreTextBox.Text;
                 this.Persona.Apellido = apellidoTextBox.Text;
-                this.Persona.IdPlan = Int32.Parse(idPlanTextBox.Text);
                 this.Persona.Email = emailTextBox.Text;
                 this.Persona.TipoPersona = Int32.Parse(tipoPersonaTextBox.Text);
                 this.Persona.Telefono = telefonoTextBox.Text;
                 this.Persona.Direccion = direccionTextBox.Text;
                 this.Persona.Legajo = Int32.Parse(legajoTextBox.Text);
                 this.Persona.FechaNacimiento = dateTimePicker1.Value;
+
+                var selectedId = (int)this.planComboBoxInput.SelectedValue;
+
+                this.Persona.Plan = (Plan)this.planes.FirstOrDefault(p => p.Id == selectedId);
 
                 if (this.EditMode)
                 {
@@ -71,7 +89,6 @@ namespace WindowsForms
         {
             this.nombreTextBox.Text = this.Persona.Nombre;
             this.apellidoTextBox.Text = this.Persona.Apellido;
-            this.idPlanTextBox.Text = this.Persona.IdPlan.ToString();
             this.emailTextBox.Text = this.Persona.Email;
             this.tipoPersonaTextBox.Text = this.Persona.TipoPersona.ToString();
             this.telefonoTextBox.Text = this.Persona.Telefono;
@@ -83,7 +100,12 @@ namespace WindowsForms
                 this.dateTimePicker1.Value = DateTime.Now; // or set it to a valid default
             }
             else {this.dateTimePicker1.Value = this.Persona.FechaNacimiento; }
-            
+
+            if (this.Persona.Plan != null)
+            {
+                this.planComboBoxInput.SelectedIndex = this.Persona.Plan.Id;
+            }
+
         }
 
         private bool ValidatePersona()
@@ -118,10 +140,10 @@ namespace WindowsForms
                 errorProvider.SetError(emailTextBox, "Requerido");
             }
 
-            if (this.idPlanTextBox.Text == string.Empty)
+            if (this.planComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idPlanTextBox, "Requerido");
+                errorProvider.SetError(planComboBoxInput, "Requerido");
             }
 
             if (this.legajoTextBox.Text == string.Empty)

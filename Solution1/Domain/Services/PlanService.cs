@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
+            context.Attach(plan.Especialidad);
             context.Planes.Add(plan);
             context.SaveChanges();
         }
@@ -43,7 +45,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Planes.ToList();
+            return context.Planes.Include(x => x.Especialidad).ToList();
         }
 
         public void Update(Plan plan)
@@ -55,7 +57,7 @@ namespace Domain.Services
             if (planToUpdate != null)
             {
                 planToUpdate.Descripcion = plan.Descripcion;
-                planToUpdate.IdEspecialidad = plan.IdEspecialidad;
+                planToUpdate.Especialidad = plan.Especialidad;
                 context.SaveChanges();
             }
         }

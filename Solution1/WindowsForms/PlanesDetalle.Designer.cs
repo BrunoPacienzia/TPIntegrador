@@ -35,11 +35,13 @@ namespace WindowsForms
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
-            label1 = new Label();
+            especialidadLabel = new Label();
             label3 = new Label();
             descripcionTextBox = new TextBox();
-            IdEsepecialidadTextBox = new TextBox();
+            especialidadComboBoxInput = new ComboBox();
+            especialidadBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)especialidadBindingSource).BeginInit();
             SuspendLayout();
             // 
             // nombreLabel
@@ -77,15 +79,15 @@ namespace WindowsForms
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
             // 
-            // label1
+            // especialidadLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 38);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(88, 15);
-            label1.TabIndex = 4;
-            label1.Text = "IdEsepecialidad";
+            especialidadLabel.AutoSize = true;
+            especialidadLabel.Location = new Point(24, 38);
+            especialidadLabel.Margin = new Padding(2, 0, 2, 0);
+            especialidadLabel.Name = "especialidadLabel";
+            especialidadLabel.Size = new Size(72, 15);
+            especialidadLabel.TabIndex = 4;
+            especialidadLabel.Text = "Especialidad";
             // 
             // label3
             // 
@@ -105,24 +107,28 @@ namespace WindowsForms
             descripcionTextBox.Size = new Size(110, 23);
             descripcionTextBox.TabIndex = 10;
             // 
-            // IdEsepecialidadTextBox
+            // especialidadComboBoxInput
             // 
-            IdEsepecialidadTextBox.Location = new Point(125, 35);
-            IdEsepecialidadTextBox.Margin = new Padding(2, 1, 2, 1);
-            IdEsepecialidadTextBox.Name = "IdEsepecialidadTextBox";
-            IdEsepecialidadTextBox.Size = new Size(110, 23);
-            IdEsepecialidadTextBox.TabIndex = 11;
-            IdEsepecialidadTextBox.KeyPress += IdEsepecialidadTextBox_KeyPress;
+            especialidadComboBoxInput.DataSource = especialidadBindingSource;
+            especialidadComboBoxInput.FormattingEnabled = true;
+            especialidadComboBoxInput.Location = new Point(125, 35);
+            especialidadComboBoxInput.Name = "especialidadComboBoxInput";
+            especialidadComboBoxInput.Size = new Size(121, 23);
+            especialidadComboBoxInput.TabIndex = 15;
+            // 
+            // especialidadBindingSource
+            // 
+            especialidadBindingSource.DataSource = typeof(Domain.Model.Especialidad);
             // 
             // PlanesDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 244);
-            Controls.Add(IdEsepecialidadTextBox);
+            Controls.Add(especialidadComboBoxInput);
             Controls.Add(descripcionTextBox);
             Controls.Add(label3);
-            Controls.Add(label1);
+            Controls.Add(especialidadLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
             Controls.Add(nombreLabel);
@@ -130,6 +136,7 @@ namespace WindowsForms
             Name = "PlanesDetalle";
             Text = "Plan";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)especialidadBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,9 +146,10 @@ namespace WindowsForms
         private Button aceptarButton;
         private ErrorProvider errorProvider;
         private Button cancelarButton;
-        private Label label1;
+        private Label especialidadLabel;
         private Label label3;
-        private TextBox IdEsepecialidadTextBox;
         private TextBox descripcionTextBox;
+        private ComboBox especialidadComboBoxInput;
+        private BindingSource especialidadBindingSource;
     }
 }

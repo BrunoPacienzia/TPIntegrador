@@ -12,7 +12,7 @@ namespace Domain.Model
         public  string Descripcion { get; set; }
         public  int AnioCalendario { get; set; }
         public  int Cupo { get; set; }
-        public  int IdComision { get; set; }
-        public  int IdMateria { get; set; }
+        public  Comision Comision { get; set; }
+        public  Materia Materia { get; set; }
     }
 }

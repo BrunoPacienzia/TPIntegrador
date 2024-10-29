@@ -31,26 +31,17 @@ namespace WindowsForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            idCursoTextBox = new TextBox();
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
-            idDocenteLabel = new Label();
-            idDocenteTextBox = new TextBox();
-            idCursoLabel = new Label();
+            DocenteLabel = new Label();
+            CursoLabel = new Label();
             cargoLabel = new Label();
             cargoTextBox = new TextBox();
+            docenteComboBoxInput = new ComboBox();
+            cursoComboBoxInput = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
-            // 
-            // idCursoTextBox
-            // 
-            idCursoTextBox.Location = new Point(131, 21);
-            idCursoTextBox.Margin = new Padding(2, 1, 2, 1);
-            idCursoTextBox.Name = "idCursoTextBox";
-            idCursoTextBox.Size = new Size(110, 23);
-            idCursoTextBox.TabIndex = 0;
-            idCursoTextBox.KeyPress += idCursoTextBox_KeyPress;
             // 
             // aceptarButton
             // 
@@ -78,33 +69,24 @@ namespace WindowsForms
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
             // 
-            // idDocenteLabel
+            // DocenteLabel
             // 
-            idDocenteLabel.AutoSize = true;
-            idDocenteLabel.Location = new Point(24, 58);
-            idDocenteLabel.Margin = new Padding(2, 0, 2, 0);
-            idDocenteLabel.Name = "idDocenteLabel";
-            idDocenteLabel.Size = new Size(61, 15);
-            idDocenteLabel.TabIndex = 5;
-            idDocenteLabel.Text = "idDocente";
+            DocenteLabel.AutoSize = true;
+            DocenteLabel.Location = new Point(24, 58);
+            DocenteLabel.Margin = new Padding(2, 0, 2, 0);
+            DocenteLabel.Name = "DocenteLabel";
+            DocenteLabel.Size = new Size(51, 15);
+            DocenteLabel.TabIndex = 5;
+            DocenteLabel.Text = "Docente";
             // 
-            // idDocenteTextBox
+            // CursoLabel
             // 
-            idDocenteTextBox.Location = new Point(131, 58);
-            idDocenteTextBox.Margin = new Padding(2, 1, 2, 1);
-            idDocenteTextBox.Name = "idDocenteTextBox";
-            idDocenteTextBox.Size = new Size(110, 23);
-            idDocenteTextBox.TabIndex = 8;
-            idDocenteTextBox.KeyPress += idDocenteTextBox_KeyPress;
-            // 
-            // idCursoLabel
-            // 
-            idCursoLabel.Location = new Point(24, 24);
-            idCursoLabel.Margin = new Padding(2, 0, 2, 0);
-            idCursoLabel.Name = "idCursoLabel";
-            idCursoLabel.Size = new Size(48, 15);
-            idCursoLabel.TabIndex = 1;
-            idCursoLabel.Text = "IdCurso";
+            CursoLabel.Location = new Point(24, 24);
+            CursoLabel.Margin = new Padding(2, 0, 2, 0);
+            CursoLabel.Name = "CursoLabel";
+            CursoLabel.Size = new Size(48, 15);
+            CursoLabel.TabIndex = 1;
+            CursoLabel.Text = "Curso";
             // 
             // cargoLabel
             // 
@@ -124,19 +106,35 @@ namespace WindowsForms
             cargoTextBox.Size = new Size(110, 23);
             cargoTextBox.TabIndex = 10;
             // 
+            // docenteComboBoxInput
+            // 
+            docenteComboBoxInput.FormattingEnabled = true;
+            docenteComboBoxInput.Location = new Point(131, 58);
+            docenteComboBoxInput.Name = "docenteComboBoxInput";
+            docenteComboBoxInput.Size = new Size(121, 23);
+            docenteComboBoxInput.TabIndex = 24;
+            // 
+            // cursoComboBoxInput
+            // 
+            cursoComboBoxInput.FormattingEnabled = true;
+            cursoComboBoxInput.Location = new Point(131, 16);
+            cursoComboBoxInput.Name = "cursoComboBoxInput";
+            cursoComboBoxInput.Size = new Size(121, 23);
+            cursoComboBoxInput.TabIndex = 25;
+            // 
             // DocentesCursosDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 244);
+            Controls.Add(cursoComboBoxInput);
+            Controls.Add(docenteComboBoxInput);
             Controls.Add(cargoTextBox);
             Controls.Add(cargoLabel);
-            Controls.Add(idCursoTextBox);
-            Controls.Add(idCursoLabel);
-            Controls.Add(idDocenteLabel);
+            Controls.Add(CursoLabel);
+            Controls.Add(DocenteLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
-            Controls.Add(idDocenteTextBox);
             Margin = new Padding(2, 1, 2, 1);
             Name = "DocentesCursosDetalle";
             Text = "Materia";
@@ -150,11 +148,11 @@ namespace WindowsForms
         private Button aceptarButton;
         private ErrorProvider errorProvider;
         private Button cancelarButton;
-        private Label idDocenteLabel;
-        private Label idCursoLabel;
-        private TextBox idCursoTextBox;
-        private TextBox idDocenteTextBox;
+        private Label DocenteLabel;
+        private Label CursoLabel;
         private TextBox cargoTextBox;
         private Label cargoLabel;
+        private ComboBox docenteComboBoxInput;
+        private ComboBox cursoComboBoxInput;
     }
 }

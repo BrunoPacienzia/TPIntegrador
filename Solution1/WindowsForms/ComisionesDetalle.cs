@@ -15,6 +15,7 @@ namespace WindowsForms
     {
 
         private Comision comision;
+        IEnumerable<Plan> planes = [];
 
         public Comision Comision
         {
@@ -29,8 +30,18 @@ namespace WindowsForms
         public ComisionesDetalle()
         {
             InitializeComponent();
+            LoadTiposPlanes();
         }
+        private async void LoadTiposPlanes()
+        {
+            IEnumerable<Plan> planes = await PlanApiClient.GetAllAsync();
+            this.planes = planes;
+            this.planComboBoxInput.DataSource = planes;
+            this.planComboBoxInput.DisplayMember = "Descripcion";
+            this.planComboBoxInput.ValueMember = "Id";
+            this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
+        }
 
 
         //Probablemente un Enum seria mas apropiado        
@@ -43,8 +54,11 @@ namespace WindowsForms
             if (this.ValidateComision())
             {
                 this.Comision.Descripcion = descripcionTextBox.Text;
-                this.Comision.IdPlan = int.Parse(idPlanTextBox.Text);
                 this.Comision.AnioEspecialidad = int.Parse(anioEspecialidadTextBox.Text);
+
+                var selectedId = (int)this.planComboBoxInput.SelectedValue;
+
+                this.Comision.Plan = (Plan)this.planes.FirstOrDefault(p => p.Id == selectedId);
 
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
@@ -71,9 +85,12 @@ namespace WindowsForms
         private void SetComision()
         {
             this.descripcionTextBox.Text = this.Comision.Descripcion;
-            this.idPlanTextBox.Text = this.Comision.IdPlan.ToString();
             this.anioEspecialidadTextBox.Text = this.Comision.AnioEspecialidad.ToString();
 
+            if (this.comision.Plan != null)
+            {
+                this.planComboBoxInput.SelectedIndex = this.comision.Plan.Id;
+            }
         }
 
         private bool ValidateComision()
@@ -94,10 +111,10 @@ namespace WindowsForms
                 errorProvider.SetError(descripcionTextBox, "Requerido");
             }
 
-            if (this.idPlanTextBox.Text == string.Empty)
+            if (this.planComboBoxInput.SelectedItem == null)
             {
                 isValid = false;
-                errorProvider.SetError(idPlanTextBox, "Requerido");
+                errorProvider.SetError(planComboBoxInput, "Requerido");
             }
 
             return isValid;
