@@ -28,6 +28,21 @@ namespace Domain
             this.Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Curso>()
+                .HasOne(c => c.Comision)
+                .WithMany() 
+                .HasForeignKey("ComisionId") 
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Curso>()
+                .HasOne(c => c.Materia)
+                .WithMany() 
+                .HasForeignKey("MateriaId") 
+                .OnDelete(DeleteBehavior.NoAction);
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=TpDb");
     }

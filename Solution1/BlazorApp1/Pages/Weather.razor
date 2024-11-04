@@ -1,9 +1,12 @@
-﻿@page "/weather"
+﻿
+@page "/weather"
 @inject HttpClient Http
+@using System.Net.Http.Headers;
+@using Domain.Model;
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
+<h1>Especialidad</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
@@ -16,20 +19,16 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Id</th>
+                <th>Descripcion</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@forecast.Id</td>
+                    <td>@forecast.Descripcion</td>
                 </tr>
             }
         </tbody>
@@ -37,21 +36,37 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private IEnumerable<Especialidad> forecasts = [];
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        EspecialidadApiClient client = new EspecialidadApiClient();
+   
+        forecasts = await EspecialidadApiClient.GetAllAsync();
     }
 
-    public class WeatherForecast
+    public class EspecialidadApiClient
     {
-        public DateOnly Date { get; set; }
+        private static HttpClient client = new HttpClient();
+        static EspecialidadApiClient()
+        {
+            client.BaseAddress = new Uri("https://localhost:7271/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+        }
 
-        public int TemperatureC { get; set; }
+        public static async Task<IEnumerable<Especialidad>> GetAllAsync()
+        {
+            IEnumerable<Especialidad> especialidades = null;
+            HttpResponseMessage response = await client.GetAsync("especialidades");
+            if (response.IsSuccessStatusCode)
+            {
+                especialidades = await response.Content.ReadAsAsync<IEnumerable<Especialidad>>();
 
-        public string? Summary { get; set; }
+            }
+            return especialidades;
+        }
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }

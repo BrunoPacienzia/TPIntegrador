@@ -10,6 +10,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpLogging(o => { });
 
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo", policy =>
+    {
+        policy.AllowAnyOrigin()    
+              .AllowAnyMethod()    
+              .AllowAnyHeader();  
+    });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +32,10 @@ if (app.Environment.IsDevelopment())
     //Falta configurar de manera correcta        
     app.UseHttpLogging();
 }
+
+// Apply the CORS policy
+app.UseCors("PermitirTodo");
+
 
 app.UseHttpsRedirection();
    
