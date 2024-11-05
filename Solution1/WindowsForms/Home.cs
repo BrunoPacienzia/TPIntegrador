@@ -25,10 +25,14 @@ namespace WindowsForms
         {
             CursoApiClient client = new CursoApiClient();
 
-            //this.cursos.DataSource = null;
-           // this.cursosDataGridView.DataSource = await CursoApiClient.GetAllAsync();
+            this.cursosDataGrid.DataSource = null;
+            this.cursosDataGrid.DataSource = await CursoApiClient.GetAllAsync();
 
-          
+            PlanApiClient planClient = new PlanApiClient();
+
+            this.planesDataGridView.DataSource = null;
+            this.planesDataGridView.DataSource = await PlanApiClient.GetAllAsync();
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)

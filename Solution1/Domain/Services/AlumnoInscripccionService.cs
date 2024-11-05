@@ -10,13 +10,13 @@ namespace Domain.Services
 {
     public class AlumnoInscripcionService
     {
-        public void Add(AlumnoInscripcion alumnoInscripccion)
+        public void Add(AlumnoInscripcion alumnoInscripcion)
         {
             using var context = new Context();
 
-            context.Attach(alumnoInscripccion.Alumno);
-            context.Attach(alumnoInscripccion.Curso);
-            context.AlumnoInscripciones.Add(alumnoInscripccion);
+            context.Attach(alumnoInscripcion.Alumno);
+            context.Attach(alumnoInscripcion.Curso);
+            context.AlumnoInscripciones.Add(alumnoInscripcion);
             context.SaveChanges();
         }
 
@@ -24,11 +24,11 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            AlumnoInscripcion? alumnoInscripccionToDelete = context.AlumnoInscripciones.Find(id);
+            AlumnoInscripcion? alumnoInscripcionToDelete = context.AlumnoInscripciones.Find(id);
 
-            if (alumnoInscripccionToDelete != null)
+            if (alumnoInscripcionToDelete != null)
             {
-                context.AlumnoInscripciones.Remove(alumnoInscripccionToDelete);
+                context.AlumnoInscripciones.Remove(alumnoInscripcionToDelete);
                 context.SaveChanges();
             }
         }
@@ -47,18 +47,18 @@ namespace Domain.Services
             return context.AlumnoInscripciones.Include(x => x.Alumno).Include(x => x.Curso).ToList();
         }
 
-        public void Update(AlumnoInscripcion alumnoInscripccion)
+        public void Update(AlumnoInscripcion alumnoInscripcion)
         {
             using var context = new Context();
 
-            AlumnoInscripcion? alumnoInscripccionToUpdate = context.AlumnoInscripciones.Find(alumnoInscripccion.AlumnoInscripcionId);
+            AlumnoInscripcion? alumnoInscripcionToUpdate = context.AlumnoInscripciones.Find(alumnoInscripcion.AlumnoInscripcionId);
 
-            if (alumnoInscripccionToUpdate != null)
+            if (alumnoInscripcionToUpdate != null)
             {
-                alumnoInscripccionToUpdate.Condicion = alumnoInscripccion.Condicion;
-                alumnoInscripccionToUpdate.Alumno = alumnoInscripccion.Alumno;
-                alumnoInscripccionToUpdate.Curso = alumnoInscripccion.Curso;
-                alumnoInscripccionToUpdate.Nota = alumnoInscripccion.Nota;
+                alumnoInscripcionToUpdate.Condicion = alumnoInscripcion.Condicion;
+                alumnoInscripcionToUpdate.Alumno = alumnoInscripcion.Alumno;
+                alumnoInscripcionToUpdate.Curso = alumnoInscripcion.Curso;
+                alumnoInscripcionToUpdate.Nota = alumnoInscripcion.Nota;
                 context.SaveChanges();
             }
         }

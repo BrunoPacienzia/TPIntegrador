@@ -21,14 +21,14 @@ namespace WindowsForms
             LoadTiposPlanes();
         }
 
-        private AlumnoInscripcion alumnoInscripccion;
+        private AlumnoInscripcion alumnoInscripcion;
 
         public AlumnoInscripcion AlumnoInscripcion
         {
-            get { return alumnoInscripccion; }
+            get { return alumnoInscripcion; }
             set
             {
-                alumnoInscripccion = value;
+                alumnoInscripcion = value;
                 this.SetAlumnoInscripcion();
             }
         }
@@ -94,14 +94,14 @@ namespace WindowsForms
         {
             this.condicionTextBox.Text = this.AlumnoInscripcion.Condicion;
 
-            if (this.alumnoInscripccion.Alumno != null)
+            if (this.alumnoInscripcion.Alumno != null)
             {
-                this.alumnoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Alumno.PersonaId;
+                this.alumnoComboBoxInput.SelectedIndex = this.alumnoInscripcion.Alumno.PersonaId;
             }
 
-            if (this.alumnoInscripccion.Curso != null)
+            if (this.alumnoInscripcion.Curso != null)
             {
-                this.cursoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Curso.CursoId;
+                this.cursoComboBoxInput.SelectedIndex = this.alumnoInscripcion.Curso.CursoId;
             }
         }
 

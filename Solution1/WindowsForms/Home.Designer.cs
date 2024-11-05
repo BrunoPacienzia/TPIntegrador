@@ -42,13 +42,13 @@
             button3 = new Button();
             botonDocCu = new Button();
             planesDataGridView = new DataGridView();
-            dataGridView1 = new DataGridView();
+            cursosDataGrid = new DataGridView();
             cursosLabel = new Label();
             planesLabel = new Label();
             registrarNotaBoton = new Button();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)planesDataGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cursosDataGrid).BeginInit();
             SuspendLayout();
             // 
             // statusStrip
@@ -172,20 +172,20 @@
             planesDataGridView.Size = new Size(751, 270);
             planesDataGridView.TabIndex = 16;
             // 
-            // dataGridView1
+            // cursosDataGrid
             // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(195, 116);
-            dataGridView1.Margin = new Padding(2, 1, 2, 1);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(751, 270);
-            dataGridView1.TabIndex = 17;
+            cursosDataGrid.AllowUserToOrderColumns = true;
+            cursosDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cursosDataGrid.Location = new Point(195, 116);
+            cursosDataGrid.Margin = new Padding(2, 1, 2, 1);
+            cursosDataGrid.MultiSelect = false;
+            cursosDataGrid.Name = "cursosDataGrid";
+            cursosDataGrid.ReadOnly = true;
+            cursosDataGrid.RowHeadersWidth = 82;
+            cursosDataGrid.RowTemplate.Height = 41;
+            cursosDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            cursosDataGrid.Size = new Size(751, 270);
+            cursosDataGrid.TabIndex = 17;
             // 
             // cursosLabel
             // 
@@ -223,7 +223,7 @@
             Controls.Add(registrarNotaBoton);
             Controls.Add(planesLabel);
             Controls.Add(cursosLabel);
-            Controls.Add(dataGridView1);
+            Controls.Add(cursosDataGrid);
             Controls.Add(planesDataGridView);
             Controls.Add(button3);
             Controls.Add(botonDocCu);
@@ -239,11 +239,10 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "Home";
             Text = "Home";
-            Load += Home_Load;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)planesDataGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cursosDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,7 +262,7 @@
         private Button button3;
         private Button botonDocCu;
         private DataGridView planesDataGridView;
-        private DataGridView dataGridView1;
+        private DataGridView cursosDataGrid;
         private Label cursosLabel;
         private Label planesLabel;
         private Button registrarNotaBoton;

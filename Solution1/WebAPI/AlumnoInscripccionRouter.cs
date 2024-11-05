@@ -9,48 +9,67 @@ namespace WebAPI
         public static void Map(WebApplication app)
         {
 
-            app.MapGet("/alumnoInscripcciones/{id}", (int id) =>
+            app.MapGet("/alumnoInscripciones/{id}", (int id) =>
             {
-                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
+                AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
 
-                return alumnoInscripccionService.Get(id);
+                return alumnoInscripcionService.Get(id);
             })
             .WithName("GetAlumnoInscripcion")
             .WithOpenApi();
 
 
-            app.MapGet("/alumnoInscripcciones", () =>
+            app.MapGet("/alumnoInscripciones", () =>
             {
-                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
+                AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
 
-                return alumnoInscripccionService.GetAll();
+                return alumnoInscripcionService.GetAll();
             })
             .WithName("GetAllAlumnoInscripciones")
             .WithOpenApi();
 
-            app.MapPost("/alumnoInscripcciones", (AlumnoInscripcion alumnoInscripccion) =>
+            app.MapPost("/alumnoInscripciones", (AlumnoInscripcion alumnoInscripcion) =>
             {
-                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
+                AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
 
-                alumnoInscripccionService.Add(alumnoInscripccion);
+                if (alumnoInscripcion.Alumno.TipoPersona != 0 ) { throw new Exception("Tipo de ALUMNO invalido"); }
+
+                CursoService cursoService = new CursoService();
+
+                alumnoInscripcion.Curso.Cupo = alumnoInscripcion.Curso.Cupo - 1;
+
+                cursoService.Update(alumnoInscripcion.Curso);
+
+                alumnoInscripcionService.Add(alumnoInscripcion);
+
             })
             .WithName("AddAlumnoInscripcion")
             .WithOpenApi();
 
-            app.MapPut("/alumnoInscripcciones", (AlumnoInscripcion alumnoInscripccion) =>
+            app.MapPut("/alumnoInscripciones", (AlumnoInscripcion alumnoInscripcion) =>
             {
-                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
+                AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
 
-                alumnoInscripccionService.Update(alumnoInscripccion);
+                alumnoInscripcionService.Update(alumnoInscripcion);
             })
             .WithName("UpdateAlumnoInscripcion")
             .WithOpenApi();
 
-            app.MapDelete("/alumnoInscripcciones/{id}", (int id) =>
+            app.MapDelete("/alumnoInscripciones/{id}", (int id) =>
             {
-                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
+                AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
 
-                alumnoInscripccionService.Delete(id);
+                AlumnoInscripcion alumnoInscripcionABorrar = alumnoInscripcionService.Get(id);
+
+                if (alumnoInscripcionABorrar != null) {
+                    CursoService cursoService = new CursoService();
+
+                    alumnoInscripcionABorrar.Curso.Cupo = alumnoInscripcionABorrar.Curso.Cupo + 1;
+
+                    cursoService.Update(alumnoInscripcionABorrar.Curso);
+                }
+
+                alumnoInscripcionService.Delete(id);
             })
             .WithName("DeleteAlumnoInscripcion")
             .WithOpenApi();

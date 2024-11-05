@@ -32,6 +32,8 @@ namespace WebAPI
             {
                 PersonaService personaService = new PersonaService();
 
+                if (persona.TipoPersona != 0 && persona.TipoPersona != 1) { throw new Exception("Tipo de persona invalido"); }
+                
                 personaService.Add(persona);
             })
             .WithName("AddPersona")
@@ -41,6 +43,8 @@ namespace WebAPI
             {
                 PersonaService personaService = new PersonaService();
 
+                if (persona.TipoPersona != 0 && persona.TipoPersona != 1) { throw new Exception("Tipo de persona invalido"); }
+                
                 personaService.Update(persona);
             })
             .WithName("UpdatePersona")

@@ -32,6 +32,8 @@ namespace WebAPI
             {
                 DocenteCursoService doenteCursoService = new DocenteCursoService();
 
+                if (doenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
+
                 doenteCursoService.Add(doenteCurso);
             })
             .WithName("AddDocenteCurso")
@@ -40,6 +42,8 @@ namespace WebAPI
             app.MapPut("/docentesCursos", (DocenteCurso doenteCurso) =>
             {
                 DocenteCursoService doenteCursoService = new DocenteCursoService();
+
+                if (doenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
                 doenteCursoService.Update(doenteCurso);
             })

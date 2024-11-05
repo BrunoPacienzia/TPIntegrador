@@ -11,8 +11,22 @@ using System.Windows.Forms;
 
 namespace WindowsForms
 {
+
+
     public partial class PersonasDetalle : Form
     {
+        public class TipoPersona
+        {
+            public int Codigo { get; set; }
+            public string Desc { get; set; }
+
+            public TipoPersona(int codigo, string desc)
+            {
+                Codigo = codigo;
+                Desc = desc;
+            }
+        }
+
         IEnumerable<Plan> planes = [];
 
         public PersonasDetalle()
@@ -46,6 +60,16 @@ namespace WindowsForms
 
             this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            TipoPersona alumno = new TipoPersona(0, "Alumno");
+            TipoPersona docente = new TipoPersona(1, "Docente");
+
+            IEnumerable<TipoPersona> tipoPersona = new List<TipoPersona> { alumno, docente };
+
+            this.tipoPersonaComboBox.DataSource = tipoPersona;
+            this.tipoPersonaComboBox.DisplayMember = "Desc";
+            this.tipoPersonaComboBox.ValueMember = "Codigo";
+
+            this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private async void aceptarButton_Click(object sender, EventArgs e)
@@ -57,7 +81,7 @@ namespace WindowsForms
                 this.Persona.Nombre = nombreTextBox.Text;
                 this.Persona.Apellido = apellidoTextBox.Text;
                 this.Persona.Email = emailTextBox.Text;
-                this.Persona.TipoPersona = Int32.Parse(tipoPersonaTextBox.Text);
+                this.Persona.TipoPersona = (int)tipoPersonaComboBox.SelectedValue;
                 this.Persona.Telefono = telefonoTextBox.Text;
                 this.Persona.Direccion = direccionTextBox.Text;
                 this.Persona.Legajo = Int32.Parse(legajoTextBox.Text);
@@ -90,7 +114,12 @@ namespace WindowsForms
             this.nombreTextBox.Text = this.Persona.Nombre;
             this.apellidoTextBox.Text = this.Persona.Apellido;
             this.emailTextBox.Text = this.Persona.Email;
-            this.tipoPersonaTextBox.Text = this.Persona.TipoPersona.ToString();
+
+            if (this.tipoPersonaComboBox.Items.Count > 0 && this.Persona.TipoPersona != 0)
+            {
+                this.tipoPersonaComboBox.SelectedValue = this.Persona.TipoPersona;
+            }
+
             this.telefonoTextBox.Text = this.Persona.Telefono;
             this.direccionTextBox.Text = this.Persona.Direccion ;
             this.legajoTextBox.Text = this.Persona.Legajo.ToString();
@@ -158,12 +187,7 @@ namespace WindowsForms
                 errorProvider.SetError(telefonoTextBox, "Requerido");
             }
 
-            if (this.tipoPersonaTextBox.Text == string.Empty)
-            {
-                isValid = false;
-                errorProvider.SetError(tipoPersonaTextBox, "Requerido");
-
-            }
+    
 
             return isValid;
         }

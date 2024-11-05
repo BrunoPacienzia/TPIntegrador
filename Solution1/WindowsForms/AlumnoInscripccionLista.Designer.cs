@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            alumnoInscripccionesDataGridView = new DataGridView();
+            alumnoInscripcionesDataGridView = new DataGridView();
             agregarButton = new Button();
             eliminarButton = new Button();
             modificarButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)alumnoInscripccionesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)alumnoInscripcionesDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // alumnoInscripccionesDataGridView
+            // alumnoInscripcionesDataGridView
             // 
-            alumnoInscripccionesDataGridView.AllowUserToOrderColumns = true;
-            alumnoInscripccionesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            alumnoInscripccionesDataGridView.Location = new Point(21, 18);
-            alumnoInscripccionesDataGridView.Margin = new Padding(2, 1, 2, 1);
-            alumnoInscripccionesDataGridView.MultiSelect = false;
-            alumnoInscripccionesDataGridView.Name = "alumnoInscripccionesDataGridView";
-            alumnoInscripccionesDataGridView.ReadOnly = true;
-            alumnoInscripccionesDataGridView.RowHeadersWidth = 82;
-            alumnoInscripccionesDataGridView.RowTemplate.Height = 41;
-            alumnoInscripccionesDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            alumnoInscripccionesDataGridView.Size = new Size(751, 270);
-            alumnoInscripccionesDataGridView.TabIndex = 0;
+            alumnoInscripcionesDataGridView.AllowUserToOrderColumns = true;
+            alumnoInscripcionesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            alumnoInscripcionesDataGridView.Location = new Point(21, 18);
+            alumnoInscripcionesDataGridView.Margin = new Padding(2, 1, 2, 1);
+            alumnoInscripcionesDataGridView.MultiSelect = false;
+            alumnoInscripcionesDataGridView.Name = "alumnoInscripcionesDataGridView";
+            alumnoInscripcionesDataGridView.ReadOnly = true;
+            alumnoInscripcionesDataGridView.RowHeadersWidth = 82;
+            alumnoInscripcionesDataGridView.RowTemplate.Height = 41;
+            alumnoInscripcionesDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            alumnoInscripcionesDataGridView.Size = new Size(751, 270);
+            alumnoInscripcionesDataGridView.TabIndex = 0;
             // 
             // agregarButton
             // 
@@ -91,18 +91,18 @@
             Controls.Add(modificarButton);
             Controls.Add(eliminarButton);
             Controls.Add(agregarButton);
-            Controls.Add(alumnoInscripccionesDataGridView);
+            Controls.Add(alumnoInscripcionesDataGridView);
             Margin = new Padding(2, 1, 2, 1);
             Name = "AlumnoInscripcionesLista";
             Text = "AlumnoInscripciones";
             Load += AlumnoInscripciones_Load;
-            ((System.ComponentModel.ISupportInitialize)alumnoInscripccionesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)alumnoInscripcionesDataGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView alumnoInscripccionesDataGridView;
+        private DataGridView alumnoInscripcionesDataGridView;
         private Button agregarButton;
         private Button eliminarButton;
         private Button modificarButton;

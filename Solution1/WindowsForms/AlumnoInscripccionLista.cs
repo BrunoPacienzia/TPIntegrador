@@ -25,31 +25,31 @@ namespace WindowsForms
 
         private void agregarButton_Click(object sender, EventArgs e)
         {
-            AlumnoInscripcionesDetalle alumnoInscripccionDetalle = new AlumnoInscripcionesDetalle();
+            AlumnoInscripcionesDetalle alumnoInscripcionDetalle = new AlumnoInscripcionesDetalle();
 
-            AlumnoInscripcion alumnoInscripccionNuevo = new AlumnoInscripcion();
+            AlumnoInscripcion alumnoInscripcionNuevo = new AlumnoInscripcion();
 
-            alumnoInscripccionDetalle.AlumnoInscripcion = alumnoInscripccionNuevo;
+            alumnoInscripcionDetalle.AlumnoInscripcion = alumnoInscripcionNuevo;
 
-            alumnoInscripccionDetalle.ShowDialog();
+            alumnoInscripcionDetalle.ShowDialog();
 
             this.GetAllAndLoad();
         }
 
         private async void modificarButton_Click(object sender, EventArgs e)
         {
-            AlumnoInscripcionesDetalle alumnoInscripccionDetalle = new AlumnoInscripcionesDetalle();
+            AlumnoInscripcionesDetalle alumnoInscripcionDetalle = new AlumnoInscripcionesDetalle();
 
             int id;
 
             id = this.SelectedItem().AlumnoInscripcionId;
 
-            AlumnoInscripcion alumnoInscripccion = await AlumnoInscripcionApiClient.GetAsync(id);
+            AlumnoInscripcion alumnoInscripcion = await AlumnoInscripcionApiClient.GetAsync(id);
 
-            alumnoInscripccionDetalle.EditMode = true;
-            alumnoInscripccionDetalle.AlumnoInscripcion = alumnoInscripccion;
+            alumnoInscripcionDetalle.EditMode = true;
+            alumnoInscripcionDetalle.AlumnoInscripcion = alumnoInscripcion;
 
-            alumnoInscripccionDetalle.ShowDialog();
+            alumnoInscripcionDetalle.ShowDialog();
 
             this.GetAllAndLoad();
         }
@@ -68,12 +68,12 @@ namespace WindowsForms
         {
             AlumnoInscripcionApiClient client = new AlumnoInscripcionApiClient();
 
-            this.alumnoInscripccionesDataGridView.DataSource = null;
-            this.alumnoInscripccionesDataGridView.DataSource = await AlumnoInscripcionApiClient.GetAllAsync();
+            this.alumnoInscripcionesDataGridView.DataSource = null;
+            this.alumnoInscripcionesDataGridView.DataSource = await AlumnoInscripcionApiClient.GetAllAsync();
 
-            if (this.alumnoInscripccionesDataGridView.Rows.Count > 0)
+            if (this.alumnoInscripcionesDataGridView.Rows.Count > 0)
             {
-                this.alumnoInscripccionesDataGridView.Rows[0].Selected = true;
+                this.alumnoInscripcionesDataGridView.Rows[0].Selected = true;
                 this.eliminarButton.Enabled = true;
                 this.modificarButton.Enabled = true;
             }
@@ -86,11 +86,11 @@ namespace WindowsForms
 
         private AlumnoInscripcion SelectedItem()
         {
-            AlumnoInscripcion alumnoInscripccion;
+            AlumnoInscripcion alumnoInscripcion;
 
-            alumnoInscripccion = (AlumnoInscripcion)alumnoInscripccionesDataGridView.SelectedRows[0].DataBoundItem;
+            alumnoInscripcion = (AlumnoInscripcion)alumnoInscripcionesDataGridView.SelectedRows[0].DataBoundItem;
 
-            return alumnoInscripccion;
+            return alumnoInscripcion;
         }
 
       

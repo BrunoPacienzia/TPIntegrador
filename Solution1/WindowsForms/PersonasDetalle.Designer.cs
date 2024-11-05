@@ -48,9 +48,9 @@
             telefonoTextBox = new TextBox();
             label4 = new Label();
             planComboBoxInput = new ComboBox();
-            tipoPersonaTextBox = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
             planBindingSource = new BindingSource(components);
+            dateTimePicker1 = new DateTimePicker();
+            tipoPersonaComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             ((System.ComponentModel.ISupportInitialize)planBindingSource).BeginInit();
             SuspendLayout();
@@ -229,14 +229,9 @@
             planComboBoxInput.Size = new Size(121, 23);
             planComboBoxInput.TabIndex = 14;
             // 
-            // tipoPersonaTextBox
+            // planBindingSource
             // 
-            tipoPersonaTextBox.Location = new Point(131, 366);
-            tipoPersonaTextBox.Margin = new Padding(2, 1, 2, 1);
-            tipoPersonaTextBox.Name = "tipoPersonaTextBox";
-            tipoPersonaTextBox.Size = new Size(110, 23);
-            tipoPersonaTextBox.TabIndex = 25;
-            tipoPersonaTextBox.KeyPress += tipoPersonaTextBox_KeyPress;
+            planBindingSource.DataSource = typeof(Domain.Model.Plan);
             // 
             // dateTimePicker1
             // 
@@ -246,18 +241,22 @@
             dateTimePicker1.TabIndex = 27;
             dateTimePicker1.Value = new DateTime(2023, 9, 16, 14, 30, 0, 0);
             // 
-            // planBindingSource
+            // tipoPersonaComboBox
             // 
-            planBindingSource.DataSource = typeof(Domain.Model.Plan);
+            tipoPersonaComboBox.FormattingEnabled = true;
+            tipoPersonaComboBox.Location = new Point(131, 366);
+            tipoPersonaComboBox.Name = "tipoPersonaComboBox";
+            tipoPersonaComboBox.Size = new Size(121, 23);
+            tipoPersonaComboBox.TabIndex = 28;
             // 
             // PersonasDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(805, 419);
+            Controls.Add(tipoPersonaComboBox);
             Controls.Add(dateTimePicker1);
             Controls.Add(label4);
-            Controls.Add(tipoPersonaTextBox);
             Controls.Add(label3);
             Controls.Add(telefonoTextBox);
             Controls.Add(PlanLabel);
@@ -305,9 +304,9 @@
         private Label label3;
         private TextBox telefonoTextBox;
         private Label label4;
-        private TextBox tipoPersonaTextBox;
         private DateTimePicker dateTimePicker1;
         private ComboBox planComboBoxInput;
         private BindingSource planBindingSource;
+        private ComboBox tipoPersonaComboBox;
     }
 }

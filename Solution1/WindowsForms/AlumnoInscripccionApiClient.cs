@@ -22,43 +22,43 @@ namespace WindowsForms
 
         public static async Task<AlumnoInscripcion> GetAsync(int id)
         {
-            AlumnoInscripcion alumnoInscripccion = null;
-            HttpResponseMessage response = await client.GetAsync("alumnoInscripcciones/" + id);
+            AlumnoInscripcion alumnoInscripcion = null;
+            HttpResponseMessage response = await client.GetAsync("alumnoInscripciones/" + id);
             if (response.IsSuccessStatusCode)
             {
-                alumnoInscripccion = await response.Content.ReadAsAsync<AlumnoInscripcion>();
+                alumnoInscripcion = await response.Content.ReadAsAsync<AlumnoInscripcion>();
             }
-            return alumnoInscripccion;
+            return alumnoInscripcion;
         }
 
         public static async Task<IEnumerable<AlumnoInscripcion>> GetAllAsync()
         {
-            IEnumerable<AlumnoInscripcion> alumnoInscripcciones = null;
-            HttpResponseMessage response = await client.GetAsync("alumnoInscripcciones");
+            IEnumerable<AlumnoInscripcion> alumnoInscripciones = null;
+            HttpResponseMessage response = await client.GetAsync("alumnoInscripciones");
             if (response.IsSuccessStatusCode)
             {
-                alumnoInscripcciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcion>>();
+                alumnoInscripciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcion>>();
 
             }
-            return alumnoInscripcciones;
+            return alumnoInscripciones;
         }
 
 
-        public async static Task AddAsync(AlumnoInscripcion alumnoInscripccion)
+        public async static Task AddAsync(AlumnoInscripcion alumnoInscripcion)
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync("alumnoInscripcciones", alumnoInscripccion);
+            HttpResponseMessage response = await client.PostAsJsonAsync("alumnoInscripciones", alumnoInscripcion);
             response.EnsureSuccessStatusCode();
         }
 
         public static async Task DeleteAsync(int id)
         {
-            HttpResponseMessage response = await client.DeleteAsync("alumnoInscripcciones/" + id);
+            HttpResponseMessage response = await client.DeleteAsync("alumnoInscripciones/" + id);
             response.EnsureSuccessStatusCode();
         }
 
-        public static async Task UpdateAsync(AlumnoInscripcion alumnoInscripccion)
+        public static async Task UpdateAsync(AlumnoInscripcion alumnoInscripcion)
         {
-            HttpResponseMessage response = await client.PutAsJsonAsync("alumnoInscripcciones", alumnoInscripccion);
+            HttpResponseMessage response = await client.PutAsJsonAsync("alumnoInscripciones", alumnoInscripcion);
             response.EnsureSuccessStatusCode();
         }
     }

@@ -18,14 +18,14 @@ namespace WindowsForms
             InitializeComponent();
         }
 
-        private AlumnoInscripcion alumnoInscripccion;
+        private AlumnoInscripcion alumnoInscripcion;
 
         public AlumnoInscripcion AlumnoInscripcion
         {
-            get { return alumnoInscripccion; }
+            get { return alumnoInscripcion; }
             set
             {
-                alumnoInscripccion = value;
+                alumnoInscripcion = value;
                 this.SetAlumnoInscripcion();
             }
         }

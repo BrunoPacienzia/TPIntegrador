@@ -30,6 +30,8 @@ namespace Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Evita conflictos de borrado ya que ambas entidades contienen una referencia a plan
+
             modelBuilder.Entity<Curso>()
                 .HasOne(c => c.Comision)
                 .WithMany() 
@@ -41,6 +43,15 @@ namespace Domain
                 .WithMany() 
                 .HasForeignKey("MateriaId") 
                 .OnDelete(DeleteBehavior.NoAction);
+
+
+            modelBuilder.Entity<Persona>()
+                .HasAlternateKey(c => c.Legajo)
+                .HasName("Persona_AlternateKey_Legajo");
+
+            modelBuilder.Entity<Plan>()
+                .HasAlternateKey(c => c.Descripcion)
+                .HasName("Plan_AlternateKey_Descripcion");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>

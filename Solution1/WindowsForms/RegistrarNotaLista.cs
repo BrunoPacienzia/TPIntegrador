@@ -31,10 +31,10 @@ namespace WindowsForms
 
             id = this.SelectedItem().AlumnoInscripcionId;
 
-            AlumnoInscripcion alumnoInscripccion = await AlumnoInscripcionApiClient.GetAsync(id);
+            AlumnoInscripcion alumnoInscripcion = await AlumnoInscripcionApiClient.GetAsync(id);
 
             registrarNotaDetalle.EditMode = true;
-            registrarNotaDetalle.AlumnoInscripcion = alumnoInscripccion;
+            registrarNotaDetalle.AlumnoInscripcion = alumnoInscripcion;
 
             registrarNotaDetalle.ShowDialog();
 
@@ -46,14 +46,14 @@ namespace WindowsForms
         {
             AlumnoInscripcionApiClient client = new AlumnoInscripcionApiClient();
 
-            this.alumnoInscripccionesDataGridView.DataSource = null;
+            this.alumnoInscripcionesDataGridView.DataSource = null;
             IEnumerable<AlumnoInscripcion> alumnosEncontrados = await AlumnoInscripcionApiClient.GetAllAsync();
 
-            this.alumnoInscripccionesDataGridView.DataSource = alumnosEncontrados.Where(a =>  a.Nota == 0).ToList();
+            this.alumnoInscripcionesDataGridView.DataSource = alumnosEncontrados.Where(a =>  a.Nota == 0).ToList();
 
-            if (this.alumnoInscripccionesDataGridView.Rows.Count > 0)
+            if (this.alumnoInscripcionesDataGridView.Rows.Count > 0)
             {
-                this.alumnoInscripccionesDataGridView.Rows[0].Selected = true;
+                this.alumnoInscripcionesDataGridView.Rows[0].Selected = true;
                 this.modificarButton.Enabled = true;
             }
             else
@@ -64,11 +64,11 @@ namespace WindowsForms
 
         private AlumnoInscripcion SelectedItem()
         {
-            AlumnoInscripcion alumnoInscripccion;
+            AlumnoInscripcion alumnoInscripcion;
 
-            alumnoInscripccion = (AlumnoInscripcion)alumnoInscripccionesDataGridView.SelectedRows[0].DataBoundItem;
+            alumnoInscripcion = (AlumnoInscripcion)alumnoInscripcionesDataGridView.SelectedRows[0].DataBoundItem;
 
-            return alumnoInscripccion;
+            return alumnoInscripcion;
         }
 
     }
