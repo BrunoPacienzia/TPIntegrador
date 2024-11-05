@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    public class AlumnoInscripccionService
+    public class AlumnoInscripcionService
     {
-        public void Add(AlumnoInscripccion alumnoInscripccion)
+        public void Add(AlumnoInscripcion alumnoInscripccion)
         {
             using var context = new Context();
 
             context.Attach(alumnoInscripccion.Alumno);
             context.Attach(alumnoInscripccion.Curso);
-            context.AlumnoInscripcciones.Add(alumnoInscripccion);
+            context.AlumnoInscripciones.Add(alumnoInscripccion);
             context.SaveChanges();
         }
 
@@ -24,34 +24,34 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            AlumnoInscripccion? alumnoInscripccionToDelete = context.AlumnoInscripcciones.Find(id);
+            AlumnoInscripcion? alumnoInscripccionToDelete = context.AlumnoInscripciones.Find(id);
 
             if (alumnoInscripccionToDelete != null)
             {
-                context.AlumnoInscripcciones.Remove(alumnoInscripccionToDelete);
+                context.AlumnoInscripciones.Remove(alumnoInscripccionToDelete);
                 context.SaveChanges();
             }
         }
 
-        public AlumnoInscripccion? Get(int id)
+        public AlumnoInscripcion? Get(int id)
         {
             using var context = new Context();
 
-            return context.AlumnoInscripcciones.Find(id);
+            return context.AlumnoInscripciones.Find(id);
         }
 
-        public IEnumerable<AlumnoInscripccion> GetAll()
+        public IEnumerable<AlumnoInscripcion> GetAll()
         {
             using var context = new Context();
 
-            return context.AlumnoInscripcciones.Include(x => x.Alumno).Include(x => x.Curso).ToList();
+            return context.AlumnoInscripciones.Include(x => x.Alumno).Include(x => x.Curso).ToList();
         }
 
-        public void Update(AlumnoInscripccion alumnoInscripccion)
+        public void Update(AlumnoInscripcion alumnoInscripccion)
         {
             using var context = new Context();
 
-            AlumnoInscripccion? alumnoInscripccionToUpdate = context.AlumnoInscripcciones.Find(alumnoInscripccion.AlumnoInscripccionId);
+            AlumnoInscripcion? alumnoInscripccionToUpdate = context.AlumnoInscripciones.Find(alumnoInscripccion.AlumnoInscripcionId);
 
             if (alumnoInscripccionToUpdate != null)
             {

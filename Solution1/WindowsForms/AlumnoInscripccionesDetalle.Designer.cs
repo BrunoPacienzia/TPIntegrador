@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class AlumnoInscripccionesDetalle
+    partial class AlumnoInscripcionesDetalle
     {
         /// <summary>
         /// Required designer variable.
@@ -138,7 +138,7 @@
             cursoComboBoxInput.Size = new Size(121, 23);
             cursoComboBoxInput.TabIndex = 24;
             // 
-            // AlumnoInscripccionesDetalle
+            // AlumnoInscripcionesDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,8 +154,8 @@
             Controls.Add(aceptarButton);
             Controls.Add(condicionTextBox);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "AlumnoInscripccionesDetalle";
-            Text = "AlumnoInscripccion";
+            Name = "AlumnoInscripcionesDetalle";
+            Text = "AlumnoInscripcion";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();

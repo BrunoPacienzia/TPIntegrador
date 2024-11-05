@@ -18,7 +18,7 @@ namespace WindowsForms
             InitializeComponent();
         }
 
-        private void AlumnoInscripcciones_Load(object sender, EventArgs e)
+        private void AlumnoInscripciones_Load(object sender, EventArgs e)
         {
             this.GetAllAndLoad();
         }
@@ -29,12 +29,12 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().AlumnoInscripccionId;
+            id = this.SelectedItem().AlumnoInscripcionId;
 
-            AlumnoInscripccion alumnoInscripccion = await AlumnoInscripccionApiClient.GetAsync(id);
+            AlumnoInscripcion alumnoInscripccion = await AlumnoInscripcionApiClient.GetAsync(id);
 
             registrarNotaDetalle.EditMode = true;
-            registrarNotaDetalle.AlumnoInscripccion = alumnoInscripccion;
+            registrarNotaDetalle.AlumnoInscripcion = alumnoInscripccion;
 
             registrarNotaDetalle.ShowDialog();
 
@@ -44,10 +44,10 @@ namespace WindowsForms
 
         private async void GetAllAndLoad()
         {
-            AlumnoInscripccionApiClient client = new AlumnoInscripccionApiClient();
+            AlumnoInscripcionApiClient client = new AlumnoInscripcionApiClient();
 
             this.alumnoInscripccionesDataGridView.DataSource = null;
-            IEnumerable<AlumnoInscripccion> alumnosEncontrados = await AlumnoInscripccionApiClient.GetAllAsync();
+            IEnumerable<AlumnoInscripcion> alumnosEncontrados = await AlumnoInscripcionApiClient.GetAllAsync();
 
             this.alumnoInscripccionesDataGridView.DataSource = alumnosEncontrados.Where(a =>  a.Nota == 0).ToList();
 
@@ -62,11 +62,11 @@ namespace WindowsForms
             }
         }
 
-        private AlumnoInscripccion SelectedItem()
+        private AlumnoInscripcion SelectedItem()
         {
-            AlumnoInscripccion alumnoInscripccion;
+            AlumnoInscripcion alumnoInscripccion;
 
-            alumnoInscripccion = (AlumnoInscripccion)alumnoInscripccionesDataGridView.SelectedRows[0].DataBoundItem;
+            alumnoInscripccion = (AlumnoInscripcion)alumnoInscripccionesDataGridView.SelectedRows[0].DataBoundItem;
 
             return alumnoInscripccion;
         }

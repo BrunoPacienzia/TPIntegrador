@@ -18,15 +18,15 @@ namespace WindowsForms
             InitializeComponent();
         }
 
-        private AlumnoInscripccion alumnoInscripccion;
+        private AlumnoInscripcion alumnoInscripccion;
 
-        public AlumnoInscripccion AlumnoInscripccion
+        public AlumnoInscripcion AlumnoInscripcion
         {
             get { return alumnoInscripccion; }
             set
             {
                 alumnoInscripccion = value;
-                this.SetAlumnoInscripccion();
+                this.SetAlumnoInscripcion();
             }
         }
 
@@ -35,21 +35,21 @@ namespace WindowsForms
 
         private async void aceptarButton_Click(object sender, EventArgs e)
         {
-            AlumnoInscripccionApiClient client = new AlumnoInscripccionApiClient();
+            AlumnoInscripcionApiClient client = new AlumnoInscripcionApiClient();
 
-            if (this.ValidateAlumnoInscripccion())
+            if (this.ValidateAlumnoInscripcion())
             {
                
-                this.AlumnoInscripccion.Nota = Int32.Parse(this.notaTextBox.Text);
+                this.AlumnoInscripcion.Nota = Int32.Parse(this.notaTextBox.Text);
 
 
                 if (this.EditMode)
                 {
-                    await AlumnoInscripccionApiClient.UpdateAsync(this.AlumnoInscripccion);
+                    await AlumnoInscripcionApiClient.UpdateAsync(this.AlumnoInscripcion);
                 }
                 else
                 {
-                    await AlumnoInscripccionApiClient.AddAsync(this.AlumnoInscripccion);
+                    await AlumnoInscripcionApiClient.AddAsync(this.AlumnoInscripcion);
                 }
 
                 this.Close();
@@ -61,13 +61,13 @@ namespace WindowsForms
             this.Close();
         }
 
-        private void SetAlumnoInscripccion()
+        private void SetAlumnoInscripcion()
         {
             this.notaTextBox.Text = "";
 
         }
 
-        private bool ValidateAlumnoInscripccion()
+        private bool ValidateAlumnoInscripcion()
         {
             bool isValid = true;
 

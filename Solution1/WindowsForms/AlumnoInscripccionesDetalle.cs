@@ -11,25 +11,25 @@ using System.Windows.Forms;
 
 namespace WindowsForms
 {
-    public partial class AlumnoInscripccionesDetalle : Form
+    public partial class AlumnoInscripcionesDetalle : Form
     {
         IEnumerable<Persona> alumnos = [];
         IEnumerable<Curso> cursos = [];
-        public AlumnoInscripccionesDetalle()
+        public AlumnoInscripcionesDetalle()
         {
             InitializeComponent();
             LoadTiposPlanes();
         }
 
-        private AlumnoInscripccion alumnoInscripccion;
+        private AlumnoInscripcion alumnoInscripccion;
 
-        public AlumnoInscripccion AlumnoInscripccion
+        public AlumnoInscripcion AlumnoInscripcion
         {
             get { return alumnoInscripccion; }
             set
             {
                 alumnoInscripccion = value;
-                this.SetAlumnoInscripccion();
+                this.SetAlumnoInscripcion();
             }
         }
 
@@ -56,29 +56,29 @@ namespace WindowsForms
 
         private async void aceptarButton_Click(object sender, EventArgs e)
         {
-            AlumnoInscripccionApiClient client = new AlumnoInscripccionApiClient();
+            AlumnoInscripcionApiClient client = new AlumnoInscripcionApiClient();
 
-            if (this.ValidateAlumnoInscripccion())
+            if (this.ValidateAlumnoInscripcion())
             {
-                this.AlumnoInscripccion.Condicion = condicionTextBox.Text;
-                this.AlumnoInscripccion.Nota = 0;
+                this.AlumnoInscripcion.Condicion = condicionTextBox.Text;
+                this.AlumnoInscripcion.Nota = 0;
 
                 var selectedAlumnoId = (int)this.alumnoComboBoxInput.SelectedValue;
 
-                this.AlumnoInscripccion.Alumno = (Persona)this.alumnos.FirstOrDefault(p => p.PersonaId == selectedAlumnoId);
+                this.AlumnoInscripcion.Alumno = (Persona)this.alumnos.FirstOrDefault(p => p.PersonaId == selectedAlumnoId);
 
                 var selectedCursoId = (int)this.cursoComboBoxInput.SelectedValue;
 
-                this.AlumnoInscripccion.Curso = (Curso)this.cursos.FirstOrDefault(p => p.CursoId == selectedCursoId);
+                this.AlumnoInscripcion.Curso = (Curso)this.cursos.FirstOrDefault(p => p.CursoId == selectedCursoId);
 
 
                 if (this.EditMode)
                 {
-                    await AlumnoInscripccionApiClient.UpdateAsync(this.AlumnoInscripccion);
+                    await AlumnoInscripcionApiClient.UpdateAsync(this.AlumnoInscripcion);
                 }
                 else
                 {
-                    await AlumnoInscripccionApiClient.AddAsync(this.AlumnoInscripccion);
+                    await AlumnoInscripcionApiClient.AddAsync(this.AlumnoInscripcion);
                 }
 
                 this.Close();
@@ -90,9 +90,9 @@ namespace WindowsForms
             this.Close();
         }
 
-        private void SetAlumnoInscripccion()
+        private void SetAlumnoInscripcion()
         {
-            this.condicionTextBox.Text = this.AlumnoInscripccion.Condicion;
+            this.condicionTextBox.Text = this.AlumnoInscripcion.Condicion;
 
             if (this.alumnoInscripccion.Alumno != null)
             {
@@ -105,7 +105,7 @@ namespace WindowsForms
             }
         }
 
-        private bool ValidateAlumnoInscripccion()
+        private bool ValidateAlumnoInscripcion()
         {
             bool isValid = true;
 

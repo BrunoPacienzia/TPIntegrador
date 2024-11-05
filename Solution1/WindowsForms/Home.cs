@@ -98,7 +98,7 @@ namespace WindowsForms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AlumnoInscripccionLista childForm = new AlumnoInscripccionLista();
+            AlumnoInscripcionLista childForm = new AlumnoInscripcionLista();
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
         }

@@ -53,7 +53,7 @@ UsuarioRouter.Map(app);
 
 CursoRouter.Map(app);
 
-AlumnoInscripccionRouter.Map(app);
+AlumnoInscripcionRouter.Map(app);
 
 DocenteCursoRouter.Map(app);
 

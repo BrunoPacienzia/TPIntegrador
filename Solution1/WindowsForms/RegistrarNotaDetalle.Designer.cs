@@ -111,7 +111,7 @@
             Controls.Add(notaTextBox);
             Margin = new Padding(2, 1, 2, 1);
             Name = "RegistrarNotaDetalle";
-            Text = "AlumnoInscripccion";
+            Text = "AlumnoInscripcion";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -68,8 +68,8 @@
             Controls.Add(alumnoInscripccionesDataGridView);
             Margin = new Padding(2, 1, 2, 1);
             Name = "RegistrarNotaLista";
-            Text = "AlumnoInscripcciones";
-            Load += AlumnoInscripcciones_Load;
+            Text = "AlumnoInscripciones";
+            Load += AlumnoInscripciones_Load;
             ((System.ComponentModel.ISupportInitialize)alumnoInscripccionesDataGridView).EndInit();
             ResumeLayout(false);
         }

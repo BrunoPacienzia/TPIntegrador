@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Model
 {
-    public class AlumnoInscripccion
+    public class AlumnoInscripcion
     {
-        public int AlumnoInscripccionId { get; set; }
+        public int AlumnoInscripcionId { get; set; }
         public string Condicion { get; set; }
         public Persona Alumno { get; set; }
         public Curso Curso { get; set; }

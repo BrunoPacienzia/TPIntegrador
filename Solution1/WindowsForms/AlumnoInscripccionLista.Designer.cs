@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class AlumnoInscripccionLista
+    partial class AlumnoInscripcionLista
     {
         /// <summary>
         /// Required designer variable.
@@ -83,7 +83,7 @@
             modificarButton.UseVisualStyleBackColor = true;
             modificarButton.Click += modificarButton_Click;
             // 
-            // AlumnoInscripccionesLista
+            // AlumnoInscripcionesLista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -93,9 +93,9 @@
             Controls.Add(agregarButton);
             Controls.Add(alumnoInscripccionesDataGridView);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "AlumnoInscripccionesLista";
-            Text = "AlumnoInscripcciones";
-            Load += AlumnoInscripcciones_Load;
+            Name = "AlumnoInscripcionesLista";
+            Text = "AlumnoInscripciones";
+            Load += AlumnoInscripciones_Load;
             ((System.ComponentModel.ISupportInitialize)alumnoInscripccionesDataGridView).EndInit();
             ResumeLayout(false);
         }

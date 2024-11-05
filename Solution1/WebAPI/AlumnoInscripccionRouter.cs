@@ -3,7 +3,7 @@ using Domain.Services;
 
 namespace WebAPI
 {
-    public class AlumnoInscripccionRouter
+    public class AlumnoInscripcionRouter
     {
 
         public static void Map(WebApplication app)
@@ -11,48 +11,48 @@ namespace WebAPI
 
             app.MapGet("/alumnoInscripcciones/{id}", (int id) =>
             {
-                AlumnoInscripccionService alumnoInscripccionService = new AlumnoInscripccionService();
+                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
 
                 return alumnoInscripccionService.Get(id);
             })
-            .WithName("GetAlumnoInscripccion")
+            .WithName("GetAlumnoInscripcion")
             .WithOpenApi();
 
 
             app.MapGet("/alumnoInscripcciones", () =>
             {
-                AlumnoInscripccionService alumnoInscripccionService = new AlumnoInscripccionService();
+                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
 
                 return alumnoInscripccionService.GetAll();
             })
-            .WithName("GetAllAlumnoInscripcciones")
+            .WithName("GetAllAlumnoInscripciones")
             .WithOpenApi();
 
-            app.MapPost("/alumnoInscripcciones", (AlumnoInscripccion alumnoInscripccion) =>
+            app.MapPost("/alumnoInscripcciones", (AlumnoInscripcion alumnoInscripccion) =>
             {
-                AlumnoInscripccionService alumnoInscripccionService = new AlumnoInscripccionService();
+                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
 
                 alumnoInscripccionService.Add(alumnoInscripccion);
             })
-            .WithName("AddAlumnoInscripccion")
+            .WithName("AddAlumnoInscripcion")
             .WithOpenApi();
 
-            app.MapPut("/alumnoInscripcciones", (AlumnoInscripccion alumnoInscripccion) =>
+            app.MapPut("/alumnoInscripcciones", (AlumnoInscripcion alumnoInscripccion) =>
             {
-                AlumnoInscripccionService alumnoInscripccionService = new AlumnoInscripccionService();
+                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
 
                 alumnoInscripccionService.Update(alumnoInscripccion);
             })
-            .WithName("UpdateAlumnoInscripccion")
+            .WithName("UpdateAlumnoInscripcion")
             .WithOpenApi();
 
             app.MapDelete("/alumnoInscripcciones/{id}", (int id) =>
             {
-                AlumnoInscripccionService alumnoInscripccionService = new AlumnoInscripccionService();
+                AlumnoInscripcionService alumnoInscripccionService = new AlumnoInscripcionService();
 
                 alumnoInscripccionService.Delete(id);
             })
-            .WithName("DeleteAlumnoInscripccion")
+            .WithName("DeleteAlumnoInscripcion")
             .WithOpenApi();
 
         }

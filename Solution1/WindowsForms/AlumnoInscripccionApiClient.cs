@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace WindowsForms
 {
-    public class AlumnoInscripccionApiClient
+    public class AlumnoInscripcionApiClient
     {
         private static HttpClient client = new HttpClient();
-        static AlumnoInscripccionApiClient()
+        static AlumnoInscripcionApiClient()
         {
             client.BaseAddress = new Uri("https://localhost:7271/");
             client.DefaultRequestHeaders.Accept.Clear();
@@ -20,31 +20,31 @@ namespace WindowsForms
         }
 
 
-        public static async Task<AlumnoInscripccion> GetAsync(int id)
+        public static async Task<AlumnoInscripcion> GetAsync(int id)
         {
-            AlumnoInscripccion alumnoInscripccion = null;
+            AlumnoInscripcion alumnoInscripccion = null;
             HttpResponseMessage response = await client.GetAsync("alumnoInscripcciones/" + id);
             if (response.IsSuccessStatusCode)
             {
-                alumnoInscripccion = await response.Content.ReadAsAsync<AlumnoInscripccion>();
+                alumnoInscripccion = await response.Content.ReadAsAsync<AlumnoInscripcion>();
             }
             return alumnoInscripccion;
         }
 
-        public static async Task<IEnumerable<AlumnoInscripccion>> GetAllAsync()
+        public static async Task<IEnumerable<AlumnoInscripcion>> GetAllAsync()
         {
-            IEnumerable<AlumnoInscripccion> alumnoInscripcciones = null;
+            IEnumerable<AlumnoInscripcion> alumnoInscripcciones = null;
             HttpResponseMessage response = await client.GetAsync("alumnoInscripcciones");
             if (response.IsSuccessStatusCode)
             {
-                alumnoInscripcciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripccion>>();
+                alumnoInscripcciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcion>>();
 
             }
             return alumnoInscripcciones;
         }
 
 
-        public async static Task AddAsync(AlumnoInscripccion alumnoInscripccion)
+        public async static Task AddAsync(AlumnoInscripcion alumnoInscripccion)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync("alumnoInscripcciones", alumnoInscripccion);
             response.EnsureSuccessStatusCode();
@@ -56,7 +56,7 @@ namespace WindowsForms
             response.EnsureSuccessStatusCode();
         }
 
-        public static async Task UpdateAsync(AlumnoInscripccion alumnoInscripccion)
+        public static async Task UpdateAsync(AlumnoInscripcion alumnoInscripccion)
         {
             HttpResponseMessage response = await client.PutAsJsonAsync("alumnoInscripcciones", alumnoInscripccion);
             response.EnsureSuccessStatusCode();
