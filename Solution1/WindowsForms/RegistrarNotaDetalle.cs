@@ -40,7 +40,7 @@ namespace WindowsForms
             if (this.ValidateAlumnoInscripccion())
             {
                
-                this.AlumnoInscripccion.Nota = 0;
+                this.AlumnoInscripccion.Nota = Int32.Parse(this.notaTextBox.Text);
 
 
                 if (this.EditMode)

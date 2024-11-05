@@ -13,7 +13,39 @@ namespace Domain.Services
         public void Add(Curso curso)
         {
             using var context = new Context();
-            
+
+            // Attach Plan associated with Comision and Materia only if it's not already tracked
+            if (curso.Comision?.Plan != null)
+            {
+                var trackedPlan = context.Planes.Local.FirstOrDefault(p => p.PlanId == curso.Comision.Plan.PlanId);
+                if (trackedPlan != null)
+                {
+                    // Reuse the tracked instance of Plan
+                    curso.Comision.Plan = trackedPlan;
+                }
+                else
+                {
+                    // Attach Plan if not tracked
+                    context.Attach(curso.Comision.Plan);
+                }
+            }
+
+            if (curso.Materia?.Plan != null)
+            {
+                var trackedPlan = context.Planes.Local.FirstOrDefault(p => p.PlanId == curso.Materia.Plan.PlanId);
+                if (trackedPlan != null)
+                {
+                    // Reuse the tracked instance of Plan
+                    curso.Materia.Plan = trackedPlan;
+                }
+                else
+                {
+                    // Attach Plan if not tracked
+                    context.Attach(curso.Materia.Plan);
+                }
+            }
+
+
             context.Attach(curso.Comision);
             context.Attach(curso.Materia);
             context.Cursos.Add(curso);

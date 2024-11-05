@@ -17,6 +17,18 @@ namespace WindowsForms
         public Home()
         {
             InitializeComponent();
+
+            Load();
+        }
+
+        private async void Load()
+        {
+            CursoApiClient client = new CursoApiClient();
+
+            //this.cursos.DataSource = null;
+           // this.cursosDataGridView.DataSource = await CursoApiClient.GetAllAsync();
+
+          
         }
 
         private void ShowNewForm(object sender, EventArgs e)
