@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class AlumnoInscripccionesDetalle
+    partial class RegistrarNotaDetalle
     {
         /// <summary>
         /// Required designer variable.
@@ -29,31 +29,27 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            condicionTextBox = new TextBox();
+            notaTextBox = new TextBox();
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
-            condicionLabel = new Label();
+            notaLabel = new Label();
             label6 = new Label();
-            AlumnoIdLabel = new Label();
             label2 = new Label();
-            CursoLabel = new Label();
-            alumnoComboBoxInput = new ComboBox();
-            cursoComboBoxInput = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
-            // condicionTextBox
+            // notaTextBox
             // 
-            condicionTextBox.Location = new Point(131, 21);
-            condicionTextBox.Margin = new Padding(2, 1, 2, 1);
-            condicionTextBox.Name = "condicionTextBox";
-            condicionTextBox.Size = new Size(110, 23);
-            condicionTextBox.TabIndex = 0;
+            notaTextBox.Location = new Point(131, 21);
+            notaTextBox.Margin = new Padding(2, 1, 2, 1);
+            notaTextBox.Name = "notaTextBox";
+            notaTextBox.Size = new Size(110, 23);
+            notaTextBox.TabIndex = 0;
             // 
             // aceptarButton
             // 
-            aceptarButton.Location = new Point(100, 229);
+            aceptarButton.Location = new Point(62, 90);
             aceptarButton.Margin = new Padding(2, 1, 2, 1);
             aceptarButton.Name = "aceptarButton";
             aceptarButton.Size = new Size(81, 22);
@@ -68,7 +64,7 @@
             // 
             // cancelarButton
             // 
-            cancelarButton.Location = new Point(232, 229);
+            cancelarButton.Location = new Point(160, 90);
             cancelarButton.Margin = new Padding(2, 1, 2, 1);
             cancelarButton.Name = "cancelarButton";
             cancelarButton.Size = new Size(81, 22);
@@ -77,16 +73,16 @@
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
             // 
-            // condicionLabel
+            // notaLabel
             // 
-            condicionLabel.AutoSize = true;
-            condicionLabel.Location = new Point(24, 29);
-            condicionLabel.Margin = new Padding(2, 0, 2, 0);
-            condicionLabel.Name = "condicionLabel";
-            condicionLabel.Size = new Size(62, 15);
-            condicionLabel.TabIndex = 13;
-            condicionLabel.Text = "Condicion";
-            condicionLabel.Click += label5_Click;
+            notaLabel.AutoSize = true;
+            notaLabel.Location = new Point(24, 29);
+            notaLabel.Margin = new Padding(2, 0, 2, 0);
+            notaLabel.Name = "notaLabel";
+            notaLabel.Size = new Size(33, 15);
+            notaLabel.TabIndex = 13;
+            notaLabel.Text = "Nota";
+            notaLabel.Click += label5_Click;
             // 
             // label6
             // 
@@ -95,16 +91,6 @@
             label6.Size = new Size(100, 23);
             label6.TabIndex = 21;
             // 
-            // AlumnoIdLabel
-            // 
-            AlumnoIdLabel.AutoSize = true;
-            AlumnoIdLabel.Location = new Point(24, 65);
-            AlumnoIdLabel.Margin = new Padding(2, 0, 2, 0);
-            AlumnoIdLabel.Name = "AlumnoIdLabel";
-            AlumnoIdLabel.Size = new Size(50, 15);
-            AlumnoIdLabel.TabIndex = 17;
-            AlumnoIdLabel.Text = "Alumno";
-            // 
             // label2
             // 
             label2.Location = new Point(0, 0);
@@ -112,49 +98,19 @@
             label2.Size = new Size(100, 23);
             label2.TabIndex = 0;
             // 
-            // CursoLabel
-            // 
-            CursoLabel.AutoSize = true;
-            CursoLabel.Location = new Point(24, 97);
-            CursoLabel.Margin = new Padding(2, 0, 2, 0);
-            CursoLabel.Name = "CursoLabel";
-            CursoLabel.Size = new Size(38, 15);
-            CursoLabel.TabIndex = 22;
-            CursoLabel.Text = "Curso";
-            // 
-            // alumnoComboBoxInput
-            // 
-            alumnoComboBoxInput.FormattingEnabled = true;
-            alumnoComboBoxInput.Location = new Point(131, 57);
-            alumnoComboBoxInput.Name = "alumnoComboBoxInput";
-            alumnoComboBoxInput.Size = new Size(121, 23);
-            alumnoComboBoxInput.TabIndex = 23;
-            // 
-            // cursoComboBoxInput
-            // 
-            cursoComboBoxInput.FormattingEnabled = true;
-            cursoComboBoxInput.Location = new Point(131, 89);
-            cursoComboBoxInput.Name = "cursoComboBoxInput";
-            cursoComboBoxInput.Size = new Size(121, 23);
-            cursoComboBoxInput.TabIndex = 24;
-            // 
-            // AlumnoInscripccionesDetalle
+            // RegistrarNotaDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 299);
-            Controls.Add(cursoComboBoxInput);
-            Controls.Add(alumnoComboBoxInput);
-            Controls.Add(CursoLabel);
+            ClientSize = new Size(262, 132);
             Controls.Add(label2);
-            Controls.Add(AlumnoIdLabel);
             Controls.Add(label6);
-            Controls.Add(condicionLabel);
+            Controls.Add(notaLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
-            Controls.Add(condicionTextBox);
+            Controls.Add(notaTextBox);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "AlumnoInscripccionesDetalle";
+            Name = "RegistrarNotaDetalle";
             Text = "AlumnoInscripccion";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
@@ -163,16 +119,12 @@
 
         #endregion
 
-        private TextBox condicionTextBox;
+        private TextBox notaTextBox;
         private Button aceptarButton;
         private ErrorProvider errorProvider;
         private Button cancelarButton;
-        private Label condicionLabel;
+        private Label notaLabel;
         private Label label6;
-        private Label AlumnoIdLabel;
         private Label label2;
-        private Label CursoLabel;
-        private ComboBox cursoComboBoxInput;
-        private ComboBox alumnoComboBoxInput;
     }
 }

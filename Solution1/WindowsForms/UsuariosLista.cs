@@ -44,7 +44,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().UsuarioId;
 
             Usuario usuario = await UsuarioApiClient.GetAsync(id);
 
@@ -60,7 +60,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().UsuarioId;
             await UsuarioApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

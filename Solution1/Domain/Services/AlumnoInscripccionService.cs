@@ -51,7 +51,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            AlumnoInscripccion? alumnoInscripccionToUpdate = context.AlumnoInscripcciones.Find(alumnoInscripccion.Id);
+            AlumnoInscripccion? alumnoInscripccionToUpdate = context.AlumnoInscripcciones.Find(alumnoInscripccion.AlumnoInscripccionId);
 
             if (alumnoInscripccionToUpdate != null)
             {

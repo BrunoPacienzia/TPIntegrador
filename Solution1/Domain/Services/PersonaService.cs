@@ -50,7 +50,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Persona? personaToUpdate = context.Personas.Find(persona.Id);
+            Persona? personaToUpdate = context.Personas.Find(persona.PersonaId);
 
             if (personaToUpdate != null)
             {

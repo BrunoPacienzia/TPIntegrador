@@ -34,7 +34,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().MateriaId;
 
             Materia materia = await MateriaApiClient.GetAsync(id);
 
@@ -50,7 +50,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().MateriaId;
             await MateriaApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

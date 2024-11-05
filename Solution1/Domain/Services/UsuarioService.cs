@@ -48,7 +48,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Usuario? usuarioToUpdate = context.Usuarios.Find(usuario.Id);
+            Usuario? usuarioToUpdate = context.Usuarios.Find(usuario.UsuarioId);
 
             if (usuarioToUpdate != null)
             {

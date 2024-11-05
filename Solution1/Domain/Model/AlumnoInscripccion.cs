@@ -8,7 +8,7 @@ namespace Domain.Model
 {
     public class AlumnoInscripccion
     {
-        public int Id { get; set; }
+        public int AlumnoInscripccionId { get; set; }
         public string Condicion { get; set; }
         public Persona Alumno { get; set; }
         public Curso Curso { get; set; }

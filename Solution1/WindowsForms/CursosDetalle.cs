@@ -39,7 +39,7 @@ namespace WindowsForms
             this.comisiones = comisiones;
             this.comisionComboBoxInput.DataSource = comisiones;
             this.comisionComboBoxInput.DisplayMember = "Descripcion";
-            this.comisionComboBoxInput.ValueMember = "Id";
+            this.comisionComboBoxInput.ValueMember = "ComisionId";
 
             this.comisionComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -47,7 +47,7 @@ namespace WindowsForms
             this.materias = materias;
             this.materiaComboBoxInput.DataSource = materias;
             this.materiaComboBoxInput.DisplayMember = "Descripcion";
-            this.materiaComboBoxInput.ValueMember = "Id";
+            this.materiaComboBoxInput.ValueMember = "MateriaId";
 
             this.materiaComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -71,11 +71,11 @@ namespace WindowsForms
 
                 var selectedComisionId = (int)this.comisionComboBoxInput.SelectedValue;
 
-                this.Curso.Comision = (Comision)this.comisiones.FirstOrDefault(p => p.Id == selectedComisionId);
+                this.Curso.Comision = (Comision)this.comisiones.FirstOrDefault(p => p.ComisionId == selectedComisionId);
 
                 var selectedMateriaId = (int)this.materiaComboBoxInput.SelectedValue;
 
-                this.Curso.Materia = (Materia)this.materias.FirstOrDefault(p => p.Id == selectedMateriaId);
+                this.Curso.Materia = (Materia)this.materias.FirstOrDefault(p => p.MateriaId == selectedMateriaId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -106,12 +106,12 @@ namespace WindowsForms
 
             if (this.Curso.Comision != null)
             {
-                this.comisionComboBoxInput.SelectedIndex = this.curso.Comision.Id;
+                this.comisionComboBoxInput.SelectedIndex = this.curso.Comision.ComisionId;
             }
 
             if (this.Curso.Materia != null)
             {
-                this.materiaComboBoxInput.SelectedIndex = this.curso.Materia.Id;
+                this.materiaComboBoxInput.SelectedIndex = this.curso.Materia.MateriaId;
             }
         }
 

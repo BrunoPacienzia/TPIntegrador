@@ -43,7 +43,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().PersonaId;
 
             Persona persona = await PersonaApiClient.GetAsync(id);
 
@@ -59,7 +59,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().PersonaId;
             await PersonaApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

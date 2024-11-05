@@ -34,7 +34,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().PlanId;
 
             Plan plan = await PlanApiClient.GetAsync(id);
 
@@ -50,7 +50,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().PlanId;
             await PlanApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

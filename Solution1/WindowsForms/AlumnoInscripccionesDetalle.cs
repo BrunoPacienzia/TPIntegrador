@@ -39,14 +39,14 @@ namespace WindowsForms
             this.alumnos = alumnos;
             this.alumnoComboBoxInput.DataSource = alumnos;
             this.alumnoComboBoxInput.DisplayMember = "Legajo";
-            this.alumnoComboBoxInput.ValueMember = "Id";
+            this.alumnoComboBoxInput.ValueMember = "PersonaId";
             this.alumnoComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
             IEnumerable<Curso> cursos = await CursoApiClient.GetAllAsync();
             this.cursos = cursos;
             this.cursoComboBoxInput.DataSource = cursos;
             this.cursoComboBoxInput.DisplayMember = "Descripcion";
-            this.cursoComboBoxInput.ValueMember = "Id";
+            this.cursoComboBoxInput.ValueMember = "CursoId";
             this.cursoComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -61,15 +61,15 @@ namespace WindowsForms
             if (this.ValidateAlumnoInscripccion())
             {
                 this.AlumnoInscripccion.Condicion = condicionTextBox.Text;
-                this.AlumnoInscripccion.Nota = Int32.Parse(notaTextBox.Text);
+                this.AlumnoInscripccion.Nota = 0;
 
                 var selectedAlumnoId = (int)this.alumnoComboBoxInput.SelectedValue;
 
-                this.AlumnoInscripccion.Alumno = (Persona)this.alumnos.FirstOrDefault(p => p.Id == selectedAlumnoId);
+                this.AlumnoInscripccion.Alumno = (Persona)this.alumnos.FirstOrDefault(p => p.PersonaId == selectedAlumnoId);
 
                 var selectedCursoId = (int)this.cursoComboBoxInput.SelectedValue;
 
-                this.AlumnoInscripccion.Curso = (Curso)this.cursos.FirstOrDefault(p => p.Id == selectedCursoId);
+                this.AlumnoInscripccion.Curso = (Curso)this.cursos.FirstOrDefault(p => p.CursoId == selectedCursoId);
 
 
                 if (this.EditMode)
@@ -93,16 +93,15 @@ namespace WindowsForms
         private void SetAlumnoInscripccion()
         {
             this.condicionTextBox.Text = this.AlumnoInscripccion.Condicion;
-            this.notaTextBox.Text = this.AlumnoInscripccion.Nota.ToString();
 
             if (this.alumnoInscripccion.Alumno != null)
             {
-                this.alumnoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Alumno.Id;
+                this.alumnoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Alumno.PersonaId;
             }
 
             if (this.alumnoInscripccion.Curso != null)
             {
-                this.cursoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Curso.Id;
+                this.cursoComboBoxInput.SelectedIndex = this.alumnoInscripccion.Curso.CursoId;
             }
         }
 
@@ -111,13 +110,6 @@ namespace WindowsForms
             bool isValid = true;
 
             errorProvider.SetError(condicionTextBox, string.Empty);
-
-            if (!this.notaTextBox.Text.All(char.IsDigit))
-            {
-                isValid = false;
-                errorProvider.SetError(notaTextBox, "La nota solo puede contener numeros");
-            }
-
 
             if (this.condicionTextBox.Text == string.Empty)
             {
@@ -138,13 +130,6 @@ namespace WindowsForms
             {
                 isValid = false;
                 errorProvider.SetError(cursoComboBoxInput, "Requerido");
-            }
-
-
-            if (this.notaTextBox.Text == string.Empty)
-            {
-                isValid = false;
-                errorProvider.SetError(notaTextBox, "Requerido");
             }
 
 

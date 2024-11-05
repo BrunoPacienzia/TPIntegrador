@@ -8,7 +8,7 @@ namespace Domain.Model
 {
     public class Persona
     {
-        public int Id { get; set; }
+        public int PersonaId { get; set; }
         public string Apellido { get; set; }
         public string Direccion { get; set; }
         public string Email { get; set; }

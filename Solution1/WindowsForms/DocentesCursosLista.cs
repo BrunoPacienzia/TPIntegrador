@@ -43,7 +43,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().DocenteCursoId;
 
             DocenteCurso docenteCurso = await DocenteCursoApiClient.GetAsync(id);
 
@@ -59,7 +59,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().DocenteCursoId;
             await DocenteCursoApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

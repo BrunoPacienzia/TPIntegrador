@@ -51,7 +51,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            DocenteCurso? docenteCursoToUpdate = context.DocentesCursos.Find(docenteCurso.Id);
+            DocenteCurso? docenteCursoToUpdate = context.DocentesCursos.Find(docenteCurso.DocenteCursoId);
 
             if (docenteCursoToUpdate != null)
             {

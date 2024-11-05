@@ -2,7 +2,7 @@
 {
     public class Materia
     {
-        public int Id { get; set; }
+        public int MateriaId { get; set; }
         public  string Descripcion { get; set; }
         public  int HSSemanales { get; set; }
         public  int HSTotales { get; set; }  

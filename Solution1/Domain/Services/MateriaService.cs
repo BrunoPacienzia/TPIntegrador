@@ -52,7 +52,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Materia? materiaToUpdate = context.Materias.Find(materia.Id);
+            Materia? materiaToUpdate = context.Materias.Find(materia.MateriaId);
 
             if (materiaToUpdate != null)
             {

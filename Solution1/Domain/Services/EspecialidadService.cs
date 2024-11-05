@@ -48,7 +48,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Especialidad? especialidadToUpdate = context.Especialidades.Find(especialidad.Id);
+            Especialidad? especialidadToUpdate = context.Especialidades.Find(especialidad.EspecialidadId);
 
             if (especialidadToUpdate != null)
             {

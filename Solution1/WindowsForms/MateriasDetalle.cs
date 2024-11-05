@@ -39,7 +39,7 @@ namespace WindowsForms
             this.planes = planes;
             this.planComboBoxInput.DataSource = planes;
             this.planComboBoxInput.DisplayMember = "Descripcion";
-            this.planComboBoxInput.ValueMember = "Id";
+            this.planComboBoxInput.ValueMember = "PlanId";
             this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
@@ -61,7 +61,7 @@ namespace WindowsForms
 
                 var selectedId = (int)this.planComboBoxInput.SelectedValue;
 
-                this.Materia.Plan = (Plan)this.planes.FirstOrDefault(p => p.Id == selectedId);
+                this.Materia.Plan = (Plan)this.planes.FirstOrDefault(p => p.PlanId == selectedId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -94,7 +94,7 @@ namespace WindowsForms
 
             if (this.materia.Plan != null)
             {
-                this.planComboBoxInput.SelectedIndex = this.materia.Plan.Id;
+                this.planComboBoxInput.SelectedIndex = this.materia.Plan.PlanId;
             }
         }
 

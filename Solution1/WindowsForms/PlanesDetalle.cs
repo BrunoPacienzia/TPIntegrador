@@ -39,7 +39,7 @@ namespace WindowsForms
             this.especialidades = especialidades;
             this.especialidadComboBoxInput.DataSource = especialidades;
             this.especialidadComboBoxInput.DisplayMember = "Descripcion";
-            this.especialidadComboBoxInput.ValueMember = "Id";
+            this.especialidadComboBoxInput.ValueMember = "EspecialidadId";
 
             this.especialidadComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -63,7 +63,7 @@ namespace WindowsForms
 
                 var selectedId = (int)this.especialidadComboBoxInput.SelectedValue;
 
-                this.Plan.Especialidad = (Especialidad)this.especialidades.FirstOrDefault(p => p.Id == selectedId);
+                this.Plan.Especialidad = (Especialidad)this.especialidades.FirstOrDefault(p => p.EspecialidadId == selectedId);
 
                 if (this.EditMode)
                 {
@@ -89,7 +89,7 @@ namespace WindowsForms
 
             if (this.Plan.Especialidad != null)
             {
-                this.especialidadComboBoxInput.SelectedIndex = this.plan.Especialidad.Id;
+                this.especialidadComboBoxInput.SelectedIndex = this.plan.Especialidad.EspecialidadId;
             }
         }
 

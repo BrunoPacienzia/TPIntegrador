@@ -40,14 +40,14 @@ namespace WindowsForms
             this.docentes = docentes;
             this.docenteComboBoxInput.DataSource = docentes;
             this.docenteComboBoxInput.DisplayMember = "Legajo";
-            this.docenteComboBoxInput.ValueMember = "Id";
+            this.docenteComboBoxInput.ValueMember = "PersonaId";
             this.docenteComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
             IEnumerable<Curso> cursos = await CursoApiClient.GetAllAsync();
             this.cursos = cursos;
             this.cursoComboBoxInput.DataSource = cursos;
             this.cursoComboBoxInput.DisplayMember = "Descripcion";
-            this.cursoComboBoxInput.ValueMember = "Id";
+            this.cursoComboBoxInput.ValueMember = "CursoId";
             this.cursoComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -65,11 +65,11 @@ namespace WindowsForms
 
                 var selectedDocenteId = (int)this.docenteComboBoxInput.SelectedValue;
 
-                this.DocenteCurso.Docente = (Persona)this.docentes.FirstOrDefault(p => p.Id == selectedDocenteId);
+                this.DocenteCurso.Docente = (Persona)this.docentes.FirstOrDefault(p => p.PersonaId == selectedDocenteId);
 
                 var selectedCursoId = (int)this.cursoComboBoxInput.SelectedValue;
 
-                this.DocenteCurso.Curso = (Curso)this.cursos.FirstOrDefault(p => p.Id == selectedCursoId);
+                this.DocenteCurso.Curso = (Curso)this.cursos.FirstOrDefault(p => p.CursoId == selectedCursoId);
                 //El Detalle se esta llevando la responsabilidad de llamar al servicio
                 //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
                 //en la Lista o tal vez en un Presenter o Controler
@@ -98,12 +98,12 @@ namespace WindowsForms
 
             if (this.docenteCurso.Docente != null)
             {
-                this.docenteComboBoxInput.SelectedIndex = this.docenteCurso.Docente.Id;
+                this.docenteComboBoxInput.SelectedIndex = this.docenteCurso.Docente.PersonaId;
             }
 
             if (this.docenteCurso.Curso != null)
             {
-                this.cursoComboBoxInput.SelectedIndex = this.docenteCurso.Curso.Id;
+                this.cursoComboBoxInput.SelectedIndex = this.docenteCurso.Curso.CursoId;
             }
         }
 

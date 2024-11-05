@@ -9,7 +9,7 @@ namespace Domain.Model
     public class DocenteCurso
     {
         
-        public int Id { get; set; } 
+        public int DocenteCursoId { get; set; } 
         public Curso Curso { get; set; }
         public Persona Docente { get; set; }
 

@@ -41,16 +41,23 @@
             button2 = new Button();
             button3 = new Button();
             botonDocCu = new Button();
+            planesDataGridView = new DataGridView();
+            dataGridView1 = new DataGridView();
+            cursosLabel = new Label();
+            planesLabel = new Label();
+            registrarNotaBoton = new Button();
             statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)planesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // statusStrip
             // 
             statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
-            statusStrip.Location = new Point(0, 501);
+            statusStrip.Location = new Point(0, 742);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.Size = new Size(737, 22);
+            statusStrip.Size = new Size(1173, 22);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
             // 
@@ -62,7 +69,7 @@
             // 
             // Materias
             // 
-            Materias.Location = new Point(12, 26);
+            Materias.Location = new Point(12, 138);
             Materias.Name = "Materias";
             Materias.Size = new Size(89, 23);
             Materias.TabIndex = 4;
@@ -82,7 +89,7 @@
             // 
             // PersonasButton
             // 
-            PersonasButton.Location = new Point(12, 175);
+            PersonasButton.Location = new Point(12, 106);
             PersonasButton.Name = "PersonasButton";
             PersonasButton.Size = new Size(89, 23);
             PersonasButton.TabIndex = 8;
@@ -92,7 +99,7 @@
             // 
             // comisionesButton
             // 
-            comisionesButton.Location = new Point(12, 128);
+            comisionesButton.Location = new Point(12, 167);
             comisionesButton.Name = "comisionesButton";
             comisionesButton.Size = new Size(89, 23);
             comisionesButton.TabIndex = 8;
@@ -102,7 +109,7 @@
             // 
             // especialidadButton
             // 
-            especialidadButton.Location = new Point(12, 222);
+            especialidadButton.Location = new Point(12, 48);
             especialidadButton.Name = "especialidadButton";
             especialidadButton.Size = new Size(89, 23);
             especialidadButton.TabIndex = 10;
@@ -112,7 +119,7 @@
             // 
             // usuarioButton
             // 
-            usuarioButton.Location = new Point(12, 264);
+            usuarioButton.Location = new Point(12, 565);
             usuarioButton.Name = "usuarioButton";
             usuarioButton.Size = new Size(89, 23);
             usuarioButton.TabIndex = 12;
@@ -122,7 +129,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(12, 222);
+            button2.Location = new Point(12, 196);
             button2.Name = "button2";
             button2.Size = new Size(89, 23);
             button2.TabIndex = 10;
@@ -132,7 +139,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(12, 310);
+            button3.Location = new Point(778, 26);
             button3.Name = "button3";
             button3.Size = new Size(156, 23);
             button3.TabIndex = 14;
@@ -142,7 +149,7 @@
             // 
             // botonDocCu
             // 
-            botonDocCu.Location = new Point(12, 348);
+            botonDocCu.Location = new Point(12, 225);
             botonDocCu.Name = "botonDocCu";
             botonDocCu.Size = new Size(89, 23);
             botonDocCu.TabIndex = 14;
@@ -150,11 +157,74 @@
             botonDocCu.UseVisualStyleBackColor = true;
             botonDocCu.Click += botonDocCu_Click;
             // 
+            // planesDataGridView
+            // 
+            planesDataGridView.AllowUserToOrderColumns = true;
+            planesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            planesDataGridView.Location = new Point(195, 439);
+            planesDataGridView.Margin = new Padding(2, 1, 2, 1);
+            planesDataGridView.MultiSelect = false;
+            planesDataGridView.Name = "planesDataGridView";
+            planesDataGridView.ReadOnly = true;
+            planesDataGridView.RowHeadersWidth = 82;
+            planesDataGridView.RowTemplate.Height = 41;
+            planesDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            planesDataGridView.Size = new Size(751, 270);
+            planesDataGridView.TabIndex = 16;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(195, 116);
+            dataGridView1.Margin = new Padding(2, 1, 2, 1);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.RowTemplate.Height = 41;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(751, 270);
+            dataGridView1.TabIndex = 17;
+            // 
+            // cursosLabel
+            // 
+            cursosLabel.AutoSize = true;
+            cursosLabel.Location = new Point(195, 86);
+            cursosLabel.Name = "cursosLabel";
+            cursosLabel.Size = new Size(43, 15);
+            cursosLabel.TabIndex = 19;
+            cursosLabel.Text = "Cursos";
+            // 
+            // planesLabel
+            // 
+            planesLabel.AutoSize = true;
+            planesLabel.Location = new Point(195, 412);
+            planesLabel.Name = "planesLabel";
+            planesLabel.Size = new Size(41, 15);
+            planesLabel.TabIndex = 20;
+            planesLabel.Text = "Planes";
+            // 
+            // registrarNotaBoton
+            // 
+            registrarNotaBoton.Location = new Point(649, 26);
+            registrarNotaBoton.Name = "registrarNotaBoton";
+            registrarNotaBoton.Size = new Size(108, 23);
+            registrarNotaBoton.TabIndex = 22;
+            registrarNotaBoton.Text = "Registrar Nota";
+            registrarNotaBoton.UseVisualStyleBackColor = true;
+            registrarNotaBoton.Click += registrarNotaBoton_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(737, 523);
+            ClientSize = new Size(1173, 764);
+            Controls.Add(registrarNotaBoton);
+            Controls.Add(planesLabel);
+            Controls.Add(cursosLabel);
+            Controls.Add(dataGridView1);
+            Controls.Add(planesDataGridView);
             Controls.Add(button3);
             Controls.Add(botonDocCu);
             Controls.Add(usuarioButton);
@@ -172,6 +242,8 @@
             Load += Home_Load;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)planesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -190,6 +262,11 @@
         private Button button2;
         private Button button3;
         private Button botonDocCu;
+        private DataGridView planesDataGridView;
+        private DataGridView dataGridView1;
+        private Label cursosLabel;
+        private Label planesLabel;
+        private Button registrarNotaBoton;
     }
 }
 

@@ -43,7 +43,7 @@ namespace WindowsForms
 
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().ComisionId;
 
             Comision comision = await ComisionApiClient.GetAsync(id);
 
@@ -59,7 +59,7 @@ namespace WindowsForms
         {
             int id;
 
-            id = this.SelectedItem().Id;
+            id = this.SelectedItem().ComisionId;
             await ComisionApiClient.DeleteAsync(id);
 
             this.GetAllAndLoad();

@@ -52,7 +52,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Plan? planToUpdate = context.Planes.Find(plan.Id);
+            Plan? planToUpdate = context.Planes.Find(plan.PlanId);
 
             if (planToUpdate != null)
             {

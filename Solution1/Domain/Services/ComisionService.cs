@@ -50,7 +50,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            Comision? comisionToUpdate = context.Comisiones.Find(comision.Id);
+            Comision? comisionToUpdate = context.Comisiones.Find(comision.ComisionId);
 
             if (comisionToUpdate != null)
             {

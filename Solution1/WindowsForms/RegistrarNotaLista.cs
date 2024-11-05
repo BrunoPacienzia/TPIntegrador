@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace WindowsForms
 {
-    public partial class AlumnoInscripccionLista : Form
+    public partial class RegistrarNotaLista : Form
     {
-        public AlumnoInscripccionLista()
+        public RegistrarNotaLista()
         {
             InitializeComponent();
         }
@@ -23,22 +23,9 @@ namespace WindowsForms
             this.GetAllAndLoad();
         }
 
-        private void agregarButton_Click(object sender, EventArgs e)
-        {
-            AlumnoInscripccionesDetalle alumnoInscripccionDetalle = new AlumnoInscripccionesDetalle();
-
-            AlumnoInscripccion alumnoInscripccionNuevo = new AlumnoInscripccion();
-
-            alumnoInscripccionDetalle.AlumnoInscripccion = alumnoInscripccionNuevo;
-
-            alumnoInscripccionDetalle.ShowDialog();
-
-            this.GetAllAndLoad();
-        }
-
         private async void modificarButton_Click(object sender, EventArgs e)
         {
-            AlumnoInscripccionesDetalle alumnoInscripccionDetalle = new AlumnoInscripccionesDetalle();
+            RegistrarNotaDetalle registrarNotaDetalle = new RegistrarNotaDetalle();
 
             int id;
 
@@ -46,40 +33,31 @@ namespace WindowsForms
 
             AlumnoInscripccion alumnoInscripccion = await AlumnoInscripccionApiClient.GetAsync(id);
 
-            alumnoInscripccionDetalle.EditMode = true;
-            alumnoInscripccionDetalle.AlumnoInscripccion = alumnoInscripccion;
+            registrarNotaDetalle.EditMode = true;
+            registrarNotaDetalle.AlumnoInscripccion = alumnoInscripccion;
 
-            alumnoInscripccionDetalle.ShowDialog();
-
-            this.GetAllAndLoad();
-        }
-
-        private async void eliminarButton_Click(object sender, EventArgs e)
-        {
-            int id;
-
-            id = this.SelectedItem().AlumnoInscripccionId;
-            await AlumnoInscripccionApiClient.DeleteAsync(id);
+            registrarNotaDetalle.ShowDialog();
 
             this.GetAllAndLoad();
         }
+
 
         private async void GetAllAndLoad()
         {
             AlumnoInscripccionApiClient client = new AlumnoInscripccionApiClient();
 
             this.alumnoInscripccionesDataGridView.DataSource = null;
-            this.alumnoInscripccionesDataGridView.DataSource = await AlumnoInscripccionApiClient.GetAllAsync();
+            IEnumerable<AlumnoInscripccion> alumnosEncontrados = await AlumnoInscripccionApiClient.GetAllAsync();
+
+            this.alumnoInscripccionesDataGridView.DataSource = alumnosEncontrados.Where(a =>  a.Nota == 0).ToList();
 
             if (this.alumnoInscripccionesDataGridView.Rows.Count > 0)
             {
                 this.alumnoInscripccionesDataGridView.Rows[0].Selected = true;
-                this.eliminarButton.Enabled = true;
                 this.modificarButton.Enabled = true;
             }
             else
             {
-                this.eliminarButton.Enabled = false;
                 this.modificarButton.Enabled = false;
             }
         }
@@ -92,8 +70,6 @@ namespace WindowsForms
 
             return alumnoInscripccion;
         }
-
-      
 
     }
 }

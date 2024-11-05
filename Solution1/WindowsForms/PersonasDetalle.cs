@@ -42,7 +42,7 @@ namespace WindowsForms
             this.planes = planes;
             this.planComboBoxInput.DataSource = planes;
             this.planComboBoxInput.DisplayMember = "Descripcion";
-            this.planComboBoxInput.ValueMember = "Id";
+            this.planComboBoxInput.ValueMember = "PlanId";
 
             this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -65,7 +65,7 @@ namespace WindowsForms
 
                 var selectedId = (int)this.planComboBoxInput.SelectedValue;
 
-                this.Persona.Plan = (Plan)this.planes.FirstOrDefault(p => p.Id == selectedId);
+                this.Persona.Plan = (Plan)this.planes.FirstOrDefault(p => p.PlanId == selectedId);
 
                 if (this.EditMode)
                 {
@@ -103,7 +103,7 @@ namespace WindowsForms
 
             if (this.Persona.Plan != null)
             {
-                this.planComboBoxInput.SelectedIndex = this.Persona.Plan.Id;
+                this.planComboBoxInput.SelectedIndex = this.Persona.Plan.PlanId;
             }
 
         }
