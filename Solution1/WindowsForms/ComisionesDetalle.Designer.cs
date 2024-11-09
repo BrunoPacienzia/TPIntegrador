@@ -139,7 +139,7 @@ namespace WindowsForms
             Controls.Add(aceptarButton);
             Margin = new Padding(2, 1, 2, 1);
             Name = "ComisionesDetalle";
-            Text = "Materia";
+            Text = "Comision";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();

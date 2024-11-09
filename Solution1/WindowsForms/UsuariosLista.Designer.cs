@@ -39,6 +39,7 @@
             // usuariosDataGridView
             // 
             usuariosDataGridView.AllowUserToOrderColumns = true;
+            usuariosDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             usuariosDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             usuariosDataGridView.Location = new Point(21, 18);
             usuariosDataGridView.Margin = new Padding(2, 1, 2, 1);

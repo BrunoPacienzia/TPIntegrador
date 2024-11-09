@@ -38,6 +38,7 @@
             // materiasDataGridView
             // 
             materiasDataGridView.AllowUserToOrderColumns = true;
+            materiasDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             materiasDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             materiasDataGridView.Location = new Point(21, 18);
             materiasDataGridView.Margin = new Padding(2, 1, 2, 1);

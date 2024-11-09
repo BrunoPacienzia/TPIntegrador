@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,13 +26,38 @@ namespace WindowsForms
         {
             CursoApiClient client = new CursoApiClient();
 
-            this.cursosDataGrid.DataSource = null;
-            this.cursosDataGrid.DataSource = await CursoApiClient.GetAllAsync();
+
+            var cursos = await CursoApiClient.GetAllAsync();
+
+            var cursosParaMostrar = cursos.Select(curso => new
+            {
+                curso.CursoId,
+                curso.Descripcion,
+                curso.AnioCalendario,
+                curso.Cupo,
+                ComisionId = curso.Comision?.ComisionId,  
+                MateriaId = curso.Materia.MateriaId             
+            }).ToList();
+
+            this.cursosDataGrid.DataSource = cursosParaMostrar;
+
 
             PlanApiClient planClient = new PlanApiClient();
 
-            this.planesDataGridView.DataSource = null;
-            this.planesDataGridView.DataSource = await PlanApiClient.GetAllAsync();
+            var planes = await PlanApiClient.GetAllAsync();
+
+
+        var planesParaMostrar = planes.Select(plan => new
+        {
+            plan.PlanId,
+            plan.Descripcion,
+            EspecialidadId = plan.Especialidad?.EspecialidadId,
+   
+        }).ToList();
+
+
+            this.planesDataGridView.DataSource = planesParaMostrar;
+
 
         }
 
@@ -42,6 +68,7 @@ namespace WindowsForms
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
         }
+
 
 
         private void Home_Load(object sender, EventArgs e)
@@ -126,6 +153,21 @@ namespace WindowsForms
             CursosLista childForm = new CursosLista();
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
+        }
+
+        private void Home_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Home_Load_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -43,6 +43,7 @@ namespace WindowsForms
                 this.AlumnoInscripcion.Nota = Int32.Parse(this.notaTextBox.Text);
 
 
+
                 if (this.EditMode)
                 {
                     await AlumnoInscripcionApiClient.UpdateAsync(this.AlumnoInscripcion);

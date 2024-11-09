@@ -34,6 +34,7 @@
             // especialidadesDataGridView
             // 
             especialidadesDataGridView.AllowUserToOrderColumns = true;
+            especialidadesDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             especialidadesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             especialidadesDataGridView.Location = new Point(21, 18);
             especialidadesDataGridView.Margin = new Padding(2, 1, 2, 1);

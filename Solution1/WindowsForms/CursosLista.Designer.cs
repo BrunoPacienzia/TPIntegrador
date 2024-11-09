@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CursosLista";
-
-
             cursosDataGridView = new DataGridView();
             agregarButton = new Button();
             eliminarButton = new Button();
@@ -44,6 +38,7 @@
             // cursosDataGridView
             // 
             cursosDataGridView.AllowUserToOrderColumns = true;
+            cursosDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             cursosDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             cursosDataGridView.Location = new Point(21, 18);
             cursosDataGridView.Margin = new Padding(2, 1, 2, 1);
@@ -93,6 +88,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(796, 402);
             Controls.Add(modificarButton);
             Controls.Add(eliminarButton);

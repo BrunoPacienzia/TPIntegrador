@@ -36,6 +36,7 @@
             // alumnoInscripcionesDataGridView
             // 
             alumnoInscripcionesDataGridView.AllowUserToOrderColumns = true;
+            alumnoInscripcionesDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             alumnoInscripcionesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             alumnoInscripcionesDataGridView.Location = new Point(21, 18);
             alumnoInscripcionesDataGridView.Margin = new Padding(2, 1, 2, 1);
@@ -68,7 +69,7 @@
             Controls.Add(alumnoInscripcionesDataGridView);
             Margin = new Padding(2, 1, 2, 1);
             Name = "RegistrarNotaLista";
-            Text = "AlumnoInscripciones";
+            Text = "Notas";
             Load += AlumnoInscripciones_Load;
             ((System.ComponentModel.ISupportInitialize)alumnoInscripcionesDataGridView).EndInit();
             ResumeLayout(false);

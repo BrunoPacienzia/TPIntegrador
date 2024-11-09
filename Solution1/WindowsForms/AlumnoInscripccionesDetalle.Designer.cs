@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            condicionTextBox = new TextBox();
             aceptarButton = new Button();
             errorProvider = new ErrorProvider(components);
             cancelarButton = new Button();
-            condicionLabel = new Label();
             label6 = new Label();
             AlumnoIdLabel = new Label();
             label2 = new Label();
@@ -43,17 +41,9 @@
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
-            // condicionTextBox
-            // 
-            condicionTextBox.Location = new Point(131, 21);
-            condicionTextBox.Margin = new Padding(2, 1, 2, 1);
-            condicionTextBox.Name = "condicionTextBox";
-            condicionTextBox.Size = new Size(110, 23);
-            condicionTextBox.TabIndex = 0;
-            // 
             // aceptarButton
             // 
-            aceptarButton.Location = new Point(100, 229);
+            aceptarButton.Location = new Point(131, 190);
             aceptarButton.Margin = new Padding(2, 1, 2, 1);
             aceptarButton.Name = "aceptarButton";
             aceptarButton.Size = new Size(81, 22);
@@ -68,7 +58,7 @@
             // 
             // cancelarButton
             // 
-            cancelarButton.Location = new Point(232, 229);
+            cancelarButton.Location = new Point(258, 190);
             cancelarButton.Margin = new Padding(2, 1, 2, 1);
             cancelarButton.Name = "cancelarButton";
             cancelarButton.Size = new Size(81, 22);
@@ -76,17 +66,6 @@
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
-            // 
-            // condicionLabel
-            // 
-            condicionLabel.AutoSize = true;
-            condicionLabel.Location = new Point(24, 29);
-            condicionLabel.Margin = new Padding(2, 0, 2, 0);
-            condicionLabel.Name = "condicionLabel";
-            condicionLabel.Size = new Size(62, 15);
-            condicionLabel.TabIndex = 13;
-            condicionLabel.Text = "Condicion";
-            condicionLabel.Click += label5_Click;
             // 
             // label6
             // 
@@ -98,7 +77,7 @@
             // AlumnoIdLabel
             // 
             AlumnoIdLabel.AutoSize = true;
-            AlumnoIdLabel.Location = new Point(24, 65);
+            AlumnoIdLabel.Location = new Point(24, 33);
             AlumnoIdLabel.Margin = new Padding(2, 0, 2, 0);
             AlumnoIdLabel.Name = "AlumnoIdLabel";
             AlumnoIdLabel.Size = new Size(50, 15);
@@ -115,7 +94,7 @@
             // CursoLabel
             // 
             CursoLabel.AutoSize = true;
-            CursoLabel.Location = new Point(24, 97);
+            CursoLabel.Location = new Point(24, 79);
             CursoLabel.Margin = new Padding(2, 0, 2, 0);
             CursoLabel.Name = "CursoLabel";
             CursoLabel.Size = new Size(38, 15);
@@ -125,7 +104,7 @@
             // alumnoComboBoxInput
             // 
             alumnoComboBoxInput.FormattingEnabled = true;
-            alumnoComboBoxInput.Location = new Point(131, 57);
+            alumnoComboBoxInput.Location = new Point(131, 33);
             alumnoComboBoxInput.Name = "alumnoComboBoxInput";
             alumnoComboBoxInput.Size = new Size(121, 23);
             alumnoComboBoxInput.TabIndex = 23;
@@ -133,7 +112,7 @@
             // cursoComboBoxInput
             // 
             cursoComboBoxInput.FormattingEnabled = true;
-            cursoComboBoxInput.Location = new Point(131, 89);
+            cursoComboBoxInput.Location = new Point(131, 79);
             cursoComboBoxInput.Name = "cursoComboBoxInput";
             cursoComboBoxInput.Size = new Size(121, 23);
             cursoComboBoxInput.TabIndex = 24;
@@ -142,17 +121,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 299);
+            ClientSize = new Size(385, 245);
             Controls.Add(cursoComboBoxInput);
             Controls.Add(alumnoComboBoxInput);
             Controls.Add(CursoLabel);
             Controls.Add(label2);
             Controls.Add(AlumnoIdLabel);
             Controls.Add(label6);
-            Controls.Add(condicionLabel);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
-            Controls.Add(condicionTextBox);
             Margin = new Padding(2, 1, 2, 1);
             Name = "AlumnoInscripcionesDetalle";
             Text = "AlumnoInscripcion";
@@ -162,12 +139,9 @@
         }
 
         #endregion
-
-        private TextBox condicionTextBox;
         private Button aceptarButton;
         private ErrorProvider errorProvider;
         private Button cancelarButton;
-        private Label condicionLabel;
         private Label label6;
         private Label AlumnoIdLabel;
         private Label label2;

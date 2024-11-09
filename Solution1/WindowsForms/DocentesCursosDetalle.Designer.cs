@@ -137,7 +137,7 @@ namespace WindowsForms
             Controls.Add(aceptarButton);
             Margin = new Padding(2, 1, 2, 1);
             Name = "DocentesCursosDetalle";
-            Text = "Materia";
+            Text = "DocenteCurso";
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();

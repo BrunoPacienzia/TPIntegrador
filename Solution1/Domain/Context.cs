@@ -46,12 +46,14 @@ namespace Domain
 
 
             modelBuilder.Entity<Persona>()
-                .HasAlternateKey(c => c.Legajo)
-                .HasName("Persona_AlternateKey_Legajo");
+                .HasIndex(c => c.Legajo)
+                .IsUnique()
+                .HasName("IX_Persona_Legajo_Unico");
 
             modelBuilder.Entity<Plan>()
-                .HasAlternateKey(c => c.Descripcion)
-                .HasName("Plan_AlternateKey_Descripcion");
+                .HasIndex(c => c.Descripcion)
+                .IsUnique()
+                .HasName("IX_Plan_Desc_Unico");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>

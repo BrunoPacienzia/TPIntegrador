@@ -38,7 +38,9 @@
             // planesDataGridView
             // 
             planesDataGridView.AllowUserToOrderColumns = true;
+            planesDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             planesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            planesDataGridView.GridColor = Color.White;
             planesDataGridView.Location = new Point(21, 18);
             planesDataGridView.Margin = new Padding(2, 1, 2, 1);
             planesDataGridView.MultiSelect = false;

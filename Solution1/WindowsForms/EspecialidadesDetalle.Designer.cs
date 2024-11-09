@@ -51,13 +51,13 @@
             descripcionLabel.Location = new Point(24, 24);
             descripcionLabel.Margin = new Padding(2, 0, 2, 0);
             descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new Size(51, 15);
+            descripcionLabel.Size = new Size(69, 15);
             descripcionLabel.TabIndex = 1;
             descripcionLabel.Text = "Descripcion";
             // 
             // aceptarButton
             // 
-            aceptarButton.Location = new Point(572, 376);
+            aceptarButton.Location = new Point(140, 114);
             aceptarButton.Margin = new Padding(2, 1, 2, 1);
             aceptarButton.Name = "aceptarButton";
             aceptarButton.Size = new Size(81, 22);
@@ -72,7 +72,7 @@
             // 
             // cancelarButton
             // 
-            cancelarButton.Location = new Point(704, 376);
+            cancelarButton.Location = new Point(247, 114);
             cancelarButton.Margin = new Padding(2, 1, 2, 1);
             cancelarButton.Name = "cancelarButton";
             cancelarButton.Size = new Size(81, 22);
@@ -80,13 +80,12 @@
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
             cancelarButton.Click += cancelarButton_Click;
-         
             // 
             // EspecialidadesDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(805, 419);
+            ClientSize = new Size(343, 159);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
             Controls.Add(descripcionLabel);

@@ -34,6 +34,9 @@ namespace WebAPI
 
                 if (alumnoInscripcion.Alumno.TipoPersona != 0 ) { throw new Exception("Tipo de ALUMNO invalido"); }
 
+                alumnoInscripcion.Nota = 0;
+                alumnoInscripcion.Condicion = "Cursando";
+
                 CursoService cursoService = new CursoService();
 
                 alumnoInscripcion.Curso.Cupo = alumnoInscripcion.Curso.Cupo - 1;
@@ -49,6 +52,19 @@ namespace WebAPI
             app.MapPut("/alumnoInscripciones", (AlumnoInscripcion alumnoInscripcion) =>
             {
                 AlumnoInscripcionService alumnoInscripcionService = new AlumnoInscripcionService();
+
+                if (alumnoInscripcion.Nota < 4)
+                {
+                    alumnoInscripcion.Condicion = "Libre";
+                }
+                else if (alumnoInscripcion.Nota < 6)
+                {
+                    alumnoInscripcion.Condicion = "Regular";
+                }
+                else
+                {
+                    alumnoInscripcion.Condicion = "Aprobado";
+                }
 
                 alumnoInscripcionService.Update(alumnoInscripcion);
             })

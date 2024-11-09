@@ -60,7 +60,7 @@ namespace WindowsForms
 
             if (this.ValidateAlumnoInscripcion())
             {
-                this.AlumnoInscripcion.Condicion = condicionTextBox.Text;
+                this.AlumnoInscripcion.Condicion = "Cursando";
                 this.AlumnoInscripcion.Nota = 0;
 
                 var selectedAlumnoId = (int)this.alumnoComboBoxInput.SelectedValue;
@@ -92,7 +92,6 @@ namespace WindowsForms
 
         private void SetAlumnoInscripcion()
         {
-            this.condicionTextBox.Text = this.AlumnoInscripcion.Condicion;
 
             if (this.alumnoInscripcion.Alumno != null)
             {
@@ -108,15 +107,6 @@ namespace WindowsForms
         private bool ValidateAlumnoInscripcion()
         {
             bool isValid = true;
-
-            errorProvider.SetError(condicionTextBox, string.Empty);
-
-            if (this.condicionTextBox.Text == string.Empty)
-            {
-                isValid = false;
-                errorProvider.SetError(condicionTextBox, "Requerido");
-            }
-
 
 
             if (this.alumnoComboBoxInput.SelectedItem == null)

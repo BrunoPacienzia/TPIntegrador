@@ -1,10 +1,10 @@
 ﻿
-@page "/weather"
+@page "/"
 @inject HttpClient Http
 @using System.Net.Http.Headers;
 @using Domain.Model;
 
-<PageTitle>Weather</PageTitle>
+<PageTitle>Especialidades</PageTitle>
 
 <h1>Especialidad</h1>
 
@@ -27,7 +27,7 @@ else
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Id</td>
+                    <td>@forecast.EspecialidadId</td>
                     <td>@forecast.Descripcion</td>
                 </tr>
             }

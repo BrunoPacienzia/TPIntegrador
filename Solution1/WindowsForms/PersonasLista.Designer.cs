@@ -38,6 +38,7 @@
             // personasDataGridView
             // 
             personasDataGridView.AllowUserToOrderColumns = true;
+            personasDataGridView.BackgroundColor = SystemColors.GradientInactiveCaption;
             personasDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             personasDataGridView.Location = new Point(21, 18);
             personasDataGridView.Margin = new Padding(2, 1, 2, 1);
