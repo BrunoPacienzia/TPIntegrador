@@ -11,9 +11,9 @@ namespace WebAPI
 
             app.MapGet("/docentesCursos/{id}", (int id) =>
             {
-                DocenteCursoService doenteCursoService = new DocenteCursoService();
+                DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                return doenteCursoService.Get(id);
+                return docenteCursoService.Get(id);
             })
             .WithName("GetDocenteCurso")
             .WithOpenApi();
@@ -21,40 +21,40 @@ namespace WebAPI
 
             app.MapGet("/docentesCursos", () =>
             {
-                DocenteCursoService doenteCursoService = new DocenteCursoService();
+                DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                return doenteCursoService.GetAll();
+                return docenteCursoService.GetAll();
             })
             .WithName("GetAllDocenteCursos")
             .WithOpenApi();
 
-            app.MapPost("/docentesCursos", (DocenteCurso doenteCurso) =>
+            app.MapPost("/docentesCursos", (DocenteCurso docenteCurso) =>
             {
-                DocenteCursoService doenteCursoService = new DocenteCursoService();
+                DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                if (doenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
+                if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
-                doenteCursoService.Add(doenteCurso);
+                docenteCursoService.Add(docenteCurso);
             })
             .WithName("AddDocenteCurso")
             .WithOpenApi();
 
-            app.MapPut("/docentesCursos", (DocenteCurso doenteCurso) =>
+            app.MapPut("/docentesCursos", (DocenteCurso docenteCurso) =>
             {
-                DocenteCursoService doenteCursoService = new DocenteCursoService();
+                DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                if (doenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
+                if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
-                doenteCursoService.Update(doenteCurso);
+                docenteCursoService.Update(docenteCurso);
             })
             .WithName("UpdateDocenteCurso")
             .WithOpenApi();
 
             app.MapDelete("/docentesCursos/{id}", (int id) =>
             {
-                DocenteCursoService doenteCursoService = new DocenteCursoService();
+                DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                doenteCursoService.Delete(id);
+                docenteCursoService.Delete(id);
             })
             .WithName("DeleteDocenteCurso")
             .WithOpenApi();

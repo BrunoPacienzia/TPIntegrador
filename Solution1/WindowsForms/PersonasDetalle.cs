@@ -46,8 +46,7 @@ namespace WindowsForms
                 this.SetPersona();
             }
         }
-
-        //Probablemente un Enum seria mas apropiado        
+       
         public bool EditMode { get; set; } = false;
 
         private async void LoadTiposPlanes()
@@ -70,6 +69,7 @@ namespace WindowsForms
             this.tipoPersonaComboBox.ValueMember = "Codigo";
 
             this.planComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private async void aceptarButton_Click(object sender, EventArgs e)
@@ -81,7 +81,10 @@ namespace WindowsForms
                 this.Persona.Nombre = nombreTextBox.Text;
                 this.Persona.Apellido = apellidoTextBox.Text;
                 this.Persona.Email = emailTextBox.Text;
-                this.Persona.TipoPersona = (int)tipoPersonaComboBox.SelectedValue;
+                if (!EditMode)
+                {
+                    this.Persona.TipoPersona = (int)tipoPersonaComboBox.SelectedValue;
+                }
                 this.Persona.Telefono = telefonoTextBox.Text;
                 this.Persona.Direccion = direccionTextBox.Text;
                 this.Persona.Legajo = Int32.Parse(legajoTextBox.Text);
@@ -120,13 +123,17 @@ namespace WindowsForms
                 this.tipoPersonaComboBox.SelectedValue = this.Persona.TipoPersona;
             }
 
+            if (EditMode)
+            {
+                tipoPersonaComboBox.Enabled = false;
+            }
+
             this.telefonoTextBox.Text = this.Persona.Telefono;
             this.direccionTextBox.Text = this.Persona.Direccion ;
             this.legajoTextBox.Text = this.Persona.Legajo.ToString();
             if (this.Persona.FechaNacimiento == DateTime.MinValue)
             {
-                // Handle the case where the DateTime is not initialized
-                this.dateTimePicker1.Value = DateTime.Now; // or set it to a valid default
+                this.dateTimePicker1.Value = DateTime.Now; 
             }
             else {this.dateTimePicker1.Value = this.Persona.FechaNacimiento; }
 

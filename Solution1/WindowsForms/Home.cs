@@ -35,8 +35,8 @@ namespace WindowsForms
                 curso.Descripcion,
                 curso.AnioCalendario,
                 curso.Cupo,
-                ComisionId = curso.Comision?.ComisionId,  
-                MateriaId = curso.Materia.MateriaId             
+                ComisionId = curso.Comision?.ComisionId,
+                MateriaId = curso.Materia.MateriaId
             }).ToList();
 
             this.cursosDataGrid.DataSource = cursosParaMostrar;
@@ -47,13 +47,13 @@ namespace WindowsForms
             var planes = await PlanApiClient.GetAllAsync();
 
 
-        var planesParaMostrar = planes.Select(plan => new
-        {
-            plan.PlanId,
-            plan.Descripcion,
-            EspecialidadId = plan.Especialidad?.EspecialidadId,
-   
-        }).ToList();
+            var planesParaMostrar = planes.Select(plan => new
+            {
+                plan.PlanId,
+                plan.Descripcion,
+                EspecialidadId = plan.Especialidad?.EspecialidadId,
+
+            }).ToList();
 
 
             this.planesDataGridView.DataSource = planesParaMostrar;
@@ -168,6 +168,11 @@ namespace WindowsForms
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            Load();
         }
     }
 }

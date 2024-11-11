@@ -43,9 +43,9 @@ namespace WindowsForms
 
             this.especialidadComboBoxInput.DropDownStyle = ComboBoxStyle.DropDownList;
 
-        }
 
-        //Probablemente un Enum seria mas apropiado        
+        }
+    
         public bool EditMode { get; set; } = false;
 
         private async void aceptarButton_Click(object sender, EventArgs e)
@@ -57,9 +57,6 @@ namespace WindowsForms
                 
                 this.Plan.Descripcion = descripcionTextBox.Text;
 
-                //El Detalle se esta llevando la responsabilidad de llamar al servicio
-                //pero tal vez deberia ser solo una vista y que esta responsabilidad quede
-                //en la Lista o tal vez en un Presenter o Controler
 
                 var selectedId = (int)this.especialidadComboBoxInput.SelectedValue;
 
@@ -89,7 +86,7 @@ namespace WindowsForms
 
             if (this.Plan.Especialidad != null)
             {
-                this.especialidadComboBoxInput.SelectedIndex = this.plan.Especialidad.EspecialidadId;
+                this.especialidadComboBoxInput.SelectedValue = this.Plan.Especialidad.EspecialidadId;
             }
         }
 
