@@ -82,6 +82,7 @@ namespace WindowsForms
 
         private void SetPlan()
         {
+
             this.descripcionTextBox.Text = this.Plan.Descripcion;
 
             if (this.Plan.Especialidad != null)

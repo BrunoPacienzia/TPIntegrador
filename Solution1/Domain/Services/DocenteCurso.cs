@@ -37,7 +37,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.DocentesCursos.Find(id);
+            return context.DocentesCursos.Include(x => x.Docente).Include(x => x.Curso).FirstOrDefault(x => x.DocenteCursoId == id);
         }
 
         public IEnumerable<DocenteCurso> GetAll()

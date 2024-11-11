@@ -38,7 +38,8 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Planes.Find(id);
+            return context.Planes.Include(x => x.Especialidad) 
+        .FirstOrDefault(x => x.PlanId == id); ;
         }
 
         public IEnumerable<Plan> GetAll()

@@ -69,7 +69,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Cursos.Find(id);
+            return context.Cursos.Include(x => x.Comision).Include(x => x.Materia).FirstOrDefault(x => x.CursoId == id);
         }
 
         public IEnumerable<Curso> GetAll()

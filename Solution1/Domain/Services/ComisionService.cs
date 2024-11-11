@@ -36,7 +36,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Comisiones.Find(id);
+            return context.Comisiones.Include(x => x.Plan).FirstOrDefault(x => x.ComisionId == id);
         }
 
         public IEnumerable<Comision> GetAll()

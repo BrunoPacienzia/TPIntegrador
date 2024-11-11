@@ -38,7 +38,7 @@ namespace Domain.Services
         {
             using var context = new Context();
 
-            return context.Materias.Find(id);
+            return context.Materias.Include(x => x.Plan).FirstOrDefault(x => x.MateriaId == id);
         }
 
         public IEnumerable<Materia> GetAll()
