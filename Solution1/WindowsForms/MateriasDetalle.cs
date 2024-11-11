@@ -94,7 +94,7 @@ namespace WindowsForms
 
             if (this.materia.Plan != null)
             {
-                this.planComboBoxInput.SelectedIndex = this.materia.Plan.PlanId;
+                this.planComboBoxInput.SelectedValue = this.materia.Plan.PlanId;
             }
         }
 

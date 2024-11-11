@@ -139,7 +139,7 @@ namespace WindowsForms
 
             if (this.Persona.Plan != null)
             {
-                this.planComboBoxInput.SelectedIndex = this.Persona.Plan.PlanId;
+                this.planComboBoxInput.SelectedValue = this.Persona.Plan.PlanId;
             }
 
         }

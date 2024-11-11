@@ -98,12 +98,12 @@ namespace WindowsForms
 
             if (this.docenteCurso.Docente != null)
             {
-                this.docenteComboBoxInput.SelectedIndex = this.docenteCurso.Docente.PersonaId;
+                this.docenteComboBoxInput.SelectedValue = this.docenteCurso.Docente.PersonaId;
             }
 
             if (this.docenteCurso.Curso != null)
             {
-                this.cursoComboBoxInput.SelectedIndex = this.docenteCurso.Curso.CursoId;
+                this.cursoComboBoxInput.SelectedValue = this.docenteCurso.Curso.CursoId;
             }
         }
 

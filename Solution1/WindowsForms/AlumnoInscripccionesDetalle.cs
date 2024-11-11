@@ -95,12 +95,12 @@ namespace WindowsForms
 
             if (this.alumnoInscripcion.Alumno != null)
             {
-                this.alumnoComboBoxInput.SelectedIndex = this.alumnoInscripcion.Alumno.PersonaId;
+                this.alumnoComboBoxInput.SelectedValue = this.alumnoInscripcion.Alumno.PersonaId;
             }
 
             if (this.alumnoInscripcion.Curso != null)
             {
-                this.cursoComboBoxInput.SelectedIndex = this.alumnoInscripcion.Curso.CursoId;
+                this.cursoComboBoxInput.SelectedValue = this.alumnoInscripcion.Curso.CursoId;
             }
         }
 

@@ -106,12 +106,12 @@ namespace WindowsForms
 
             if (this.Curso.Comision != null)
             {
-                this.comisionComboBoxInput.SelectedIndex = this.curso.Comision.ComisionId;
+                this.comisionComboBoxInput.SelectedValue = this.curso.Comision.ComisionId;
             }
 
             if (this.Curso.Materia != null)
             {
-                this.materiaComboBoxInput.SelectedIndex = this.curso.Materia.MateriaId;
+                this.materiaComboBoxInput.SelectedValue = this.curso.Materia.MateriaId;
             }
         }
 

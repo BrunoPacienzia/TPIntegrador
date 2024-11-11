@@ -89,7 +89,7 @@ namespace WindowsForms
 
             if (this.comision.Plan != null)
             {
-                this.planComboBoxInput.SelectedIndex = this.comision.Plan.PlanId;
+                this.planComboBoxInput.SelectedValue = this.comision.Plan.PlanId;
             }
         }
 
