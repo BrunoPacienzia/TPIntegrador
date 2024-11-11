@@ -89,7 +89,13 @@ namespace WindowsForms
             {
                 this.especialidadComboBoxInput.SelectedValue = this.Plan.Especialidad.EspecialidadId;
             }
+
+            if (EditMode)
+            {
+                this.especialidadComboBoxInput.Enabled = false;
+            }
         }
+
 
         private bool ValidatePlan()
         {

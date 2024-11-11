@@ -60,7 +60,7 @@ namespace Domain.Services
                 materiaToUpdate.Descripcion = materia.Descripcion;
                 materiaToUpdate.HSSemanales = materia.HSSemanales;
                 materiaToUpdate.HSTotales = materia.HSTotales;
-                materiaToUpdate.Plan = materia.Plan;
+                // materiaToUpdate.Plan = materia.Plan;
                 context.SaveChanges();
             }
         }

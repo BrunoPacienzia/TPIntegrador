@@ -105,6 +105,12 @@ namespace WindowsForms
             {
                 this.cursoComboBoxInput.SelectedValue = this.docenteCurso.Curso.CursoId;
             }
+
+            if(EditMode)
+            {
+                this.docenteComboBoxInput.Enabled = false;
+                this.cursoComboBoxInput.Enabled = false;
+            }
         }
 
         private bool ValidateDocenteCurso()

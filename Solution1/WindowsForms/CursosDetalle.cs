@@ -113,6 +113,12 @@ namespace WindowsForms
             {
                 this.materiaComboBoxInput.SelectedValue = this.curso.Materia.MateriaId;
             }
+
+            if(EditMode)
+            {
+                this.comisionComboBoxInput.Enabled = false;
+                this.materiaComboBoxInput.Enabled = false;
+            }
         }
 
         private bool ValidateCurso()

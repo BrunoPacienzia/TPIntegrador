@@ -93,6 +93,7 @@ namespace WindowsForms
         private void SetAlumnoInscripcion()
         {
 
+
             if (this.alumnoInscripcion.Alumno != null)
             {
                 this.alumnoComboBoxInput.SelectedValue = this.alumnoInscripcion.Alumno.PersonaId;
@@ -101,6 +102,12 @@ namespace WindowsForms
             if (this.alumnoInscripcion.Curso != null)
             {
                 this.cursoComboBoxInput.SelectedValue = this.alumnoInscripcion.Curso.CursoId;
+            }
+
+            if (EditMode)
+            {
+                this.alumnoComboBoxInput.Enabled = false;
+                this.cursoComboBoxInput.Enabled = false ;
             }
         }
 

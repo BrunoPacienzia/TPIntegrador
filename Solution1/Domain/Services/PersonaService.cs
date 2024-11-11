@@ -63,7 +63,6 @@ namespace Domain.Services
                 personaToUpdate.FechaNacimiento = persona.FechaNacimiento;
                 personaToUpdate.Legajo = persona.Legajo;
                 personaToUpdate.Telefono = persona.Telefono;
-                personaToUpdate.TipoPersona = persona.TipoPersona;
 
                 context.SaveChanges();
             }

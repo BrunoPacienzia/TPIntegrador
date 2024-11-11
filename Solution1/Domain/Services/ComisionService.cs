@@ -56,7 +56,6 @@ namespace Domain.Services
             {
                 comisionToUpdate.Descripcion = comision.Descripcion;
                 comisionToUpdate.AnioEspecialidad = comision.AnioEspecialidad;
-                comisionToUpdate.Plan = comision.Plan;
                 context.SaveChanges();
             }
         }

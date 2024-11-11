@@ -91,6 +91,7 @@ namespace Domain.Services
                 cursoToUpdate.Cupo = curso.Cupo;
                 cursoToUpdate.AnioCalendario = curso.AnioCalendario;
                
+                /*
                 var materia = context.Materias
                     .Include(m => m.Plan) 
                     .FirstOrDefault(m => m.MateriaId == curso.Materia.MateriaId);
@@ -107,6 +108,7 @@ namespace Domain.Services
                 {
                     cursoToUpdate.Comision = comision;
                 }
+                */
                 
                 context.SaveChanges();
             }

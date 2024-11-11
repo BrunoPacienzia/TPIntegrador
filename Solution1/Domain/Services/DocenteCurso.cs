@@ -55,8 +55,8 @@ namespace Domain.Services
 
             if (docenteCursoToUpdate != null)
             {
-                docenteCursoToUpdate.Docente = docenteCurso.Docente;
-                docenteCursoToUpdate.Curso = docenteCurso.Curso;
+               /* docenteCursoToUpdate.Docente = docenteCurso.Docente;
+                docenteCursoToUpdate.Curso = docenteCurso.Curso;¨*/
                 docenteCursoToUpdate.TipoCargo = docenteCurso.TipoCargo;
                 context.SaveChanges();
             }

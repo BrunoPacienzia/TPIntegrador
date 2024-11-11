@@ -96,6 +96,11 @@ namespace WindowsForms
             {
                 this.planComboBoxInput.SelectedValue = this.materia.Plan.PlanId;
             }
+
+            if (EditMode)
+            {
+                this.planComboBoxInput.Enabled = false;
+            }
         }
 
         private bool ValidateMateria()

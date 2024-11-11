@@ -58,7 +58,7 @@ namespace Domain.Services
             if (planToUpdate != null)
             {
                 planToUpdate.Descripcion = plan.Descripcion;
-                planToUpdate.Especialidad = plan.Especialidad;
+               // planToUpdate.Especialidad = plan.Especialidad;
                 context.SaveChanges();
             }
         }

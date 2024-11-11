@@ -91,6 +91,11 @@ namespace WindowsForms
             {
                 this.planComboBoxInput.SelectedValue = this.comision.Plan.PlanId;
             }
+
+            if(EditMode)
+            {
+                this.planComboBoxInput.Enabled = false;
+            }
         }
 
         private bool ValidateComision()

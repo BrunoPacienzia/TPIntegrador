@@ -56,8 +56,6 @@ namespace Domain.Services
             if (alumnoInscripcionToUpdate != null)
             {
                 alumnoInscripcionToUpdate.Condicion = alumnoInscripcion.Condicion;
-                alumnoInscripcionToUpdate.Alumno = alumnoInscripcion.Alumno;
-                alumnoInscripcionToUpdate.Curso = alumnoInscripcion.Curso;
                 alumnoInscripcionToUpdate.Nota = alumnoInscripcion.Nota;
                 context.SaveChanges();
             }
