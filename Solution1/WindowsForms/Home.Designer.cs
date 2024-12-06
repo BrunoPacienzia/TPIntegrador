@@ -82,7 +82,7 @@ namespace WindowsForms
             Materias.BackColor = SystemColors.ActiveCaption;
             Materias.FlatAppearance.BorderSize = 0;
             Materias.FlatStyle = FlatStyle.Flat;
-            Materias.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            Materias.Font = new Font("Microsoft Sans Serif", 11.25F);
             Materias.ForeColor = Color.DarkSlateGray;
             Materias.Location = new Point(33, 252);
             Materias.Margin = new Padding(3, 4, 3, 4);
@@ -99,7 +99,7 @@ namespace WindowsForms
             Planes.BackColor = SystemColors.ActiveCaption;
             Planes.FlatAppearance.BorderSize = 0;
             Planes.FlatStyle = FlatStyle.Flat;
-            Planes.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            Planes.Font = new Font("Microsoft Sans Serif", 11.25F);
             Planes.ForeColor = Color.DarkSlateGray;
             Planes.Location = new Point(33, 152);
             Planes.Margin = new Padding(3, 4, 3, 4);
@@ -116,7 +116,7 @@ namespace WindowsForms
             PersonasButton.BackColor = SystemColors.ActiveCaption;
             PersonasButton.FlatAppearance.BorderSize = 0;
             PersonasButton.FlatStyle = FlatStyle.Flat;
-            PersonasButton.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            PersonasButton.Font = new Font("Microsoft Sans Serif", 11.25F);
             PersonasButton.ForeColor = Color.DarkSlateGray;
             PersonasButton.Location = new Point(33, 201);
             PersonasButton.Margin = new Padding(3, 4, 3, 4);
@@ -133,7 +133,7 @@ namespace WindowsForms
             comisionesButton.BackColor = SystemColors.ActiveCaption;
             comisionesButton.FlatAppearance.BorderSize = 0;
             comisionesButton.FlatStyle = FlatStyle.Flat;
-            comisionesButton.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            comisionesButton.Font = new Font("Microsoft Sans Serif", 11.25F);
             comisionesButton.ForeColor = Color.DarkSlateGray;
             comisionesButton.Location = new Point(33, 302);
             comisionesButton.Margin = new Padding(3, 4, 3, 4);
@@ -150,7 +150,7 @@ namespace WindowsForms
             especialidadButton.BackColor = SystemColors.ActiveCaption;
             especialidadButton.FlatAppearance.BorderSize = 0;
             especialidadButton.FlatStyle = FlatStyle.Flat;
-            especialidadButton.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            especialidadButton.Font = new Font("Microsoft Sans Serif", 11.25F);
             especialidadButton.ForeColor = Color.DarkSlateGray;
             especialidadButton.Location = new Point(33, 104);
             especialidadButton.Margin = new Padding(3, 4, 3, 4);
@@ -167,7 +167,7 @@ namespace WindowsForms
             usuarioButton.BackColor = SystemColors.ActiveCaption;
             usuarioButton.FlatAppearance.BorderSize = 0;
             usuarioButton.FlatStyle = FlatStyle.Flat;
-            usuarioButton.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            usuarioButton.Font = new Font("Microsoft Sans Serif", 11.25F);
             usuarioButton.ForeColor = Color.DarkSlateGray;
             usuarioButton.Location = new Point(33, 455);
             usuarioButton.Margin = new Padding(3, 4, 3, 4);
@@ -184,7 +184,7 @@ namespace WindowsForms
             button2.BackColor = SystemColors.ActiveCaption;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            button2.Font = new Font("Microsoft Sans Serif", 11.25F);
             button2.ForeColor = Color.DarkSlateGray;
             button2.Location = new Point(33, 356);
             button2.Margin = new Padding(3, 4, 3, 4);
@@ -201,7 +201,7 @@ namespace WindowsForms
             button3.BackColor = SystemColors.ActiveCaption;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            button3.Font = new Font("Microsoft Sans Serif", 11.25F);
             button3.ForeColor = Color.DarkSlateGray;
             button3.Location = new Point(931, 38);
             button3.Margin = new Padding(3, 4, 3, 4);
@@ -218,7 +218,7 @@ namespace WindowsForms
             botonDocCu.BackColor = SystemColors.ActiveCaption;
             botonDocCu.FlatAppearance.BorderSize = 0;
             botonDocCu.FlatStyle = FlatStyle.Flat;
-            botonDocCu.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            botonDocCu.Font = new Font("Microsoft Sans Serif", 11.25F);
             botonDocCu.ForeColor = Color.DarkSlateGray;
             botonDocCu.Location = new Point(33, 407);
             botonDocCu.Margin = new Padding(3, 4, 3, 4);
@@ -284,11 +284,11 @@ namespace WindowsForms
             // 
             cursosLabel.AutoSize = true;
             cursosLabel.BackColor = Color.Transparent;
-            cursosLabel.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cursosLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cursosLabel.ForeColor = Color.DarkSlateGray;
             cursosLabel.Location = new Point(265, 118);
             cursosLabel.Name = "cursosLabel";
-            cursosLabel.Size = new Size(95, 28);
+            cursosLabel.Size = new Size(89, 29);
             cursosLabel.TabIndex = 19;
             cursosLabel.Text = "Cursos";
             // 
@@ -296,11 +296,11 @@ namespace WindowsForms
             // 
             planesLabel.AutoSize = true;
             planesLabel.BackColor = Color.Transparent;
-            planesLabel.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            planesLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             planesLabel.ForeColor = Color.DarkSlateGray;
             planesLabel.Location = new Point(265, 423);
             planesLabel.Name = "planesLabel";
-            planesLabel.Size = new Size(90, 28);
+            planesLabel.Size = new Size(87, 29);
             planesLabel.TabIndex = 20;
             planesLabel.Text = "Planes";
             // 
@@ -309,7 +309,7 @@ namespace WindowsForms
             registrarNotaBoton.BackColor = SystemColors.ActiveCaption;
             registrarNotaBoton.FlatAppearance.BorderSize = 0;
             registrarNotaBoton.FlatStyle = FlatStyle.Flat;
-            registrarNotaBoton.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            registrarNotaBoton.Font = new Font("Microsoft Sans Serif", 11.25F);
             registrarNotaBoton.ForeColor = Color.DarkSlateGray;
             registrarNotaBoton.Location = new Point(765, 38);
             registrarNotaBoton.Margin = new Padding(3, 4, 3, 4);
@@ -325,11 +325,11 @@ namespace WindowsForms
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkSlateGray;
             label1.Location = new Point(21, 23);
             label1.Name = "label1";
-            label1.Size = new Size(102, 22);
+            label1.Size = new Size(94, 24);
             label1.TabIndex = 24;
             label1.Text = "Entidades";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -365,7 +365,7 @@ namespace WindowsForms
             button4.BackColor = Color.White;
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Arial Rounded MT Bold", 11.25F);
+            button4.Font = new Font("Microsoft Sans Serif", 11.25F);
             button4.ForeColor = Color.DarkSlateGray;
             button4.Location = new Point(1025, 107);
             button4.Margin = new Padding(3, 4, 3, 4);
@@ -400,6 +400,7 @@ namespace WindowsForms
             Name = "Home";
             Text = "Home";
             TransparencyKey = SystemColors.ControlLightLight;
+            Activated += Home_Activated;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)planesDataGridView).EndInit();

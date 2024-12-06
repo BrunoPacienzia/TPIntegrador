@@ -174,5 +174,10 @@ namespace WindowsForms
         {
             Load();
         }
+
+        private void Home_Activated(object sender, EventArgs e)
+        {
+            Load();
+        }
     }
 }
