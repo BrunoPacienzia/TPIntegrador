@@ -1,0 +1,82 @@
+﻿@page "/cursos"
+@inject HttpClient Http
+@using System.Net.Http.Headers
+@using Domain.Model
+
+<PageTitle>Cursos</PageTitle>
+
+<h1 class="text-center my-4">Listado de Cursos</h1>
+
+@if (forecasts == null)
+{
+    <div class="text-center my-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3"><em>Cargando cursos...</em></p>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Cupo</th>
+                    <th scope="col">ID Comisión</th>
+                    <th scope="col">ID Materia</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var forecast in forecasts)
+                {
+                    <tr>
+                        <td>@forecast.CursoId</td>
+                        <td>@forecast.Descripcion</td>
+                        <td>@forecast.AnioCalendario</td>
+                        <td>@forecast.Cupo</td>
+                        <td>@forecast.Comision?.ComisionId</td>
+                        <td>@forecast.Materia?.MateriaId</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private IEnumerable<Curso> forecasts = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CursoApiClient client = new CursoApiClient();
+        forecasts = await CursoApiClient.GetAllAsync();
+    }
+
+    public class CursoApiClient
+    {
+        private static HttpClient client = new HttpClient();
+
+        static CursoApiClient()
+        {
+            client.BaseAddress = new Uri("https://localhost:7271/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        public static async Task<IEnumerable<Curso>> GetAllAsync()
+        {
+            IEnumerable<Curso> cursos = null;
+            HttpResponseMessage response = await client.GetAsync("cursos");
+            if (response.IsSuccessStatusCode)
+            {
+                cursos = await response.Content.ReadAsAsync<IEnumerable<Curso>>();
+            }
+            return cursos;
+        }
+    }
+}

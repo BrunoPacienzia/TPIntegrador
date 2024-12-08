@@ -53,7 +53,6 @@ namespace WindowsForms
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            button4 = new Button();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)planesDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cursosDataGrid).BeginInit();
@@ -345,7 +344,6 @@ namespace WindowsForms
             // 
             // panel2
             // 
-            panel2.Controls.Add(button4);
             panel2.Controls.Add(registrarNotaBoton);
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(button3);
@@ -359,22 +357,6 @@ namespace WindowsForms
             panel2.TabIndex = 26;
             panel2.Click += panel2_Click;
             panel2.Paint += panel2_Paint;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.White;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button4.ForeColor = Color.DarkSlateGray;
-            button4.Location = new Point(1025, 107);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(99, 31);
-            button4.TabIndex = 26;
-            button4.Text = "Refresh";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
             // 
             // Home
             // 
@@ -435,7 +417,6 @@ namespace WindowsForms
         private Label label1;
         private Panel panel1;
         private Panel panel2;
-        private Button button4;
     }
 }
 

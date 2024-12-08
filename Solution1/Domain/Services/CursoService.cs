@@ -45,7 +45,6 @@ namespace Domain.Services
                 }
             }
 
-
             context.Attach(curso.Comision);
             context.Attach(curso.Materia);
             context.Cursos.Add(curso);
@@ -91,24 +90,6 @@ namespace Domain.Services
                 cursoToUpdate.Cupo = curso.Cupo;
                 cursoToUpdate.AnioCalendario = curso.AnioCalendario;
                
-                /*
-                var materia = context.Materias
-                    .Include(m => m.Plan) 
-                    .FirstOrDefault(m => m.MateriaId == curso.Materia.MateriaId);
-                if (materia != null)
-                {
-                    cursoToUpdate.Materia = materia;
-                }
-
-        
-                var comision = context.Comisiones
-                    .Include(c => c.Plan) 
-                    .FirstOrDefault(c => c.ComisionId == curso.Comision.ComisionId);
-                if (comision != null)
-                {
-                    cursoToUpdate.Comision = comision;
-                }
-                */
                 
                 context.SaveChanges();
             }

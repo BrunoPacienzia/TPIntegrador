@@ -32,7 +32,6 @@ namespace WebAPI
             {
                 DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
                 docenteCursoService.Add(docenteCurso);
             })
@@ -43,7 +42,6 @@ namespace WebAPI
             {
                 DocenteCursoService docenteCursoService = new DocenteCursoService();
 
-                if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
                 docenteCursoService.Update(docenteCurso);
             })

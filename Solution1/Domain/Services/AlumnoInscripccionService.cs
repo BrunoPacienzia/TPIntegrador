@@ -14,6 +14,18 @@ namespace Domain.Services
         {
             using var context = new Context();
 
+
+            if (alumnoInscripcion.Alumno.TipoPersona != 0) { throw new Exception("Tipo de ALUMNO invalido"); }
+
+            alumnoInscripcion.Nota = 0;
+            alumnoInscripcion.Condicion = "Cursando";
+
+            CursoService cursoService = new CursoService();
+
+            alumnoInscripcion.Curso.Cupo = alumnoInscripcion.Curso.Cupo - 1;
+
+            cursoService.Update(alumnoInscripcion.Curso);
+
             context.Attach(alumnoInscripcion.Alumno);
             context.Attach(alumnoInscripcion.Curso);
             context.AlumnoInscripciones.Add(alumnoInscripcion);
@@ -28,6 +40,13 @@ namespace Domain.Services
 
             if (alumnoInscripcionToDelete != null)
             {
+
+                    CursoService cursoService = new CursoService();
+
+                    alumnoInscripcionToDelete.Curso.Cupo = alumnoInscripcionToDelete.Curso.Cupo + 1;
+
+                    cursoService.Update(alumnoInscripcionToDelete.Curso);
+             
                 context.AlumnoInscripciones.Remove(alumnoInscripcionToDelete);
                 context.SaveChanges();
             }
@@ -53,8 +72,24 @@ namespace Domain.Services
 
             AlumnoInscripcion? alumnoInscripcionToUpdate = context.AlumnoInscripciones.Find(alumnoInscripcion.AlumnoInscripcionId);
 
+
+
             if (alumnoInscripcionToUpdate != null)
             {
+
+                if (alumnoInscripcion.Nota < 4)
+                {
+                    alumnoInscripcion.Condicion = "Libre";
+                }
+                else if (alumnoInscripcion.Nota < 6)
+                {
+                    alumnoInscripcion.Condicion = "Regular";
+                }
+                else
+                {
+                    alumnoInscripcion.Condicion = "Aprobado";
+                }
+
                 alumnoInscripcionToUpdate.Condicion = alumnoInscripcion.Condicion;
                 alumnoInscripcionToUpdate.Nota = alumnoInscripcion.Nota;
                 context.SaveChanges();

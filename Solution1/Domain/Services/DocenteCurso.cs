@@ -13,6 +13,8 @@ namespace Domain.Services
         public void Add(DocenteCurso docenteCurso)
         {
             using var context = new Context();
+            
+            if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
             context.Attach(docenteCurso.Docente);
             context.Attach(docenteCurso.Curso);
@@ -50,6 +52,8 @@ namespace Domain.Services
         public void Update(DocenteCurso docenteCurso)
         {
             using var context = new Context();
+
+            if (docenteCurso.Docente.TipoPersona != 1) { throw new Exception("Tipo de DOCENTE invalido"); }
 
             DocenteCurso? docenteCursoToUpdate = context.DocentesCursos.Find(docenteCurso.DocenteCursoId);
 

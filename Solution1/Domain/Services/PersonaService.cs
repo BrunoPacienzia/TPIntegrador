@@ -13,7 +13,9 @@ namespace Domain.Services
         public void Add(Persona persona)
         {
             using var context = new Context();
-            
+
+            if (persona.TipoPersona != 0 && persona.TipoPersona != 1) { throw new Exception("Tipo de persona invalido"); }
+
             context.Attach(persona.Plan);
             context.Personas.Add(persona);
             context.SaveChanges();
@@ -50,6 +52,8 @@ namespace Domain.Services
         public void Update(Persona persona)
         {
             using var context = new Context();
+
+            if (persona.TipoPersona != 0 && persona.TipoPersona != 1) { throw new Exception("Tipo de persona invalido"); }
 
             Persona? personaToUpdate = context.Personas.Find(persona.PersonaId);
 

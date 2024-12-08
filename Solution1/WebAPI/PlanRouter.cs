@@ -8,7 +8,7 @@ namespace WebAPI
 
         public static void Map(WebApplication app)
     {
- app.MapGet("/planes/{id}", (int id) =>
+            app.MapGet("/planes/{id}", (int id) =>
             {
                 PlanService planService = new PlanService();
 
